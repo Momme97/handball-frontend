@@ -1,0 +1,35 @@
+<div class="upcommingMatchesWidget">
+  <div class="header">Kommende Spiele</div>
+  <div class="body">
+    <div *ngIf="matchesList.length === 0">
+      Aktuell sind keine Spiele angesetzt
+    </div>
+    <div class="item" *ngFor="let match of matchesList; index as i">
+      <div class="matchCanceled" *ngIf="match.canceled">Abgesagt</div>
+      <div class="opponents">
+        <div class="teamWrapper home">
+            <img class="logo" src="{{match.LogoHeim}}" />
+            <h2>{{match.Heimmannschaft}}</h2>
+        </div>
+
+        <div class="matchInfos">
+          <div>
+            <span class="matchDateTitle">Spieldatum: </span>
+            <span>{{match.Spieltermin}} Uhr</span>
+          </div>
+          <div>
+            <span class="matchDateTitle">Ort: </span>
+            <span>{{match.Ort}}</span>
+          </div>
+        </div>
+        <div class="teamWrapper away">
+          <img class="logo" src="{{match.LogoAuswaerts}}" />
+          <h2>{{match.Auswaertsmannschaft}}</h2>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

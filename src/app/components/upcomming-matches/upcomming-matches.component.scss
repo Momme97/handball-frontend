@@ -1,0 +1,98 @@
+@import "../../../variables.scss";
+
+.upcommingMatchesWidget {
+  border-radius: 2px;
+
+  .header {
+    padding:10px;
+    background: #252931;
+    color:white;
+  }
+  .body {
+    border-radius: 2px;
+    padding:10px;
+    background: white;
+    .item {
+      display: flex;
+      align-items: center;
+      margin:5px;
+      padding: 10px;
+      background: #e6e6e6;
+
+      .matchCanceled {
+        background: #bb0a20;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+        padding: 5px;
+        color:white;
+        font-size: 12px;
+        text-align: center;
+        writing-mode: tb-rl;
+        text-orientation: upright;
+        margin-left: -10px;
+        margin-right: 10px;
+      }
+
+      span {
+        font-size: 12px;
+      }
+      h2 {
+        font-size: 14px;
+        margin: 0;
+        margin-left: 10px;
+
+      }
+      .opponents {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);;
+        @include media-breakpoint-lg {
+          grid-template-columns: repeat(1, 1fr);;
+        }
+        width: 100%;
+        .teamWrapper {
+          display: flex;
+          align-items: center;
+          .logo {
+            height: 50px;
+          }
+
+        }
+        h2 {
+          text-align: center;
+        }
+        .matchInfos {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          text-align: center;
+          @include media-breakpoint-lg {
+            padding: 10px;
+          }
+          .matchDateTitle {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    .item:hover {
+      transition: 0.8s;
+      background: #d2d2d2;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .home {
+      justify-content: flex-start;
+      @include media-breakpoint-lg {
+        justify-content: center;
+      }
+    }
+    .away {
+      justify-content: flex-end;
+      @include media-breakpoint-lg {
+        justify-content: center;
+      }
+    }
+  }
+}

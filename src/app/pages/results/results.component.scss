@@ -1,0 +1,76 @@
+@import "../../../variables.scss";
+.resultsWrapper {
+  padding: 30px 50px 20px;
+  display: grid;
+  gap:10px;
+  grid-template-columns: repeat(3, 1fr);
+  @include media-breakpoint-md {
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+  @include media-breakpoint-sm {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 30px 5px 20px;
+  }
+
+}
+
+
+.resultsCard {
+  background: white;
+  .header {
+    background: #252931;
+    color:white;
+    padding:10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .body {
+    padding:10px;
+    height: 300px;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+}
+
+.matchItem {
+  border-radius: 2px;
+  display: grid;
+  gap:10px;
+  grid-template-columns: repeat(3, 1fr);
+  padding:5px;
+  background: #eee;
+  margin-bottom: 5px;
+  .matchInfos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .matchDate {
+      font-size: 12px;
+    }
+    .results {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+    }
+  }
+  .homeTeam {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+  }
+  .guestTeam {
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+.matchItem:hover {
+  background: #252931;
+  transition: 0.8s;
+  color:white;
+  cursor: pointer;
+}

@@ -1,0 +1,62 @@
+@import "../../../variables.scss";
+
+.appointmentHeaderWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: sticky;
+  top:0;
+  .navBar {
+    width: 1000px;
+    background: rgba(37, 41, 49, 0.95);
+    padding:10px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    .backWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: white;
+      img {
+        height: 25px;
+      }
+      span {
+        font-size: 14px;
+      }
+    }
+    .logoWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .downloadWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      color:white;
+      img {
+        height: 25px;
+      }
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+  .appointmentInfoWrapper {
+    width: 1000px;
+    padding: 10px;
+    background: #b7b7b7eb;
+    text-align: left;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    span {
+      font-size: 12px;
+    }
+    h1 {
+      margin:0;
+      font-size: 22px;
+    }
+  }
+}

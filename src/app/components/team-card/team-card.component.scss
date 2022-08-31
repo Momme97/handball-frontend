@@ -1,0 +1,51 @@
+.teamCardWrapper {
+  background: white;
+  border-radius: 2px;
+  .header {
+    background: #252931;
+    h2 {
+      color: white;
+      padding: 10px;
+      font-size: 14px;
+      margin: 0;
+    }
+  }
+  .body {
+    padding: 10px;
+    .teamImage {
+      width: 100%;
+      border-radius: 2px;
+    }
+    .trainerItem {
+      margin: 0;
+      font-weight: bold;
+      span {
+        font-weight: normal;
+      }
+    }
+    .trikotsWrapper {
+      border-radius: 2px;
+      margin-top: 10px;
+      .headerTrikots {
+        padding: 5px;
+        background: #252931;
+        p {
+          margin: 0;
+          color:white;
+        }
+      }
+      .trikotGrid {
+        margin-top: 10px;
+        display: grid;
+        gap:10px;
+        grid-template-columns: repeat(4, 1fr);
+        .trikotImage {
+          border-radius: 2px;
+          width: 100%;
+        }
+      }
+    }
+
+
+  }
+}

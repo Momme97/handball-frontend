@@ -1,0 +1,46 @@
+<div class="youthWrapper" @fadeIn>
+  <div class="newsGrid">
+    <div *ngFor="let post of posts; index as i">
+      <app-news-card
+        [routerLink] = "['/artikel','jugend' ,post.id]"
+        [imageUrl]="post.Artikelbild"
+        [dateString]="post.createdAt"
+        [titel]="post.Titel"
+      ></app-news-card>
+    </div>
+
+  </div>
+  <div class="contactPersonGrid">
+    <div *ngFor="let person of ansprechpartner; index as i">
+      <app-qualified-person-card
+        [titel]="person.Position"
+        [imageUrl]="env.strapiUrl + person.Profilbild.data.attributes.url"
+        [name]="person.Vorname"
+        [surname]="person.Nachname"
+        [email]="person.Email"
+        [mobilePhone]="person.Handynummer"
+      ></app-qualified-person-card>
+    </div>
+
+
+
+
+  </div>
+  <div class="playingClassesGrid">
+    <div class="card">
+      <div class="cardHeader">Jugend-Spielmodus</div>
+      <div class="cardBody">
+        sdgsd
+      </div>
+    </div>
+    <div class="card">
+      <div class="cardHeader">Mini-/Maxi-Spielklassen</div>
+      <div class="cardBody">
+        sdgsd
+      </div>
+
+    </div>
+
+  </div>
+</div>
+

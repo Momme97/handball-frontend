@@ -1,0 +1,38 @@
+<div class="homeWrapper" @fadeIn>
+
+  <div class="newsArea">
+    <div *ngFor="let post of posts; index as i">
+      <app-news-card
+        [routerLink] = "['/artikel','general' ,post.id]"
+        [imageUrl]="post.Artikelbild"
+        [dateString]="post.createdAt"
+        [titel]="post.Titel"
+      ></app-news-card>
+    </div>
+  </div>
+  <div class="homeWidgetsWrapper">
+    <app-appointment-widget></app-appointment-widget>
+    <app-upcomming-matches></app-upcomming-matches>
+  </div>
+
+  <div class="sponsorBanner">
+    <h2 class="sponsorTitle">Sponsoren</h2>
+    <div class="sponsorGrid">
+      <div class="sponsorItem" *ngFor="let sponsor of sponsors; index as i">
+        <img src="{{sponsor.imageUrl}}" />
+      </div>
+
+    </div>
+  </div>
+  <div class="landingGallery">
+    <h2 class="galleryTitle">Bilder aus dem Verband</h2>
+    <div class="imageGrid">
+      <div *ngFor="let image of homeGallery; index as i">
+        <img class="galleryImage" height="200px" src="{{image.imageUrl}}" />
+      </div>
+    </div>
+
+  </div>
+
+</div>
+

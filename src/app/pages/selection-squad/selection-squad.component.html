@@ -1,0 +1,54 @@
+<div class="selectionSquadWrapper" @fadeIn>
+  <div class="newsGrid">
+    <div *ngFor="let post of posts; index as i">
+      <app-news-card
+        [routerLink] = "['/artikel','auswahlkader' ,post.id]"
+        [imageUrl]="post.Artikelbild"
+        [dateString]="post.createdAt"
+        [titel]="post.Titel"
+      ></app-news-card>
+    </div>
+
+
+  </div>
+ <div class="teamGrid">
+   <div class="teamCard">
+     <div class="header">
+        Weibliche Jugend
+     </div>
+     <img class="teamImage" src="/assets/teambild_test.jpg" />
+     <div class="body">
+       Hier stehen nähere Informationen
+     </div>
+   </div>
+   <div class="teamCard">
+     <div class="header">
+       Weibliche Jugend
+     </div>
+     <img class="teamImage" src="/assets/teambild_test.jpg" />
+     <div class="body">
+       Hier stehen nähere Informationen
+     </div>
+   </div>
+   <div class="teamCard">
+     <div class="header">
+       Weibliche Jugend
+     </div>
+     <img class="teamImage" src="/assets/teambild_test.jpg" />
+     <div class="body">
+       Hier stehen nähere Informationen
+     </div>
+   </div>
+   <div class="teamCard">
+     <div class="header">
+       Weibliche Jugend
+     </div>
+     <img class="teamImage" src="/assets/teambild_test.jpg" />
+     <div class="body">
+       Hier stehen nähere Informationen
+     </div>
+   </div>
+
+ </div>
+
+</div>

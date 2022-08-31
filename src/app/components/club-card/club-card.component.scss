@@ -1,0 +1,22 @@
+.clubCardWrapper {
+  padding:10px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  .teamLogo {
+    height: 50px;
+  }
+  .titel {
+    margin:0;
+    font-size: 19px;
+  }
+}
+
+.clubCardWrapper:hover {
+  transition: 0.8s;
+  background: #d2d2d2;
+  cursor: pointer;
+  text-decoration: underline;
+}

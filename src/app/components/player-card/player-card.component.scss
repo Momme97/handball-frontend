@@ -1,0 +1,15 @@
+.playerCardWrapper {
+  background: white;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  .playerName {
+    background: #252931;
+    background: #252931;
+    color:white;
+    padding: 10px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,24 @@
+@import "../../../variables.scss";
+
+.trainerWrapper {
+  padding: 40px 50px 10px;
+  @include media-breakpoint-sm {
+    padding-top: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .newsGrid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    @include media-breakpoint-lg {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include media-breakpoint-sm {
+      background: none;
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

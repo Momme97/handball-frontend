@@ -1,0 +1,28 @@
+@import "../../../variables.scss";
+
+.articleFooterWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .footerInner {
+    width: 1020px;
+    background: #252931;
+    border-radius: 2px;
+    display: flex;
+
+    .content {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      .copyright {
+        color:white;
+      }
+    }
+    @include media-breakpoint-md {
+      width: 100%;
+
+    }
+  }
+}

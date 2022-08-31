@@ -1,0 +1,33 @@
+<div class="headerWrapper">
+  <div class="mainArea">
+    <app-page-logo (click)="routeChanged('')"></app-page-logo>
+    <div class="navWrapperDesktop">
+      <ul class="desktopnNav">
+        <li [class.boldText] = "currentRoute === '/ergebnisse'"><a  (click)="routeChanged('/ergebnisse')">Ergebnisse</a></li>
+        <li [class.boldText] = "currentRoute === '/vereine'"><a  (click)="routeChanged('/vereine')">Vereine</a></li>
+        <li [class.boldText] = "currentRoute === '/jugend'"><a  (click)="routeChanged('/jugend')">Jugend</a></li>
+        <li [class.boldText] = "currentRoute === '/auswahl-kader'"><a  (click)="routeChanged('/auswahl-kader')">Auswahlkader</a></li>
+        <li [class.boldText] = "currentRoute === '/schiedsrichter'"><a  (click)="routeChanged('/schiedsrichter')">Schiedsrichter</a></li>
+        <li [class.boldText] = "currentRoute === '/trainer'"><a  (click)="routeChanged('/trainer')">Trainer</a></li>
+      </ul>
+    </div>
+    <img class="mobileNavIcon" src="/assets/icons/burger-icon.svg" (click)="mobileNavOpen = true" />
+  </div>
+  <!--
+  <svg class="shape" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+    <path class="elementor-shape-fill" d="M0 6V0H1000V46.5L0 6Z"></path>
+  </svg>
+  -->
+</div>
+
+<div class="mobileNavWrapper" *ngIf="mobileNavOpen">
+  <img class="mobileCloseIcon" src="/assets/close-icon.png" (click)="mobileNavOpen = false" />
+  <ul class="mobileNav">
+    <li>Ergebnisse</li>
+    <li>Vereine</li>
+    <li>Jugend</li>
+    <li>Auswahlkader</li>
+    <li>Schiedsrichter</li>
+    <li>Trainer</li>
+  </ul>
+</div>

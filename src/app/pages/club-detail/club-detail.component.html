@@ -1,0 +1,45 @@
+
+  <div class="navigationBar">
+    <div class="backWrapper" (click)="navigateBack()">
+      <img class="backIcon" src="/assets/icons/arrow-left.svg" />
+      <span class="backText">Zurück</span>
+    </div>
+    <app-page-logo [isSmall]="true" ></app-page-logo>
+  </div>
+  <div @fadeIn>
+  <div class="clubInfoWrapper">
+    <div class="clubInfoCard">
+      <img class="clublogo" src="{{clubLogoUrl}}">
+      <div class="clubInfoText">
+        <h1>{{clubName}}</h1>
+        <a href="{{clubWebsiteUrl}}" class="websiteLink">{{clubWebsiteName}}</a>
+      </div>
+    </div>
+    <div *ngFor="let person of qualifiedPersonList; index as i">
+
+      <app-qualified-person-card
+        [titel]="person.Position"
+       [name]="person.Vorname"
+       [surname]="person.Nachname"
+       [imageUrl]="env.strapiUrl + person.Profilbild.data.attributes.url"
+       [email]="person.Email"
+       [mobilePhone]="person.Handynummer"
+      ></app-qualified-person-card>
+
+    </div>
+  </div>
+
+  <div class="clubsDetailWrapper">
+    <div class="teamGrid">
+      <div *ngFor="let team of teamList; index as i">
+        <app-team-card
+          [teamName]="team.Mannschaftsname"
+          [teamImageUrl]="env.strapiUrl + team.Teambild.data.attributes.url"
+          [trainer]="team.Trainer"
+          [trikotsList]="team.Trikots.data"
+        ></app-team-card>
+      </div>
+    </div>
+  </div>
+</div>
+

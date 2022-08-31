@@ -1,0 +1,59 @@
+<div class="resultsWrapper" @fadeIn>
+
+  <div class="resultsCard" *ngFor="let league of matchResultList; index as i">
+    <div class="header">
+      {{league.ligaTitel}}
+      <div class="expandArea">
+        <div>+</div>
+
+      </div>
+    </div>
+    <div class="body">
+      <div *ngFor="let result of league.results; index as i">
+        <div class="matchItem">
+          <div class="homeTeam">{{result.gHomeTeam}}</div>
+          <div class="matchInfos">
+            <span class="matchDate">{{result.gDate}}</span>
+            <div class="results">
+              <span>{{result.gHomeGoals}} : {{result.gGuestGoals}}</span>
+            </div>
+          </div>
+
+          <div class="guestTeam">{{result.gGuestTeam}}</div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <!--
+  <div class="resultsCard" >
+    <div class="header">
+      Männer RegionsOberliga
+    </div>
+
+    <div class="body">
+      <div *ngFor="let match of oberligaMenList; index as i">
+        <div *ngIf="match.guestGoals !== ' ' && match.homeGoals !== ' '">
+        </div>
+        <div class="matchItem">
+          <div class="homeTeam">{{match.homeTeam}}</div>
+          <div class="matchInfos">
+            <span class="matchDate">{{match.matchDate}}</span>
+            <div class="results">
+              <span>{{match.homeGoals}} : {{match.guestGoals}}</span>
+            </div>
+          </div>
+
+          <div class="guestTeam">{{match.guestTeam}}</div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+-->
+
+</div>

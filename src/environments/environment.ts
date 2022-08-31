@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  strapiUrl: 'http://localhost:1337',
+  mixpanelToken: '48bcb6174d4e870eb16f18d05d201f73'
+
 };
 
 /*

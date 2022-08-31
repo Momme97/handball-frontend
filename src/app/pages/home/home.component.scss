@@ -1,0 +1,118 @@
+@import "../../../variables.scss";
+
+.homeWrapper {
+  @include media-breakpoint-sm {
+    padding-top:20px;
+  }
+}
+.newsArea {
+  padding: 40px 50px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  background-size: cover;
+  @include media-breakpoint-lg {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include media-breakpoint-sm {
+    background: none;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+}
+
+
+.homeWidgetsWrapper {
+  padding-left:50px;
+  padding-right:50px;
+  display: grid;
+  gap:10px;
+  grid-template-columns: repeat(2, 1fr);
+  @include media-breakpoint-sm {
+    padding-left:5px;
+    padding-right:5px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+
+.sponsorBanner {
+  padding:20px;
+  padding-left:50px;
+  padding-right: 50px;
+  //background: #252931;
+  text-align: center;
+  @include media-breakpoint-lg {
+    padding-left:20px;
+    padding-right: 20px;
+  }
+  @include media-breakpoint-sm {
+    padding: 10px;
+  }
+  .sponsorTitle {
+    font-size: 20px;
+    color: #252931;
+    font-weight: normal;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  .sponsorGrid {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto ;
+    gap: 10px;
+    @include media-breakpoint-lg {
+      grid-template-columns: auto auto ;
+    }
+    @include media-breakpoint-sm {
+      padding: 0;
+      grid-template-columns: auto auto ;
+    }
+    @include  media-breakpoint-xs {
+      grid-template-columns: auto ;
+
+    }
+    .sponsorItem {
+      padding:20px;
+      border-radius: 2px;
+      background: white;
+      img {
+        height: 80px;
+      }
+    }
+  }
+}
+
+.landingGallery {
+  .imageGrid {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto ;
+    gap: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 20px;
+    @include media-breakpoint-lg {
+      grid-template-columns: auto auto ;
+    }
+    @include media-breakpoint-sm {
+      padding:5px;
+      grid-template-columns: auto ;
+    }
+  }
+  text-align: center;
+  .galleryTitle {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  .galleryImage {
+    border-radius: 2px;
+    width: 100%;
+    object-fit: cover;
+  }
+}

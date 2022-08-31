@@ -1,0 +1,11 @@
+<div class="clubsWrapper" @fadeIn>
+  <div class="clubsGrid">
+    <div *ngFor="let club of clubs; index as i">
+      <app-club-card
+        [routerLink] = "['/vereine-detail', club.id]"
+        [clubname]="club.clubName"
+        [logoUrl]="club.clubLogo"
+      ></app-club-card>
+    </div>
+  </div>
+</div>
