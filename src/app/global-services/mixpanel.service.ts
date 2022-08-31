@@ -13,7 +13,7 @@ export class MixpanelService {
    */
 
   init(): void {
-    //mixpanel.init(environment.mixpanelToken);
+    mixpanel.init(environment.mixpanelToken);
   }
 
 
