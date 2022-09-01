@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, HostListener} from '@angular/core';
 import { Location } from '@angular/common';
 
 @Component({
@@ -14,8 +14,10 @@ export class AppointmentHeaderComponent implements OnInit {
 
 
 
+
   constructor(
     private location: Location
+
   ) { }
 
   ngOnInit(): void {

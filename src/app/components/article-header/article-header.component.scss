@@ -5,9 +5,10 @@
   justify-content: center;
   position: sticky;
   top:0;
+  background: rgba(37, 41, 49, 0.95);
+
   .navBar {
     width: 1000px;
-    background: rgba(37, 41, 49, 0.95);
     padding:10px;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
@@ -23,6 +24,7 @@
     .backButtonWrapper {
       display: flex;
       align-items: center;
+      cursor: pointer;
       @include media-breakpoint-xs {
         margin-bottom: 10px;
       }
