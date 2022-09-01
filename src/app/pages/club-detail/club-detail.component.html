@@ -34,7 +34,7 @@
       <div *ngFor="let team of teamList; index as i">
         <app-team-card
           [teamName]="team.Mannschaftsname"
-          [teamImageUrl]="env.strapiUrl + team.Teambild.data.attributes.url"
+          [teamImageUrl]="team.Teambild.data.attributes.url"
           [trainer]="team.Trainer"
           [trikotsList]="team.Trikots.data"
         ></app-team-card>

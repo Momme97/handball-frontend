@@ -12,42 +12,16 @@
 
   </div>
  <div class="teamGrid">
-   <div class="teamCard">
-     <div class="header">
-        Weibliche Jugend
-     </div>
-     <img class="teamImage" src="/assets/teambild_test.jpg" />
-     <div class="body">
-       Hier stehen nähere Informationen
-     </div>
+   <div *ngFor="let team of selectionSquadTeams; index as i">
+     <app-team-card
+      [teamName]="team.Mannschaftsname"
+      [teamImageUrl]="team.Teambild.data.attributes.url"
+      [trainer]="team.Trainer"
+      [trikotsList]="team.Trikots.data"
+     >
+     </app-team-card>
    </div>
-   <div class="teamCard">
-     <div class="header">
-       Weibliche Jugend
-     </div>
-     <img class="teamImage" src="/assets/teambild_test.jpg" />
-     <div class="body">
-       Hier stehen nähere Informationen
-     </div>
-   </div>
-   <div class="teamCard">
-     <div class="header">
-       Weibliche Jugend
-     </div>
-     <img class="teamImage" src="/assets/teambild_test.jpg" />
-     <div class="body">
-       Hier stehen nähere Informationen
-     </div>
-   </div>
-   <div class="teamCard">
-     <div class="header">
-       Weibliche Jugend
-     </div>
-     <img class="teamImage" src="/assets/teambild_test.jpg" />
-     <div class="body">
-       Hier stehen nähere Informationen
-     </div>
-   </div>
+
 
  </div>
 

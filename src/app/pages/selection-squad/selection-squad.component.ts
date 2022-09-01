@@ -25,6 +25,37 @@ const GET_POSTS = gql`
   }
 `;
 
+const GET_TEAMS = gql`
+   query{
+    auswahlkader {
+      data {
+        attributes {
+          Teams {
+            ...on ComponentMannschaftMannschaft {
+              Mannschaftsname,
+              Trainer,
+              Teambild {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+              Trikots {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 @Component({
   selector: 'app-selection-squad',
   templateUrl: './selection-squad.component.html',
@@ -41,6 +72,7 @@ const GET_POSTS = gql`
 export class SelectionSquadComponent implements OnInit {
   private querySubscription: Subscription;
   posts: any = [];
+  selectionSquadTeams: any;
   constructor(
     private apollo: Apollo,
   ) { }
@@ -49,7 +81,6 @@ export class SelectionSquadComponent implements OnInit {
     this.querySubscription = this.apollo.watchQuery<any>({
       query: GET_POSTS
     }).valueChanges.subscribe(({ data, loading }) => {
-
       for(let i = 0; i < data.newsAuswahlkaders.data.length; i++){
         let postItem = {
           id: data.newsAuswahlkaders.data[i].id,
@@ -65,6 +96,14 @@ export class SelectionSquadComponent implements OnInit {
       if(data.newsAuswahlkaders.data.length > 10){
         this.posts.length = 10;
       }
+    });
+
+    this.querySubscription = this.apollo.watchQuery<any>({
+      query: GET_TEAMS
+    }).valueChanges.subscribe(({ data, loading }) => {
+      this.selectionSquadTeams = data.auswahlkader.data.attributes.Teams;
+      console.log(this.selectionSquadTeams);
+
     });
   }
 
