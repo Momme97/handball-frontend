@@ -1,7 +1,9 @@
 <div class="authWrapper">
-  <!--
-  <div class="authForm">
-    <app-page-logo></app-page-logo>
+  <!-- LOGIN TEMPLATE -->
+  <div class="authForm" *ngIf="authType === 'login'">
+    <app-page-logo
+      [routerLink] = "['/']"
+    ></app-page-logo>
     <form>
       <div class="formItem">
         <input class="formField" type="text" placeholder="Email"/>
@@ -12,9 +14,11 @@
       <button class="submitButton">Login</button>
     </form>
   </div>
-  -->
-  <div class="authForm">
-    <app-page-logo></app-page-logo>
+  <!-- SIGNUP TEMPLATE -->
+  <div class="authForm" *ngIf="authType === 'signup'">
+    <app-page-logo
+      [routerLink] = "['/']"
+    ></app-page-logo>
     <form>
       <div class="formItem">
         <input class="formField" type="text" placeholder="Email"/>
@@ -27,7 +31,7 @@
       </div>
       <button class="submitButton">Registrieren</button>
     </form>
-    <div class="formItem">
+    <div class="formItem" *ngIf="waitingForEmailCode">
       <p>Wir haben an die genannte Email einen Code versendete.<br> Bitte diesen in dieses Feld eintragen</p>
       <input class="formField" type="text" placeholder="Bestätigungscode eingeben"/>
       <button class="submitButton">Code bestätigen</button>
