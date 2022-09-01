@@ -2,9 +2,15 @@
   <div class="header">Termine</div>
   <div class="body">
     <div *ngIf="appointmentList.length === 0">Keine aktuellen Termine</div>
-    <div class="item" *ngFor="let appointment of appointmentList; index as i">
-      <span>{{appointment.Datum}}</span>
-      <h2>{{appointment.Thema}}</h2>
+    <div *ngFor="let appointment of appointmentList; index as i">
+      <div
+        class="item"
+        [routerLink] = "['/termine', appointment.id]"
+      >
+        <span>{{appointment.Datum}}</span>
+        <h2>{{appointment.Thema}}</h2>
+      </div>
+
     </div>
 
   </div>

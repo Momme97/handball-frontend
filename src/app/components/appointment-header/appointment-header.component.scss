@@ -11,7 +11,6 @@
     width: 1000px;
     background: rgba(37, 41, 49, 0.95);
     padding:10px;
-
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     .backWrapper {
@@ -19,11 +18,16 @@
       align-items: center;
       justify-content: flex-start;
       color: white;
+      cursor: pointer;
       img {
         height: 25px;
       }
       span {
         font-size: 14px;
+      }
+      @include media-breakpoint-md {
+        margin-bottom: 10px;
+
       }
     }
     .logoWrapper {
@@ -36,12 +40,27 @@
       align-items: center;
       justify-content: flex-end;
       color:white;
+      cursor: pointer;
+      a {
+        display: flex;
+        align-items: center;
+        color:white;
+        text-decoration: none;
+      }
       img {
         height: 25px;
       }
       span {
         font-size: 14px;
       }
+      @include media-breakpoint-md {
+        margin-top: 10px;
+        justify-content: center;
+      }
+    }
+    @include media-breakpoint-md {
+      width: 100%;
+      grid-template-columns: repeat(1, 1fr);
     }
   }
   .appointmentInfoWrapper {
@@ -57,6 +76,10 @@
     h1 {
       margin:0;
       font-size: 22px;
+    }
+    @include media-breakpoint-md {
+      width: 100%;
+      text-align: center;
     }
   }
 }

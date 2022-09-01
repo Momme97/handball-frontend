@@ -1,1 +1,13 @@
-<p>appointment works!</p>
+<app-appointment-header
+[appointmentTitle]="appointmentTitel"
+[appointmentDate]="appointmentDate"
+[appointmentFileUrl]="appointmentFileUrl"
+></app-appointment-header>
+<div class="contentWrapper">
+  <div *ngIf="content !== undefined" class="article">
+    <markdown>
+      {{content}}
+    </markdown>
+  </div>
+</div>
+

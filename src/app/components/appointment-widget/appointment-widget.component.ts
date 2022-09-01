@@ -44,6 +44,7 @@ export class AppointmentWidgetComponent implements OnInit {
         let currentDate = moment();
         if(appointMentDate.isBefore(currentDate) !== true){
           let appointmentItem = {
+            id:  data.termines.data[i].id,
             Thema: data.termines.data[i].attributes.Thema,
             Datum: moment(data.termines.data[i].attributes.Datum).lang("de").format('Do MMMM YYYY, h:mm:ss'),
           }

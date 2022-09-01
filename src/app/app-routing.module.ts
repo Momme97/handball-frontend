@@ -44,7 +44,7 @@ const routes: Routes = [
     path:'termine',
     component: AppointmentLayoutComponent,
     children: [
-      { path: ':category/:id', component: AppointmentComponent,title: 'Termine | HG Region Förde' }
+      { path: ':id', component: AppointmentComponent,title: 'Termine | HG Region Förde' }
     ]
   },
   {

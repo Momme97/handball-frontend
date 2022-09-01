@@ -1,6 +1,6 @@
 <div class="appointmentHeaderWrapper">
   <div class="navBar">
-    <div class="backWrapper">
+    <div class="backWrapper" (click)="navigateBack()">
       <img src="/assets/icons/arrow-left.svg" />
       <span>Zurück</span>
     </div>
@@ -8,14 +8,17 @@
       <app-page-logo [isSmall]="true"></app-page-logo>
     </div>
     <div class="downloadWrapper">
-      <img src="/assets/icons/icon-pdf.svg" />
-      <span>PDF herunterladen</span>
+      <a href="{{appointmentFileUrl}}" download>
+        <img src="/assets/icons/icon-pdf.svg" />
+        <span>PDF herunterladen</span>
+      </a>
+
 
     </div>
   </div>
   <div class="appointmentInfoWrapper">
-    <span>2020-01-01 - 00:00Uhr</span>
-    <h1>Hier steht der Titel des Termins</h1>
+    <span>{{appointmentDate}}</span>
+    <h1>{{appointmentTitle}}</h1>
   </div>
 
 </div>

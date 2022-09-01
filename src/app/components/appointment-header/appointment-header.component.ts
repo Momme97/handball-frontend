@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { Apollo, gql } from 'apollo-angular';
-import moment from "moment/moment";
-import {ActivatedRoute, Router} from "@angular/router";
+import { Component, OnInit, Input } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-appointment-header',
@@ -10,40 +7,24 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./appointment-header.component.scss']
 })
 export class AppointmentHeaderComponent implements OnInit {
-  private querySubscription: Subscription;
-  private currentAppointmentId: any;
-  private appointmentCategory:any;
+  @Input() appointmentDate: string;
+  @Input() appointmentTitle: string;
+  @Input() appointmentFileUrl: string;
+
+
 
 
   constructor(
-    private apollo: Apollo,
-    private activeRoute: ActivatedRoute,
-
+    private location: Location
   ) { }
 
   ngOnInit(): void {
-    this.activeRoute.params.subscribe(parameter => {
-      this.currentAppointmentId = parameter['id'];
-      this.appointmentCategory = parameter['category']
-    });
 
-    console.log(this.activeRoute.url)
+  }
 
 
-    const GET_GENERAL_APPOINTMENT = gql`
-      query{
-      termines (sort: "Datum:desc",pagination: { start: 0, limit: 100 }) {
-        data{
-          id
-          attributes {
-            Thema,
-            Datum
-          }
-        }
-      }
-    }
-  `;
-
+  navigateBack(){
+    this.location.back();
   }
 
 }
