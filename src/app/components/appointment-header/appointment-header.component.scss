@@ -1,33 +1,34 @@
 @import "../../../variables.scss";
-
-.appointmentHeaderWrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.wrapper {
   position: sticky;
-  top:0;
+  top:0px;
+}
+.navWrapper {
+  background: #252931;
+  padding:10px;
+  display: flex;
+  justify-content: center;
   .navBar {
     width: 1000px;
-    background: rgba(37, 41, 49, 0.95);
-    padding:10px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    @include media-breakpoint-md {
+      grid-template-columns: repeat(1, 1fr);
+    }
     .backWrapper {
       display: flex;
       align-items: center;
       justify-content: flex-start;
       color: white;
       cursor: pointer;
+      @include media-breakpoint-md {
+        margin-bottom: 10px;
+      }
       img {
         height: 25px;
       }
       span {
         font-size: 14px;
-      }
-      @include media-breakpoint-md {
-        margin-bottom: 10px;
-
       }
     }
     .logoWrapper {
@@ -41,6 +42,10 @@
       justify-content: flex-end;
       color:white;
       cursor: pointer;
+      @include media-breakpoint-md {
+        margin-top: 10px;
+        justify-content: center;
+      }
       a {
         display: flex;
         align-items: center;
@@ -53,33 +58,23 @@
       span {
         font-size: 14px;
       }
-      @include media-breakpoint-md {
-        margin-top: 10px;
-        justify-content: center;
-      }
-    }
-    @include media-breakpoint-md {
-      width: 100%;
-      grid-template-columns: repeat(1, 1fr);
     }
   }
-  .appointmentInfoWrapper {
+}
+
+.appointmentInfoWrapper {
+  background: #b7b7b7eb;
+  display: flex;
+  justify-content: center;
+  .content {
+    padding:10px;
     width: 1000px;
-    padding: 10px;
-    background: #b7b7b7eb;
-    text-align: left;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
     span {
       font-size: 12px;
     }
     h1 {
-      margin:0;
-      font-size: 22px;
-    }
-    @include media-breakpoint-md {
-      width: 100%;
-      text-align: center;
+      margin: 0;
     }
   }
 }
+
