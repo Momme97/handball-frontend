@@ -1,8 +1,7 @@
 @import "../../../variables.scss";
 .youthWrapper {
-  padding-top: 40px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 40px 50px;
+
   @include media-breakpoint-sm {
     padding-top: 25px;
     padding-left: 5px;
