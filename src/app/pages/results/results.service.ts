@@ -22,23 +22,7 @@ export class ResultsService{
       })
     })
   }
-  /*
 
-  loadData(){
-    this.http.get(this.handball4AllEndpoint).subscribe(resp => {
-      for(let i = 0; i < resp[0].content.futureGames.games.length; i++) {
-        this.men_kreisoberliga_matchlist.push({
-          matchDate: resp[0].content.futureGames.games[i].gDate,
-          matchTime: resp[0].content.futureGames.games[i].gTime,
-          homeTeam: resp[0].content.futureGames.games[i].gHomeTeam,
-          guestTeam: resp[0].content.futureGames.games[i].gGuestTeam,
-          homeGoals: resp[0].content.futureGames.games[i].gHomeGoals,
-          guestGoals: resp[0].content.futureGames.games[i].gGuestGoals,
-        })
-      }
-    })
-  }
 
-   */
 
 }

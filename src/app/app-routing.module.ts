@@ -17,6 +17,7 @@ import {AppointmentLayoutComponent} from "./layouts/appointment-layout/appointme
 import {ClubsComponent} from "./pages/clubs/clubs.component";
 import {ClubDetailComponent} from "./pages/club-detail/club-detail.component";
 import {BlankLayoutComponent} from "./layouts/blank-layout/blank-layout.component";
+import {AuthComponent} from "./pages/auth/auth.component";
 
 const routes: Routes = [
   {
@@ -52,6 +53,13 @@ const routes: Routes = [
     component: BlankLayoutComponent,
     children: [
       { path: ':id', component: ClubDetailComponent,title: 'Vereine | HG Region Förde' }
+    ]
+  },
+  {
+    path:'auth',
+    component: BlankLayoutComponent,
+    children: [
+      { path: ':authType', component: AuthComponent,title: 'Authentifizierung | HG Region Förde' }
     ]
   },
 ];

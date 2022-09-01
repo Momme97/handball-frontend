@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PageLogoComponent implements OnInit {
   @Input() isSmall:boolean;
+  @Input() darkMode:boolean;
 
   constructor() { }
 

@@ -69,9 +69,7 @@ export class ResultsComponent implements OnInit {
 
     });
 
-
     this.matchResultList = this.results.getMatchResults();
-    console.log(this.matchResultList)
 
   }
 

@@ -14,6 +14,7 @@ import {ComponentsModule} from "../components/components.module";
 import { AppointmentComponent } from './appointment/appointment.component';
 import { ClubsComponent } from './clubs/clubs.component';
 import { ClubDetailComponent } from './club-detail/club-detail.component';
+import { AuthComponent } from './auth/auth.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { ClubDetailComponent } from './club-detail/club-detail.component';
     AppointmentComponent,
     ClubsComponent,
     ClubDetailComponent,
+    AuthComponent,
 
   ],
   imports: [

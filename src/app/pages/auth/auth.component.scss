@@ -1,0 +1,57 @@
+@import "../../../variables.scss";
+
+.authWrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  @include media-breakpoint-md {
+    justify-content: flex-start;
+    margin-top: 50px;
+  }
+}
+
+.authForm {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  @include media-breakpoint-md {
+    width: 90%;
+  }
+  form {
+    width: 100%;
+  }
+
+  .formItem {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .formField {
+    padding: 10px;
+    border-radius: 2px;
+    background: white;
+    border:none;
+  }
+  .formField:focus {
+    outline: 1px solid #b1bbd0;
+  }
+  .formField::placeholder {
+    color:#252931;
+    font-size: 16px;
+  }
+
+  .submitButton {
+    border-radius: 2px;
+    margin-top: 10px;
+    background: #252931;
+    border:none;
+    color:white;
+    padding: 10px;
+    @include media-breakpoint-md {
+      width: 100%;
+    }
+
+  }
+}
