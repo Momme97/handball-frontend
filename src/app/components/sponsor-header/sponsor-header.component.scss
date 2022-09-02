@@ -1,0 +1,81 @@
+@import "../../../variables.scss";
+.wrapper {
+
+  position: sticky;
+  top:0;
+}
+.navWrapper {
+  background: #252931;
+  padding:10px;
+  display: flex;
+  justify-content: center;
+  .navBar {
+    width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    @include media-breakpoint-md {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .backWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: white;
+      cursor: pointer;
+      @include media-breakpoint-md {
+        margin-bottom: 10px;
+      }
+      img {
+        height: 25px;
+      }
+      span {
+        font-size: 14px;
+      }
+    }
+    .logoWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .downloadWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      color:white;
+      cursor: pointer;
+      @include media-breakpoint-md {
+        margin-top: 10px;
+        justify-content: center;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        color:white;
+        text-decoration: none;
+      }
+      img {
+        height: 25px;
+      }
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.appointmentInfoWrapper {
+  background: #b7b7b7eb;
+  display: flex;
+  justify-content: center;
+  .content {
+    padding:10px;
+    width: 1000px;
+    span {
+      font-size: 12px;
+    }
+    h1 {
+      margin: 0;
+    }
+  }
+}
+

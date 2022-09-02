@@ -1,0 +1,31 @@
+@import "../../../variables.scss";
+
+.sponsorBanner {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  @include media-breakpoint-md {
+    height: 250px;
+  }
+}
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .logo {
+    margin-top: -82px;
+    @include media-breakpoint-sm {
+      margin-top: -50px;
+      height: 100px;
+    }
+  }
+  .content {
+    width: 1200px;
+    text-align: justify;
+    @include media-breakpoint-md {
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 100%;
+    }
+  }
+}

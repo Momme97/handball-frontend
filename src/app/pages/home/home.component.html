@@ -12,15 +12,16 @@
   </div>
   <div class="homeWidgetsWrapper">
     <app-appointment-widget></app-appointment-widget>
-    <app-upcomming-matches></app-upcomming-matches>
-  </div>
-
-  <div class="sponsorBanner">
-    <h2 class="sponsorTitle">Sponsoren</h2>
-    <div class="sponsorGrid">
-      <div class="sponsorItem" *ngFor="let sponsor of sponsors; index as i">
-        <img src="{{sponsor.imageUrl}}" />
+    <div class="sponsoren">
+      <div class="header">
+        Sponsoren
       </div>
+      <div class="grid">
+        <div class="sponsorItem" *ngFor="let sponsor of sponsors; index as i">
+          <img [routerLink] = "['/sponsoren' ,sponsor.id]" src="{{sponsor.imageUrl}}" />
+        </div>
+      </div>
+
 
     </div>
   </div>
@@ -31,8 +32,6 @@
         <img class="galleryImage" height="200px" src="{{image.imageUrl}}" />
       </div>
     </div>
-
   </div>
-
 </div>
 

@@ -29,20 +29,16 @@ const GET_POSTS = gql`
 `;
 const GET_SPONSORS = gql`
   query{
-  sponsoren{
-    data{
-      attributes{
-        Titel,
-        Sponsoren {
-          ...on ComponentSponsorenSponsoren{
-            Name,
-            Verlinkung
-            Logo{
-              data {
-                attributes{
-                  url
-                }
-              }
+  sponsorens{
+    data {
+      id
+      attributes {
+        Name,
+        Link,
+        Logo {
+          data {
+            attributes {
+              url
             }
           }
         }
@@ -127,15 +123,12 @@ export class HomeComponent implements OnInit {
     this.querySubscription = this.apollo.watchQuery<any>({
       query: GET_SPONSORS
     }).valueChanges.subscribe(({ data, loading }) => {
-
-      for(let i = 0; i <  data.sponsoren.data.attributes.Sponsoren.length; i++) {
+      for(let i = 0; i <  data.sponsorens.data.length; i++) {
         this.sponsors.push({
-          imageUrl: environment.strapiUrl + data.sponsoren.data.attributes.Sponsoren[i].Logo.data.attributes.url,
-          link: data.sponsoren.data.attributes.Sponsoren[i].Verlinkung
+          id: data.sponsorens.data[i].id,
+          imageUrl: environment.strapiUrl + data.sponsorens.data[i].attributes.Logo.data.attributes.url
         });
       }
-
-
     });
     this.querySubscription = this.apollo.watchQuery<any>({
       query: GET_HOMEGALLERY

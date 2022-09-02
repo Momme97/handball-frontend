@@ -1,0 +1,14 @@
+<app-sponsor-header></app-sponsor-header>
+<div>
+  <img class="sponsorBanner" src="{{bannerUrl}}" />
+  <div class="contentWrapper">
+    <a href="{{linkUrl}}">
+      <img class="logo" src="{{sponsorLogoUrl}}" />
+    </a>
+    <div class="content">
+      <markdown *ngIf="content !== undefined">
+        {{content}}
+      </markdown>
+    </div>
+  </div>
+</div>

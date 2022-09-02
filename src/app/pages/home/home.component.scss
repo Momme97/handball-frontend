@@ -40,30 +40,18 @@
 
 
 
-.sponsorBanner {
-  padding:20px;
-  padding-left:50px;
-  padding-right: 50px;
-  //background: #252931;
-  text-align: center;
-  @include media-breakpoint-lg {
-    padding-left:20px;
-    padding-right: 20px;
+.sponsoren {
+  .header {
+    padding:10px;
+    background: #252931;
+    color:white;
   }
-  @include media-breakpoint-sm {
-    padding: 10px;
-  }
-  .sponsorTitle {
-    font-size: 20px;
-    color: #252931;
-    font-weight: normal;
-    margin: 0;
-    margin-bottom: 10px;
-  }
-  .sponsorGrid {
+  .grid {
     display: grid;
-    grid-template-columns: auto auto auto auto auto ;
+    grid-template-columns: repeat(8, 1fr);
     gap: 10px;
+    background: white;
+    border-radius: 2px;
     @include media-breakpoint-lg {
       grid-template-columns: auto auto ;
     }
@@ -76,16 +64,17 @@
 
     }
     .sponsorItem {
-      padding:20px;
+      padding:10px;
       border-radius: 2px;
-      background: white;
       img {
         height: 80px;
+        cursor: pointer;
+
       }
-    }
+  }
+
   }
 }
-
 .landingGallery {
   .imageGrid {
     display: grid;

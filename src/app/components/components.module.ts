@@ -14,6 +14,7 @@ import { NewsCardComponent } from './news-card/news-card.component';
 import { AppointmentHeaderComponent } from './appointment-header/appointment-header.component';
 import { ClubCardComponent } from './club-card/club-card.component';
 import { TeamCardComponent } from './team-card/team-card.component';
+import { SponsorHeaderComponent } from './sponsor-header/sponsor-header.component';
 
 
 
@@ -31,7 +32,8 @@ import { TeamCardComponent } from './team-card/team-card.component';
     NewsCardComponent,
     AppointmentHeaderComponent,
     ClubCardComponent,
-    TeamCardComponent
+    TeamCardComponent,
+    SponsorHeaderComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +52,8 @@ import { TeamCardComponent } from './team-card/team-card.component';
     NewsCardComponent,
     AppointmentHeaderComponent,
     ClubCardComponent,
-    TeamCardComponent
+    TeamCardComponent,
+    SponsorHeaderComponent
   ]
 })
 export class ComponentsModule { }

@@ -18,6 +18,7 @@ import {ClubsComponent} from "./pages/clubs/clubs.component";
 import {ClubDetailComponent} from "./pages/club-detail/club-detail.component";
 import {BlankLayoutComponent} from "./layouts/blank-layout/blank-layout.component";
 import {AuthComponent} from "./pages/auth/auth.component";
+import {SponsorDetailComponent} from "./pages/sponsor-detail/sponsor-detail.component";
 
 const routes: Routes = [
   {
@@ -53,6 +54,13 @@ const routes: Routes = [
     component: BlankLayoutComponent,
     children: [
       { path: ':id', component: ClubDetailComponent,title: 'Vereine | HG Region Förde' }
+    ]
+  },
+  {
+    path:'sponsoren',
+    component: BlankLayoutComponent,
+    children: [
+      { path: ':id', component: SponsorDetailComponent,title: 'Sponsoren | HG Region Förde' }
     ]
   },
   {
