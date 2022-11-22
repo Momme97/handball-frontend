@@ -17,7 +17,7 @@
   </div>
   <div class="homeWidgetsWrapper">
     <app-appointment-widget></app-appointment-widget>
-    <div class="sponsoren">
+    <div class="sponsoren" *ngIf="sponsors.length > 0">
       <div class="header">
         Sponsoren
       </div>
@@ -46,8 +46,6 @@
             <img class="teamLogo" [src]="team.logo" />
             {{team.name}}
           </div>
-
-
       </div>
     </div>
   </div>
