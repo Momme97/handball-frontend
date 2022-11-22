@@ -4,6 +4,8 @@ import { Apollo, gql } from 'apollo-angular';
 import moment from "moment/moment";
 import {animate, style, transition, trigger} from "@angular/animations";
 import {environment} from "../../../environments/environment";
+import { Router } from '@angular/router';
+import { MixpanelService } from 'src/app/global-services/mixpanel.service';
 const GET_POSTS = gql`
    query{
     newsTrainers {
@@ -47,9 +49,18 @@ export class TrainerComponent implements OnInit {
 
   constructor(
     private apollo: Apollo,
+    private mixpanelService: MixpanelService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
+    /* --------------------------------------------
+      Track page visted with mixpanel service
+    -------------------------------------------- */
+    this.mixpanelService.init();
+    this.mixpanelService.track('Pagevisited',{
+      location: this.router.url
+    });
     this.querySubscription = this.apollo.watchQuery<any>({
       query: GET_POSTS
     }).valueChanges.subscribe(({ data, loading }) => {
