@@ -1,24 +1,62 @@
 @import "../../../variables.scss";
 
 .refereeWrapper {
-  padding: 40px 50px 10px;
-  @include media-breakpoint-sm {
-    padding-top: 25px;
-    padding-left: 5px;
-    padding-right: 5px;
+  @apply
+  px-1 pt-2
+  lg:px-10
+  ;
+  .newsGrid {
+    @apply
+    grid gap-2 mb-2 grid-cols-2
+    md:grid-cols-2
+    lg:grid-cols-6
+    ;
+
   }
 
-  .newsGrid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
-    margin-bottom: 20px;
-    @include media-breakpoint-lg {
-      grid-template-columns: repeat(2, 1fr);
+  .subpagesGrid {
+    @apply
+    grid gap-2 grid-cols-2
+    lg:grid-cols-3;
+
+    .suppageWidget {
+      background: #252931;
+      @apply
+      text-white flex flex-col items-center justify-center p-5;
     }
-    @include media-breakpoint-sm {
+    .suppageWidget h2 {
+      @apply
+      text-lg font-bold;
+      margin: 0;
+      text-align: center;
+    }
+    .suppageWidget p{
+      @apply
+      text-sm;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    .suppageWidget button{
+      border: 1px solid white;
       background: none;
-      grid-template-columns: repeat(1, 1fr);
+      padding: 10px;
+      color:white;
+      cursor: pointer;
+    }
+    .suppageWidget button:hover{
+      background: white;
+      transition: 0.8s;
+      color: #252931;
+    }
+  }
+  .qualifiedPersonGrid {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    @include media-breakpoint-sm {
+      gap: 5px;
+      grid-template-columns: 1fr 1fr;
     }
   }
 }

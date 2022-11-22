@@ -1,0 +1,38 @@
+@import "../../../variables.scss";
+
+.wrapper {
+  min-height: 400px;
+  background-size: cover;
+  color:white;
+  @include media-breakpoint-sm {
+    min-height: 300px;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    min-height: 400px;
+    padding: 40px 50px 50px;
+    background: #00000080;
+    @include media-breakpoint-sm {
+      padding: 5px 10px 5px;
+      min-height: 300px;
+    }
+    .cardTitle {
+      @apply 
+      text-2xl
+      lg:text-3xl;
+    }
+    .shortText {
+      @apply lg:text-base mb-5;
+      width: 25%;
+      @include media-breakpoint-md {
+        width: 50%;
+      }
+      @include media-breakpoint-sm {
+        width: 100%;
+      }
+    }
+  }
+}

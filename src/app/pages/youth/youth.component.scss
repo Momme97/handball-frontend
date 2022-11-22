@@ -1,40 +1,22 @@
 @import "../../../variables.scss";
 .youthWrapper {
-  padding: 40px 50px;
-  @include media-breakpoint-sm {
-    padding-top: 25px;
-    padding-left: 5px;
-    padding-right: 5px;
-  }
+  @apply
+  px-2 pt-2
+  lg:px-10;
 }
 
 .newsGrid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
-  margin-bottom: 20px;
-  @include media-breakpoint-lg {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @include media-breakpoint-sm {
-    background: none;
-    grid-template-columns: repeat(1, 1fr);
-  }
+  @apply
+  grid gap-2 grid-cols-2
+  lg:grid-cols-6 lg:mb-2;
+
 }
 
 .contactPersonGrid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
-  @include media-breakpoint-md{
-    grid-template-columns: repeat(3, 1fr);
-  }
-  @include media-breakpoint-sm {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @include media-breakpoint-xs {
-    grid-template-columns: repeat(1, 1fr);
-  }
+  @apply
+  pt-2 grid gap-2 grid-cols-2 mb-2
+  lg:grid-cols-6;
+
 }
 
 .playingClassesGrid {

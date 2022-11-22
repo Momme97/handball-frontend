@@ -6,6 +6,8 @@ import moment from "moment/moment";
 import {animate, style, transition, trigger} from "@angular/animations";
 import { environment } from "../../../environments/environment";
 import {MixpanelService} from "../../global-services/mixpanel.service";
+import { NumberAndFacts } from 'src/app/data-models/number-and-facts';
+import { Staffel, Team } from 'src/app/data-models/staffeln';
 
 const GET_POSTS = gql`
   query{
@@ -14,6 +16,7 @@ const GET_POSTS = gql`
       id,
       attributes{
         Titel,
+        Kurzbeschreibung,
         createdAt
         Artikelbild{
           data{
@@ -40,6 +43,52 @@ const GET_SPONSORS = gql`
             attributes {
               url
             }
+          }
+        }
+      }
+    }
+  }
+}
+`;
+const GET_NUMBERSANDFACTS = gql`
+query{
+  zahlenUndFakten {
+    data {
+      attributes {
+        Items {
+          ...on ComponentFactItemFactItem {
+            Titel,
+            Icon {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
+const GET_STAFFELN = gql`
+query{
+  staffelns {
+    data {
+      attributes {
+        Staffelname,
+        Teams {
+          ...on ComponentStaffelTeamStaffelTeam {
+            Logo {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            Teamname
           }
         }
       }
@@ -83,6 +132,9 @@ export class HomeComponent implements OnInit {
   posts: any = [];
   sponsors: any = [];
   homeGallery: any = [];
+  numberAndFacts: NumberAndFacts[] = [];
+  staffeln: Staffel[] = [];
+
   private querySubscription: Subscription;
 
   constructor(
@@ -107,6 +159,7 @@ export class HomeComponent implements OnInit {
           let postItem = {
             id: data.neuigkeitenImVerbands.data[i].id,
             Titel: data.neuigkeitenImVerbands.data[i].attributes.Titel,
+            Kurzbeschreibung: data.neuigkeitenImVerbands.data[i].attributes.Kurzbeschreibung,
             Artikelbild: environment.strapiUrl + data.neuigkeitenImVerbands.data[i].attributes.Artikelbild.data.attributes.url,
             createdAt: moment(data.neuigkeitenImVerbands.data[i].attributes.createdAt).lang("de").format('Do MMMM YYYY, hh:mm:ss')
           }
@@ -116,8 +169,8 @@ export class HomeComponent implements OnInit {
 
         }
     this.posts.reverse();
-    if(data.neuigkeitenImVerbands.data.length > 10){
-      this.posts.length = 10;
+    if(data.neuigkeitenImVerbands.data.length > 6){
+      this.posts.length = 6;
     }
     });
     this.querySubscription = this.apollo.watchQuery<any>({
@@ -128,6 +181,36 @@ export class HomeComponent implements OnInit {
           id: data.sponsorens.data[i].id,
           imageUrl: environment.strapiUrl + data.sponsorens.data[i].attributes.Logo.data.attributes.url
         });
+      }
+    });
+    this.querySubscription = this.apollo.watchQuery<any>({
+      query: GET_NUMBERSANDFACTS
+    }).valueChanges.subscribe(({ data, loading }) => {
+      console.log(data);
+      
+      for(let i = 0; i < data.zahlenUndFakten.data.attributes.Items.length; i++) {
+        this.numberAndFacts.push({
+          title: data.zahlenUndFakten.data.attributes.Items[i].Titel,
+          icon: environment.strapiUrl + data.zahlenUndFakten.data.attributes.Items[i].Icon.data.attributes.url
+        })
+      }
+      
+    });
+    this.querySubscription = this.apollo.watchQuery<any>({
+      query: GET_STAFFELN
+    }).valueChanges.subscribe(({ data, loading }) => {
+      for(let i = 0; i < data.staffelns.data.length; i++){
+        let teamArray: Team[] = [];
+        for(let x = 0; x < data.staffelns.data[i].attributes.Teams.length; x++) {
+          teamArray.push({
+            name: data.staffelns.data[i].attributes.Teams[x].Teamname,
+            logo: environment.strapiUrl + data.staffelns.data[i].attributes.Teams[x].Logo.data.attributes.url
+          })
+        }
+        this.staffeln.push({
+          title: data.staffelns.data[i].attributes.Staffelname,
+          teams: teamArray
+        })
       }
     });
     this.querySubscription = this.apollo.watchQuery<any>({

@@ -16,6 +16,10 @@ import { ClubsComponent } from './clubs/clubs.component';
 import { ClubDetailComponent } from './club-detail/club-detail.component';
 import { AuthComponent } from './auth/auth.component';
 import { SponsorDetailComponent } from './sponsor-detail/sponsor-detail.component';
+import { MatchDetailComponent } from './match-detail/match-detail.component';
+import {FormsModule} from "@angular/forms";
+import {RefereeModule} from "./referee/referee.module";
+import { NewsGridComponent } from './news-grid/news-grid.component';
 
 
 @NgModule({
@@ -25,7 +29,6 @@ import { SponsorDetailComponent } from './sponsor-detail/sponsor-detail.componen
     ImpressComponent,
     YouthComponent,
     SelectionSquadComponent,
-    RefereeComponent,
     TrainerComponent,
     ResultsComponent,
     AppointmentComponent,
@@ -33,13 +36,17 @@ import { SponsorDetailComponent } from './sponsor-detail/sponsor-detail.componen
     ClubDetailComponent,
     AuthComponent,
     SponsorDetailComponent,
+    MatchDetailComponent,
+    NewsGridComponent,
 
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    MarkdownModule,
-    ComponentsModule
-  ]
+    imports: [
+        RefereeModule,
+        CommonModule,
+        RouterModule,
+        MarkdownModule,
+        ComponentsModule,
+        FormsModule
+    ]
 })
 export class PagesModule { }

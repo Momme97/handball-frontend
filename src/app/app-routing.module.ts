@@ -19,6 +19,11 @@ import {ClubDetailComponent} from "./pages/club-detail/club-detail.component";
 import {BlankLayoutComponent} from "./layouts/blank-layout/blank-layout.component";
 import {AuthComponent} from "./pages/auth/auth.component";
 import {SponsorDetailComponent} from "./pages/sponsor-detail/sponsor-detail.component";
+import {MatchDetailComponent} from "./pages/match-detail/match-detail.component";
+import {CentralBasicTrainingComponent} from "./pages/referee/central-basic-training/central-basic-training.component";
+import {TrainingComponent} from "./pages/referee/training/training.component";
+import {RulesComponent} from "./pages/referee/rules/rules.component";
+import { NewsGridComponent } from './pages/news-grid/news-grid.component';
 
 const routes: Routes = [
   {
@@ -30,9 +35,19 @@ const routes: Routes = [
       { path: 'vereine', component: ClubsComponent, title: 'Vereine | HG Region Förde' },
       { path: 'jugend', component: YouthComponent , title: 'Jugend | HG Region Förde'},
       { path: 'auswahl-kader', component: SelectionSquadComponent, title: 'Auswahlkader | HG Region Förde' },
-      { path: 'schiedsrichter', component: RefereeComponent, title: 'Schiedsrichter | HG Region Förde' },
       { path: 'trainer', component: TrainerComponent, title: 'Trainer | HG Region Förde' },
+      { path: 'news-grid/:newsCategory', component: NewsGridComponent, title: 'Nachrichten Übersicht | HG Region Förde' },
       { path: 'impressum', component: ImpressComponent, title: 'Impressum | HG Region Förde' }
+    ]
+  },
+  {
+    path:'schiedsrichter',
+    component: DefaultComponent,
+    children: [
+      { path: '', component: RefereeComponent,title: 'Schiedsrichter | HG Region Förde' },
+      { path: 'zentrale-grundausbildung', component: CentralBasicTrainingComponent,title: 'Zentrale Grundausbildung | HG Region Förde' },
+      { path: 'fortbildung', component: TrainingComponent,title: 'Fortbildung | HG Region Förde' },
+      { path: 'regelwerk', component: RulesComponent,title: 'Regelwerk | HG Region Förde' }
     ]
   },
   {
@@ -54,6 +69,13 @@ const routes: Routes = [
     component: BlankLayoutComponent,
     children: [
       { path: ':id', component: ClubDetailComponent,title: 'Vereine | HG Region Förde' }
+    ]
+  },
+  {
+    path:'spiel-detail',
+    component: BlankLayoutComponent,
+    children: [
+      { path: '', component: MatchDetailComponent ,title: 'Spieldetails | HG Region Förde' }
     ]
   },
   {

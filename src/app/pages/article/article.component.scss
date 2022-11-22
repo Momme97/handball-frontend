@@ -17,7 +17,11 @@
       }
       padding-bottom: 20px;
     }
-    margin-top: 5px;
+    .articleTitle {
+      @apply
+        text-2xl font-bold;
+      
+    }
     .articleImage {
       width: 100%;
       border-radius: 2px;
@@ -39,11 +43,6 @@
     h1 {
       margin: 0;
     }
-    h2 {
-      margin: 0;
-      margin-top: 15px;
-    }
-
     .articleTextImage {
       width: 100%;
       height: 300px;

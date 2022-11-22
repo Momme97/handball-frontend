@@ -1,5 +1,37 @@
-<div class="resultsWrapper" @fadeIn>
 
+<div class="selectLeagueWrapper">
+  <h1>Bitte Staffel auswählen</h1>
+  <select class="selectBox" [(ngModel)]="selectedLeague" (ngModelChange)="setActiveLeague()">
+    <option [ngValue]="undefined" disabled>Keine Staffel ausgewählt</option>
+    <option *ngFor="let league of cmsLeagueList; index as i" [ngValue]="league.LigaId">{{league.Liganame}}</option>
+  </select>
+</div>
+<div class="resultsWrapper">
+
+  <!--
+  <div class="leagueButtonGroup">
+    <app-button *ngFor="let league of cmsLeagueList; index as i" [buttonTitle]="league.Liganame" [leagueId]="league.LigaId" (sendClick)="setActiveLeague($event)"></app-button>
+  </div>
+  -->
+  <div class="resultTable" *ngIf="selectedLeague">
+    <div class="tableHead">
+      <div>Heimmansschaft</div>
+      <div>Gastmannschaft</div>
+      <div class="gameDate">Spieldatum</div>
+      <div>Ergebniss</div>
+    </div>
+    <div class="tableBody">
+      <div class="tableResult" *ngFor="let matchResult of matchResultList; index as i" >
+        <div>{{matchResult.gHomeTeam}}</div>
+        <div>{{matchResult.gGuestTeam}}</div>
+        <div class="gameDate">{{matchResult.gDate}}</div>
+        <div>{{matchResult.gGuestGoals}} : {{matchResult.gHomeGoals}} </div>
+        <div><button class="gameDetailsButton">Spieldetails öffnen</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!--
   <div class="resultsCard" *ngFor="let league of matchResultList; index as i">
     <div class="header">
       {{league.ligaTitel}}
@@ -10,7 +42,7 @@
     </div>
     <div class="body">
       <div *ngFor="let result of league.results; index as i">
-        <div class="matchItem">
+        <div class="matchItem" (click)="openMatchDetails(result)">
           <div class="homeTeam">{{result.gHomeTeam}}</div>
           <div class="matchInfos">
             <span class="matchDate">{{result.gDate}}</span>
@@ -27,6 +59,7 @@
     </div>
 
   </div>
+  -->
   <!--
   <div class="resultsCard" >
     <div class="header">
@@ -57,3 +90,4 @@
 -->
 
 </div>
+

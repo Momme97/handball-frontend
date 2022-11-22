@@ -23,6 +23,7 @@
     "apollo-angular": "^4.0.1",
     "aws-amplify": "^4.3.33",
     "graphql": "^16",
+    "instagram-feed-embed": "^1.0.1",
     "markdown-it": "^13.0.1",
     "mixpanel-browser": "^2.45.0",
     "moment": "^2.29.4",
@@ -38,12 +39,15 @@
     "@angular/cli": "~14.0.5",
     "@angular/compiler-cli": "^14.0.0",
     "@types/jasmine": "~4.0.0",
+    "autoprefixer": "^10.4.13",
     "jasmine-core": "~4.1.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "postcss": "^8.4.19",
+    "tailwindcss": "^3.2.4",
     "typescript": "~4.7.2"
   }
 }

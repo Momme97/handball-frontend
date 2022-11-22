@@ -1,0 +1,2 @@
+<button *ngIf="buttonStyle === undefined" (click)="buttonClicked()">{{buttonTitle}}</button>
+<button *ngIf="buttonStyle === 'clear'" class="clearButton" (click)="buttonClicked()">{{buttonTitle}}</button>

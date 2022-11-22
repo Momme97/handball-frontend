@@ -1,18 +1,16 @@
 .appointmentWidget {
   border-radius: 2px;
   .header {
-    padding:10px;
+    @apply 
+    text-white p-2;
     background: #252931;
-    color:white;
   }
   .body {
-    padding:10px;
-    background: white;
+    @apply 
+    bg-white p-1;
     .item {
-      display: flex;
-      align-items: center;
-      margin:5px;
-      padding: 10px;
+      @apply 
+      flex items-center m-1 p-2;
       background: #e6e6e6;
       span {
         font-size: 12px;

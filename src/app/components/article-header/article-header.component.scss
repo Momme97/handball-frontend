@@ -12,15 +12,9 @@
     padding:10px;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
-    display: flex;
-    justify-content: space-between;
-    @include media-breakpoint-md {
-      width: 100%;
-    }
-    @include media-breakpoint-xs {
-      flex-direction: column;
-      align-items: center;
-    }
+    @apply 
+      flex justify-between items-center;
+    
     .backButtonWrapper {
       display: flex;
       align-items: center;

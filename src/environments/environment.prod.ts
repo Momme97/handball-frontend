@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  strapiUrl: 'MUHHH'
+  strapiUrl: 'https://content.handball-region-foerde.de/'
 };

@@ -7,11 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class QualifiedPersonCardComponent implements OnInit {
   @Input() titel: string;
-  @Input() imageUrl: string;
-  @Input() name: string;
-  @Input() surname: string;
-  @Input() email: string;
-  @Input() mobilePhone: string;
+  @Input() imageUrl: string | undefined;
+  @Input() name:  string | undefined;
+  @Input() surname:  string | undefined;
+  @Input() email:  string | undefined;
+  @Input() mobilePhone:  string | undefined;
 
 
   constructor() { }

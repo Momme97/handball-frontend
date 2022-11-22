@@ -1,14 +1,19 @@
 <div class="homeWrapper" @fadeIn>
-
+  <app-featured-article-card [postId]="posts[0].id" [imageUrl]="posts[0].Artikelbild" [title]="posts[0].Titel" [shortText]="posts[0].Kurzbeschreibung" [ctaText]="'Zum Artikel'"></app-featured-article-card>
+  <h2 class="sectionTitle">Weitere Neuigkeiten</h2>
   <div class="newsArea">
-    <div *ngFor="let post of posts; index as i">
-      <app-news-card
-        [routerLink] = "['/artikel','general' ,post.id]"
-        [imageUrl]="post.Artikelbild"
-        [dateString]="post.createdAt"
-        [titel]="post.Titel"
-      ></app-news-card>
+    <div *ngFor="let post of posts.slice(1); index as i">
+        <app-news-card
+          [routerLink] = "['/artikel','general' ,post.id]"
+          [imageUrl]="post.Artikelbild"
+          [dateString]="post.createdAt"
+          [titel]="post.Titel"
+        ></app-news-card>
     </div>
+  </div>
+  <div class="loadMoreArticlesWrapper">
+  <button class="newsOverviewPageLink" [routerLink] = "['/news-grid', 'general']">Weiter Nachrichten anzeigen</button>
+
   </div>
   <div class="homeWidgetsWrapper">
     <app-appointment-widget></app-appointment-widget>
@@ -16,7 +21,7 @@
       <div class="header">
         Sponsoren
       </div>
-      <div class="grid">
+      <div class="sponsorGrid">
         <div class="sponsorItem" *ngFor="let sponsor of sponsors; index as i">
           <img [routerLink] = "['/sponsoren' ,sponsor.id]" src="{{sponsor.imageUrl}}" />
         </div>
@@ -25,7 +30,29 @@
 
     </div>
   </div>
-  <div class="landingGallery">
+  <h2 class="sectionTitle">Zahlen und Fakten</h2>
+  <div class="leagueFacts">
+    <div class="factItem" *ngFor="let fact of numberAndFacts; index as i">
+        <img class="factItemIcon" [src]="fact.icon" />
+        <h2>{{fact.title}}</h2>
+    </div>
+  </div>
+  <h2 class="sectionTitle">Übersicht der aktiven Staffeln</h2>
+  <div class="seasonOverview">
+    <div class="seasonItem" *ngFor="let staffel of staffeln; index as i">
+      <div class="header">{{staffel.title}}</div>
+      <div class="clubsWrapper">
+          <div class="club" *ngFor="let team of staffel.teams; index as i">
+            <img class="teamLogo" [src]="team.logo" />
+            {{team.name}}
+          </div>
+
+
+      </div>
+    </div>
+  </div>
+  <!--
+    <div class="landingGallery">
     <h2 class="galleryTitle">Bilder aus dem Verband</h2>
     <div class="imageGrid">
       <div *ngFor="let image of homeGallery; index as i">
@@ -33,5 +60,7 @@
       </div>
     </div>
   </div>
+  -->
+  
 </div>
 

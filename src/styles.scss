@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~roboto-fontface/css/roboto/roboto-fontface.css';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 body {
   margin: 0;
   font-family: 'Roboto';
@@ -7,3 +11,7 @@ body {
   background: #DEDEDE;
 }
 
+h2 {
+  @apply 
+  text-lg font-bold mt-2 mb-2;
+}

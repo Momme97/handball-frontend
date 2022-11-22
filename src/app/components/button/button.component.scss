@@ -1,0 +1,23 @@
+button {
+  background: none;
+  border: 1px solid #252931;
+  padding: 10px;
+  border-radius: 2px;
+  width: 200px;
+}:hover {
+    transition: 0.8s;
+    background: #252931;
+    color: white;
+    cursor: pointer;
+
+ }
+
+.clearButton {
+  border: 1px solid white;
+  color:white;
+}:hover {
+   transition: 0.8s;
+   background: white;
+   color: #252931;
+   cursor: pointer;
+}

@@ -1,16 +1,26 @@
 .newsCard {
-  background: white;
+  height: 100%;
+  @apply
+  bg-white;
   .articleImage {
+    @apply 
+    h-32
+    lg:h-52;
     object-fit: cover;
-    height: 250px;
     width: 100%;
   }
   .body {
     padding:10px;
+    overflow: hidden;
     span {
+      @apply
+      hidden
+      md:block;
       font-size: 12px;
     }
     h1 {
+      @apply
+      font-bold;
       margin:0;
       font-size: 16px;
     }

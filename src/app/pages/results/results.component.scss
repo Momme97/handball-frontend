@@ -1,6 +1,102 @@
 @import "../../../variables.scss";
-.resultsWrapper {
+.selectLeagueWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 30px 50px 20px;
+  @include media-breakpoint-sm {
+    padding: 30px 5px 20px;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  .selectBox {
+    border:none;
+    width: 500px;
+    padding:5px;
+    color: #252931;
+    @include media-breakpoint-sm {
+      width: 100%;
+    }
+  }
+}
+.resultsWrapper {
+  display: flex;
+  flex-direction: column;
+  @include media-breakpoint-sm {
+    padding: 0px 5px 5px;
+  }
+  .resultTable {
+    width: 100%;
+    background: white;
+    .tableHead {
+      background: #252931;
+      color:white;
+      padding:5px;
+      display: grid;
+      gap:5px;
+      grid-template-columns: 1fr 1fr 120px 80px 150px;
+      @include media-breakpoint-sm {
+        grid-template-columns: 1fr 1fr 80px
+      }
+    }
+    .tableResult {
+      padding: 2px;
+      display: grid;
+      gap:5px;
+      grid-template-columns: 1fr 1fr 100px 80px 150px;
+      @include media-breakpoint-sm {
+        grid-template-columns: 1fr 1fr 80px
+      }
+    }
+  }
+  .gameDate {
+    @include media-breakpoint-sm {
+      display: none;
+    }
+  }
+  .gameDetailsButton {
+    border-radius: 2px;
+    width: 100%;
+    padding:5px;
+    background: none;
+    border: 1px solid #252931;
+  }
+  .gameDetailsButton:hover {
+    transition: 0.8s;
+    background: #252931;
+    color:white;
+    cursor: pointer;
+  }
+
+  .leagueButtonGroup {
+    padding-right: 10px;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap:10px;
+  }
+  .resultsContentArea {
+    width: 100%;
+    min-height: 375px;
+    overflow: hidden;
+    overflow-y: scroll;
+    display: grid;
+    gap:5px;
+    grid-template-columns: repeat(4, 1fr);
+    @include media-breakpoint-md {
+      grid-template-columns: repeat(2, 1fr);
+
+    }
+    @include media-breakpoint-sm {
+      grid-template-columns: repeat(1, 1fr);
+      padding: 30px 5px 20px;
+    }
+  }
+  padding: 0 50px 20px;
+  /*
   display: grid;
   gap:10px;
   grid-template-columns: repeat(3, 1fr);
@@ -12,6 +108,8 @@
     grid-template-columns: repeat(1, 1fr);
     padding: 30px 5px 20px;
   }
+
+   */
 
 }
 
@@ -40,7 +138,6 @@
   grid-template-columns: repeat(3, 1fr);
   padding:5px;
   background: #eee;
-  margin-bottom: 5px;
   .matchInfos {
     display: flex;
     flex-direction: column;

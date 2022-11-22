@@ -4,11 +4,10 @@
     <div class="contentArea">
       <span class="timestamp">{{articleDate}}</span>
       <br>
-      <h1>{{articleObject.Titel}}</h1>
-      <span class="authorText"><img height="14" src="/assets/icon-person.png" />{{articleObject.Author}}</span>
-
-      <div *ngFor="let item of articleObject.Contentarea; index as i">
-        <div *ngIf="item.__typename === 'ComponentRichtextblockRichTextBlock'">
+      <h1 class="articleTitle">{{articleObject.Titel}}</h1>
+      <span class="authorText"><img style="height:14px;" src="/assets/icon-person.png" />{{articleObject.Author}}</span>
+      <div  *ngFor="let item of articleObject.Contentarea; index as i">
+        <div  *ngIf="item.__typename === 'ComponentRichtextblockRichTextBlock'">
           <markdown>
             {{item.Text}}
           </markdown>

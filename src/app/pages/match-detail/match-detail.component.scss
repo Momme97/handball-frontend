@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  .contentOpponents {
+    width: 1000px;
+    display: grid;
+    gap:10px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .matchDetails {
+    margin-top: 10px;
+    width: 1000px;
+    display: grid;
+    gap:10px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.itemCard {
+  background: white;
+  border-radius: 2px;
+  .header {
+    padding:10px;
+    color:white;
+    background: #252931;
+  }
+  .body {
+    padding:10px;
+    text-align: center;
+
+  }
+  .resultTile {
+    font-size: 30px;
+    text-align: center;
+  }
+}

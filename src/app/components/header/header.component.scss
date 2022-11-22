@@ -1,9 +1,8 @@
 @import "../../../variables.scss";
 
 .headerWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @apply
+  flex;
   position: sticky;
   top:0;
   margin-bottom: -20px;
@@ -32,12 +31,12 @@
     }
   }
   .mainArea {
+    @apply 
+    flex justify-between items-center px-10 mb-5;
     width: 100%;
     padding-top:10px;
     padding-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
     background: #252931;
     @include media-breakpoint-sm {
       padding:10px;
@@ -47,7 +46,6 @@
     }
     @include media-breakpoint-xs {
       padding:10px;
-      flex-direction: column;
       align-items: center;
     }
   }
@@ -58,7 +56,6 @@
   }
 }
 .navWrapperDesktop {
-  margin-top: 20px;
   width: 700px;
   @include media-breakpoint-sm {
     display:none;
@@ -146,9 +143,7 @@
 }
 
 @include media-breakpoint-xs {
-  .mobileNavIcon {
-    margin-top: 10px;
-  }
+
   .headerWrapper {
     flex-direction: column;
   }

@@ -1,0 +1,18 @@
+.backWrapper {
+    width: 200px;
+    background: #252931;
+    @apply
+    flex items-center
+    lg:px-10;
+}
+.pageTitle {
+    @apply
+    text-2xl px-2 mt-5 mb-5 font-bold
+    lg:px-10
+    ;
+}
+.newsArea {
+    @apply
+    px-2 grid grid-cols-2 gap-2 mt-2 mb-2
+    lg:grid-cols-6 lg:px-10;
+}

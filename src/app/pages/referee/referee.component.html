@@ -9,4 +9,32 @@
       ></app-news-card>
     </div>
   </div>
+  <div class="subpagesGrid">
+    <div class="suppageWidget">
+      <h2>Zentrale Grundausbildung</h2>
+      <p>Der Weg zum Schiedsrichter</p>
+      <button [routerLink] = "['/schiedsrichter','zentrale-grundausbildung']">Mehr Informationen</button>
+    </div>
+    <div class="suppageWidget">
+      <h2>Fortbildungen</h2>
+      <p>Terminübersicht und weitere Informationen</p>
+      <button [routerLink] = "['/schiedsrichter','fortbildung']">Mehr Informationen</button>
+    </div>
+    <div class="suppageWidget">
+      <h2>Regelwerk</h2>
+      <p>Viele aktuelle Informationen</p>
+      <button [routerLink] = "['/schiedsrichter','regelwerk']">Mehr Informationen</button>
+    </div>
+  </div>
+  <div class="qualifiedPersonGrid">
+    <app-qualified-person-card
+      *ngFor="let person of qualifiedPersonList; index as i"
+      [titel]="person.position"
+      [name]="person.vorname"
+      [surname]="person.nachname"
+      [email]="person.email"
+      [imageUrl]="person.profilbild"
+      [mobilePhone]="person.handynummer"
+    ></app-qualified-person-card>
+  </div>
 </div>

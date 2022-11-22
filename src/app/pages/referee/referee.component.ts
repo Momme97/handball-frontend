@@ -4,6 +4,7 @@ import { Apollo, gql } from 'apollo-angular';
 import moment from "moment/moment";
 import {animate, style, transition, trigger} from "@angular/animations";
 import {environment} from "../../../environments/environment";
+import {QualifiedPersons} from "../../data-models/qualified-persons";
 const GET_POSTS = gql`
    query{
     newsSchiedsrichters {
@@ -25,7 +26,31 @@ const GET_POSTS = gql`
     }
   }
 `;
-
+const GET_SINGLE_PAGE_DATA = gql `
+  query{
+  schiedsrichter{
+    data {
+      attributes {
+        Ansprechpartner {
+        ...on ComponentPersonPerson {
+            Vorname,
+            Nachname,
+            Position,
+            Email,
+            Handynummer,
+            Profilbild {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+          }
+        }
+      }
+    }
+  }}
+`;
 @Component({
   selector: 'app-referee',
   templateUrl: './referee.component.html',
@@ -42,6 +67,7 @@ const GET_POSTS = gql`
 export class RefereeComponent implements OnInit {
   private querySubscription: Subscription;
   posts: any = [];
+  qualifiedPersonList: QualifiedPersons[] = [];
   constructor(
     private apollo: Apollo,
   ) { }
@@ -65,6 +91,21 @@ export class RefereeComponent implements OnInit {
       this.posts.reverse();
       if(data.newsSchiedsrichters.data.length > 10){
         this.posts.length = 10;
+      }
+    });
+
+    this.querySubscription = this.apollo.watchQuery<any>({
+      query: GET_SINGLE_PAGE_DATA
+    }).valueChanges.subscribe(({ data, loading }) => {
+      for(let i = 0; i < data.schiedsrichter.data.attributes.Ansprechpartner.length; i++){
+        this.qualifiedPersonList.push({
+          position: data.schiedsrichter.data.attributes.Ansprechpartner[i].Position,
+          vorname: data.schiedsrichter.data.attributes.Ansprechpartner[i].Vorname,
+          nachname: data.schiedsrichter.data.attributes.Ansprechpartner[i].Nachname,
+          handynummer: data.schiedsrichter.data.attributes.Ansprechpartner[i].Handynummer,
+          email: data.schiedsrichter.data.attributes.Ansprechpartner[i].Email,
+          profilbild: environment.strapiUrl + data.schiedsrichter.data.attributes.Ansprechpartner[i].Profilbild.data.attributes.url
+        })
       }
     });
   }

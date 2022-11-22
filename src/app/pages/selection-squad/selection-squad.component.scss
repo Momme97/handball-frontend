@@ -1,15 +1,9 @@
 @import "../../../variables.scss";
 
 .selectionSquadWrapper {
-  padding-top: 40px;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 10px;
-  @include media-breakpoint-sm {
-    padding-top: 25px;
-    padding-left: 5px;
-    padding-right: 5px;
-  }
+  @apply
+  px-2 mt-2 mb-2
+  lg:px-10;
 
   .newsGrid {
     display: grid;
