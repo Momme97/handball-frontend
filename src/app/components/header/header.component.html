@@ -25,11 +25,13 @@
 <div class="mobileNavWrapper" *ngIf="mobileNavOpen">
   <img class="mobileCloseIcon" src="/assets/close-icon.png" (click)="mobileNavOpen = false" />
   <ul class="mobileNav">
+    <!--
     <li>Ergebnisse</li>
     <li>Vereine</li>
-    <li>Jugend</li>
-    <li>Auswahlkader</li>
-    <li>Schiedsrichter</li>
-    <li>Trainer</li>
+    -->
+    <li (click)="routeChanged('/jugend')">Jugend</li>
+    <li (click)="routeChanged('/auswahl-kader')">Auswahlkader</li>
+    <li (click)="routeChanged('/schiedsrichter')">Schiedsrichter</li>
+    <li (click)="routeChanged('/trainer')">Trainer</li>
   </ul>
 </div>

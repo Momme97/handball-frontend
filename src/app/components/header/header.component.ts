@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
 
   }
   async routeChanged(location: string){
+    this.mobileNavOpen = false;
     await this.router.navigate([location])
     this.currentRoute = this.router.url;
   }
