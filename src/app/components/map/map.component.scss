@@ -1,0 +1,13 @@
+@import "../../../variables.scss";
+
+.match-parent {
+  width: 100%;
+  height: 100%;
+}
+
+.mapWrapper {
+  height: 40vh;
+  @include media-breakpoint-xs {
+    height: 30vh;
+  }
+}

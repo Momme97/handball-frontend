@@ -23,30 +23,29 @@ import { NewsGridComponent } from './news-grid/news-grid.component';
 
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    ArticleComponent,
-    ImpressComponent,
-    YouthComponent,
-    SelectionSquadComponent,
-    TrainerComponent,
-    ResultsComponent,
-    AppointmentComponent,
-    ClubsComponent,
-    ClubDetailComponent,
-    AuthComponent,
-    SponsorDetailComponent,
-    MatchDetailComponent,
-    NewsGridComponent,
-
-  ],
+    declarations: [
+        HomeComponent,
+        ArticleComponent,
+        ImpressComponent,
+        YouthComponent,
+        SelectionSquadComponent,
+        TrainerComponent,
+        ResultsComponent,
+        AppointmentComponent,
+        ClubsComponent,
+        ClubDetailComponent,
+        AuthComponent,
+        SponsorDetailComponent,
+        MatchDetailComponent,
+        NewsGridComponent,
+    ],
     imports: [
         RefereeModule,
         CommonModule,
         RouterModule,
         MarkdownModule,
         ComponentsModule,
-        FormsModule
+        FormsModule,
     ]
 })
 export class PagesModule { }

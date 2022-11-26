@@ -17,7 +17,8 @@ import { TeamCardComponent } from './team-card/team-card.component';
 import { SponsorHeaderComponent } from './sponsor-header/sponsor-header.component';
 import { ButtonComponent } from './button/button.component';
 import { FeaturedArticleCardComponent } from './featured-article-card/featured-article-card.component';
-
+import { MapComponent } from './map/map.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 
 @NgModule({
@@ -37,11 +38,13 @@ import { FeaturedArticleCardComponent } from './featured-article-card/featured-a
     TeamCardComponent,
     SponsorHeaderComponent,
     ButtonComponent,
-    FeaturedArticleCardComponent
+    FeaturedArticleCardComponent,
+    MapComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    LeafletModule
   ],
   exports: [
     HeaderComponent,
@@ -59,7 +62,8 @@ import { FeaturedArticleCardComponent } from './featured-article-card/featured-a
     TeamCardComponent,
     SponsorHeaderComponent,
     ButtonComponent,
-    FeaturedArticleCardComponent
+    FeaturedArticleCardComponent,
+    MapComponent
   ]
 })
 export class ComponentsModule { }

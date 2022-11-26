@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 import {animate, style, transition, trigger} from "@angular/animations";
 import {environment} from "../../../environments/environment";
 import {MixpanelService} from "../../global-services/mixpanel.service";
+import { Gynasium } from 'src/app/data-models/gymnasium';
 @Component({
   selector: 'app-club-detail',
   templateUrl: './club-detail.component.html',
@@ -29,6 +30,7 @@ export class ClubDetailComponent implements OnInit {
   clubLogoUrl: string;
   teamList: any = [];
   qualifiedPersonList: any;
+  gymnasiumList: Gynasium[] = [];
   constructor(
     private activeRoute: ActivatedRoute,
     private apollo: Apollo,
@@ -74,6 +76,20 @@ export class ClubDetailComponent implements OnInit {
                 }
               }
             }
+            Sporthallen {
+              ...on ComponentSporthalleSporthalle {
+                Name,
+                Lat,
+                Long,
+                Bild {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
             Mannschaften {
               ...on ComponentMannschaftMannschaft {
                 Mannschaftsname,
@@ -109,6 +125,17 @@ export class ClubDetailComponent implements OnInit {
       this.clubLogoUrl = environment.strapiUrl + data.vereine.data.attributes.Logo.data.attributes.url;
       this.teamList = data.vereine.data.attributes.Mannschaften;
       this.qualifiedPersonList = data.vereine.data.attributes.Ansprechpartner;
+
+      //Fill Gymnasium List
+      for(let i = 0; i < data.vereine.data.attributes.Sporthallen.length; i++){
+        this.gymnasiumList.push({
+          name: data.vereine.data.attributes.Sporthallen[i].Name,
+          lat: data.vereine.data.attributes.Sporthallen[i].Lat,
+          long: data.vereine.data.attributes.Sporthallen[i].Long,
+          image: environment.strapiUrl + data.vereine.data.attributes.Sporthallen[i].Bild.data.attributes.url
+        })
+      }
+
 
       /* --------------------------------------------
          Track page visted with mixpanel service

@@ -10,6 +10,9 @@ import {CommonModule} from "@angular/common";
 import {PagesModule} from "./pages/pages.module";
 import { MarkdownModule } from 'ngx-markdown';
 import {ResultsService} from "./pages/results/results.service";
+import { LeafletModule } from "@asymmetrik/ngx-leaflet";
+import { MapService } from './components/map/map.service';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -23,8 +26,9 @@ import {ResultsService} from "./pages/results/results.service";
     HttpClientModule,
     CommonModule,
     MarkdownModule.forRoot(),
+    LeafletModule
   ],
-  providers: [ResultsService],
+  providers: [ResultsService, MapService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

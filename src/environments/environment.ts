@@ -5,7 +5,10 @@
 export const environment = {
   production: false,
   strapiUrl: 'http://localhost:1337',
-  mixpanelToken: '48bcb6174d4e870eb16f18d05d201f73'
+  mixpanelToken: '48bcb6174d4e870eb16f18d05d201f73',
+  mapbox: {
+    accessToken: 'pk.eyJ1IjoicHJlc3Nld2FydCIsImEiOiJjbGF5aXhsaXAwaDU0M3BteGJjM3QxZWZhIn0.X2MYpiScsd_b2Yt-2xjb3w'
+  }
 
 };
 
