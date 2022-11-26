@@ -1,4 +1,7 @@
 <div class="clubsWrapper" @fadeIn>
+  <div class="optionBar">
+    <b>Aktuell erfasste Vereine:</b> {{clubs.length}}
+  </div>
   <div class="clubsGrid">
     <div *ngFor="let club of clubs; index as i">
       <app-club-card

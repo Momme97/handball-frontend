@@ -2,13 +2,20 @@
 
 
 .clubsWrapper {
+
+  .optionBar {
+    @apply
+    px-2 mt-2 mb-2;
+
+  }
   @apply
   px-2 mt-2 mb-2
   lg:px-10;
    
   .clubsGrid {
     @apply
-    grid gap-2 grid-cols-2
+    grid gap-2 grid-cols-1
+    md:grid-cols-2
     lg:grid-cols-6;
   }
 }
