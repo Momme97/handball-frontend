@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
 import {MixpanelService} from "../../global-services/mixpanel.service";
 const GET_CLUBLIST = gql `
   query{
-    vereines {
+    vereines(pagination: { page: 1, pageSize: 200 }) {
       data {
         id,
         attributes {
