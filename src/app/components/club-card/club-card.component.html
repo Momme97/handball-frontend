@@ -1,7 +1,9 @@
 <div class="clubCardWrapper" (mouseover)="changeHoverState(true)" (mouseleave)="changeHoverState(false)">
-  <img class="teamLogo" src="{{logoUrl}}" />
+  <img *ngIf="isHover !== true" class="teamLogo" src="{{logoUrl}}" />
   <div class="clubInfos">
-    <h2 *ngIf="isHover !== true" class="titel">{{clubname}}</h2>
+
+          <h2 *ngIf="isHover !== true" class="titel" >{{clubname}}</h2>
+
     <span *ngIf="isHover" class="hoverText">Vereinsübersicht öffnen</span>
   </div>
 </div>

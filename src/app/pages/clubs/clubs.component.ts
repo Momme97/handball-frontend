@@ -66,6 +66,7 @@ export class ClubsComponent implements OnInit {
           clubLogo: environment.strapiUrl + data.vereines.data[i].attributes.Logo.data.attributes.url
         })
       }
+      this.clubs.sort((a, b) => a.clubName.localeCompare(b.clubName))
     });
   }
 

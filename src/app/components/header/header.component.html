@@ -3,9 +3,10 @@
     <app-page-logo (click)="routeChanged('')"></app-page-logo>
     <div class="navWrapperDesktop">
       <ul class="desktopnNav">
-        <!-- 
-          <li [class.boldText] = "currentRoute === '/ergebnisse'"><a  (click)="routeChanged('/ergebnisse')">Ergebnisse</a></li>
         <li [class.boldText] = "currentRoute === '/vereine'"><a  (click)="routeChanged('/vereine')">Vereine</a></li>
+
+          <!-- 
+          <li [class.boldText] = "currentRoute === '/ergebnisse'"><a  (click)="routeChanged('/ergebnisse')">Ergebnisse</a></li>
         -->
         <li [class.boldText] = "currentRoute === '/jugend'"><a  (click)="routeChanged('/jugend')">Jugend</a></li>
         <li [class.boldText] = "currentRoute === '/auswahl-kader'"><a  (click)="routeChanged('/auswahl-kader')">Auswahlkader</a></li>
@@ -29,6 +30,7 @@
     <li>Ergebnisse</li>
     <li>Vereine</li>
     -->
+    <li (click)="routeChanged('/vereine')">Vereine</li>
     <li (click)="routeChanged('/jugend')">Jugend</li>
     <li (click)="routeChanged('/auswahl-kader')">Auswahlkader</li>
     <li (click)="routeChanged('/schiedsrichter')">Schiedsrichter</li>
