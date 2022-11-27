@@ -28,6 +28,7 @@ export class ClubDetailComponent implements OnInit {
   clubWebsiteName: string;
   clubWebsiteUrl: string;
   clubLogoUrl: string;
+  address: {street: string, housenumber: string, zip: string, city: string} = {street: '', housenumber: '', zip: '', city: ''};
   teamList: any = [];
   qualifiedPersonList: any;
   gymnasiumList: Gynasium[] = [];
@@ -53,6 +54,10 @@ export class ClubDetailComponent implements OnInit {
             Vereinsname,
             WebseitenUrl,
             Webseitenanzeigename,
+            strasse,
+            Stadt,
+            Hausnummer,
+            Postleitzahl,
             Logo {
               data {
                 attributes {
@@ -125,6 +130,11 @@ export class ClubDetailComponent implements OnInit {
       this.clubLogoUrl = environment.strapiUrl + data.vereine.data.attributes.Logo.data.attributes.url;
       this.teamList = data.vereine.data.attributes.Mannschaften;
       this.qualifiedPersonList = data.vereine.data.attributes.Ansprechpartner;
+      console.log(data.vereine.data.attributes);
+      this.address.street = data.vereine.data.attributes.strasse;
+      this.address.housenumber = data.vereine.data.attributes.Hausnummer;
+      this.address.zip = data.vereine.data.attributes.Postleitzahl;
+      this.address.city = data.vereine.data.attributes.Stadt;
 
       //Fill Gymnasium List
       for(let i = 0; i < data.vereine.data.attributes.Sporthallen.length; i++){

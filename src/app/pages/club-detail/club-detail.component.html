@@ -8,28 +8,26 @@
   </div>
   <app-map [clubId]="clubId"></app-map>
   <div @fadeIn>
-  <div class="clubInfoWrapper">
-    <div class="clubInfoCard">
-      <img class="clublogo" src="{{clubLogoUrl}}">
-      <div class="clubInfoText">
-        <h1>{{clubName}}</h1>
-        <a href="{{clubWebsiteUrl}}" class="websiteLink">{{clubWebsiteName}}</a>
+    <div class="wrapperLogo">
+      <div class="clubInfoCard">
+          <img class="clublogo" src="{{clubLogoUrl}}">
+          <div class="clubInfoText">
+            <h1 class="clubTitle">{{clubName}}</h1>
+            <div class="adressWrapper">
+              <img style="height: 20px;" src="/assets/icons/location.png" />
+            <span>{{address.street}}, {{address.housenumber}} {{address.city}}</span>
+            </div>
+            
+            <a href="{{clubWebsiteUrl}}" class="websiteLink">{{clubWebsiteName}}</a>
+          </div>
+      </div>
+      <div class="legendeWrapper">
+        <div class="legendItemWrapper">
+          <img class="legendItem" src="/assets/icons/football.png" />
+          <span class="legendItemText">Anzahl der Sportstätten: {{gymnasiumList.length}}</span>
+        </div>
       </div>
     </div>
-    <div *ngFor="let person of qualifiedPersonList; index as i">
-
-      <app-qualified-person-card
-        [titel]="person.Position"
-       [name]="person.Vorname"
-       [surname]="person.Nachname"
-       [imageUrl]="env.strapiUrl + person.Profilbild.data.attributes.url"
-       [email]="person.Email"
-       [mobilePhone]="person.Handynummer"
-      ></app-qualified-person-card>
-
-    </div>
-  </div>
-
   <div class="clubsDetailWrapper">
     <div class="teamGrid">
       <div *ngFor="let team of teamList; index as i">

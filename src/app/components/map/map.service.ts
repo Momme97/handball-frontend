@@ -77,7 +77,6 @@ export class MapService {
         const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
           `
           <h3>${data.vereine.data.attributes.Sporthallen[i].Name}</h3>
-          <img src="${environment.strapiUrl + data.vereine.data.attributes.Sporthallen[i].Bild.data.attributes.url}" />
           `
         );
 

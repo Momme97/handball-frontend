@@ -1,8 +1,10 @@
 @import "../../../variables.scss";
 
 .navigationBar {
+  @apply 
+  px-2 pt-2 pb-2
+  lg:px-10;
   background: #252931;
-  padding: 5px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,44 +25,65 @@
     }
   }
 }
-.clubInfoWrapper {
-  padding: 10px 50px 0;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap:10px;
-  .clubInfoCard {
-    background: white;
-    padding:10px;
-    border-radius: 2px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    .clublogo {
-      height: 100px;
-    }
-    .clubInfoText {
-      h1 {
-        margin:0;
-        margin-top: 10px;
 
-        font-size: 16px;
-        text-align: center;
-      }
-      .websiteLink {
-        color:#252931;
-        text-decoration: none;
-      }
-    }
-  }
-
+.clubTitle {
+  @apply text-xl text-center;
+  font-weight: bold;
+}
+.wrapperLogo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+.legendeWrapper {
+  background-color: #252931;
+  width: 300px;
+  padding: 10px;
 
+  .legendItemWrapper {
+    display: flex;
+    display: flex;
+    justify-content: center;
+  }
 
+  .legendItem {
+    height: 25px;;
+  
+  }
+  .legendItemText {
+    margin-left: 5px;;
+    color:white;
+  }
+}
 
+.adressWrapper {
+  display: flex;
+  align-items: center;
+}
 
-
+.clubInfoCard {
+  z-index: 1;
+  margin-top: -40px;
+  width: 300px;
+  background: white;
+  padding:10px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .clublogo {
+    height: 100px;
+  }
+  .clubInfoText {
+    .websiteLink {
+      color:#252931;
+      text-decoration: none;
+    }
+  }
+}
 
 .clubsDetailWrapper {
   padding: 10px 50px 50px;
