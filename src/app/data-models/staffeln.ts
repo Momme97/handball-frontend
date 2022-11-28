@@ -3,7 +3,15 @@ export interface Staffel {
     teams: Team[];
 }
 
+export interface Trikot {
+    imageUrl: string;
+    mainColor?: string;
+}
+
 export interface Team {
     name: string;
-    logo: string;
-}
+    logo?: string;
+    groupImage?: string;
+    trainer?: string;
+    trikots?: Trikot[];
+}   

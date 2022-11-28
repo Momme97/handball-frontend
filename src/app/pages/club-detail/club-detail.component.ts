@@ -7,6 +7,7 @@ import {animate, style, transition, trigger} from "@angular/animations";
 import {environment} from "../../../environments/environment";
 import {MixpanelService} from "../../global-services/mixpanel.service";
 import { Gynasium } from 'src/app/data-models/gymnasium';
+import { Team, Trikot } from 'src/app/data-models/staffeln';
 @Component({
   selector: 'app-club-detail',
   templateUrl: './club-detail.component.html',
@@ -28,8 +29,9 @@ export class ClubDetailComponent implements OnInit {
   clubWebsiteName: string;
   clubWebsiteUrl: string;
   clubLogoUrl: string;
+  trainingsTimes: string;
   address: {street: string, housenumber: string, zip: string, city: string} = {street: '', housenumber: '', zip: '', city: ''};
-  teamList: any = [];
+  teamList: Team[] = [];
   qualifiedPersonList: any;
   gymnasiumList: Gynasium[] = [];
   constructor(
@@ -58,6 +60,7 @@ export class ClubDetailComponent implements OnInit {
             Stadt,
             Hausnummer,
             Postleitzahl,
+            Trainingszeiten
             Logo {
               data {
                 attributes {
@@ -128,13 +131,28 @@ export class ClubDetailComponent implements OnInit {
       this.clubWebsiteName = data.vereine.data.attributes.Webseitenanzeigename;
       this.clubWebsiteUrl = data.vereine.data.attributes.WebseitenUrl;
       this.clubLogoUrl = environment.strapiUrl + data.vereine.data.attributes.Logo.data.attributes.url;
-      this.teamList = data.vereine.data.attributes.Mannschaften;
       this.qualifiedPersonList = data.vereine.data.attributes.Ansprechpartner;
-      console.log(data.vereine.data.attributes);
       this.address.street = data.vereine.data.attributes.strasse;
       this.address.housenumber = data.vereine.data.attributes.Hausnummer;
       this.address.zip = data.vereine.data.attributes.Postleitzahl;
       this.address.city = data.vereine.data.attributes.Stadt;
+      this.trainingsTimes = data.vereine.data.attributes.Trainingszeiten;
+
+      for(let i = 0; i < data.vereine.data.attributes.Mannschaften.length; i++){
+        let trikotsList: Trikot[] = [];
+        for(let x = 0; x < data.vereine.data.attributes.Mannschaften[i].Trikots.data.length; x++){
+          trikotsList.push({
+            imageUrl: environment.strapiUrl + data.vereine.data.attributes.Mannschaften[i].Trikots?.data[x].attributes.url
+          });
+        }
+
+        this.teamList.push({
+          name: data.vereine.data.attributes.Mannschaften[i].Mannschaftsname,
+          groupImage: environment.strapiUrl + data.vereine.data.attributes.Mannschaften[i].Teambild.data?.attributes.url,
+          trainer: data.vereine.data.attributes.Mannschaften[i].Trainer,
+          trikots: trikotsList
+        })
+      }
 
       //Fill Gymnasium List
       for(let i = 0; i < data.vereine.data.attributes.Sporthallen.length; i++){

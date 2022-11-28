@@ -72,6 +72,28 @@
   }
 }
 
+.becomeASponsorWrapper {
+  background-color: #252931;
+  color: white;
+  @apply
+  flex flex-col justify-center items-center p-4;
+  .icon {
+    height: 40px;
+  }
+
+  .becomeSponsorCta {
+    margin-top: 10px;
+    border: 1px solid white;
+    padding: 5px;
+  }
+  .becomeSponsorCta:hover {
+    transition: 0.8s;
+    background-color: white;
+    color: #252931;
+    cursor: pointer;
+  }
+}
+
 .leagueFacts {
   @apply
   grid gap-2 px-2 mb-2 grid-cols-2

@@ -26,7 +26,11 @@
           <img [routerLink] = "['/sponsoren' ,sponsor.id]" src="{{sponsor.imageUrl}}" />
         </div>
       </div>
-
+    </div>
+    <div class="becomeASponsorWrapper" *ngIf="sponsors.length === 0">
+      <img class="icon" src="/assets/icons/sponsoring.png" />
+      <span>Sponsoring</span>
+      <span class="becomeSponsorCta">Hier informieren</span>
 
     </div>
   </div>

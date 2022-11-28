@@ -28,17 +28,45 @@
         </div>
       </div>
     </div>
+    <div class="generalFactsWrapper">
+      <div class="trainingTimeWrapper">
+        <div class="header">Trainingszeiten</div>
+        <div class="body">
+          <markdown *ngIf="trainingsTimes">
+            {{trainingsTimes}}
+          </markdown>
+        </div>
+        
+      </div>
+      <!--
+              <div class="trainingTimeWrapper">
+        <div class="header">Trainingszeiten</div>
+      </div>
+      <div class="trainingTimeWrapper">
+        <div class="header">Trainingszeiten</div>
+      </div>
+      <div class="trainingTimeWrapper">
+        <div class="header">Trainingszeiten</div>
+      </div>
+      -->
+
+    </div>
+    
+
   <div class="clubsDetailWrapper">
     <div class="teamGrid">
       <div *ngFor="let team of teamList; index as i">
         <app-team-card
-          [teamName]="team.Mannschaftsname"
-          [teamImageUrl]="team.Teambild.data.attributes.url"
-          [trainer]="team.Trainer"
-          [trikotsList]="team.Trikots.data"
+          [teamName]="team.name"
+          [teamImageUrl]="team.groupImage"
+          [trainer]="team.trainer"
+          [trikotsList]="team.trikots"
         ></app-team-card>
       </div>
     </div>
   </div>
+
+
+
 </div>
 

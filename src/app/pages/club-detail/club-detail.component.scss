@@ -63,6 +63,25 @@
   align-items: center;
 }
 
+.generalFactsWrapper {
+  @apply
+  grid grid-cols-2 gap-2 px-2 mt-2
+  lg:grid-cols-4 lg:px-10;
+}
+
+.trainingTimeWrapper {
+  .header {
+    background-color: #252931;
+    color:white;
+    padding:5px;
+  }
+  .body {
+    background-color: white;
+    padding:5px;
+  }
+  
+}
+
 .clubInfoCard {
   z-index: 2;
   margin-top: -40px;
@@ -87,12 +106,9 @@
 }
 
 .clubsDetailWrapper {
-  padding: 10px 50px 50px;
-  @include media-breakpoint-sm {
-    padding:50px 5px 5px;
-  }
-
-
+  @apply
+  px-2 mt-2
+  lg:px-10;
   .teamGrid {
     display: grid;
     gap:10px;

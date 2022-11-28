@@ -1,17 +1,18 @@
 <div class="teamCardWrapper">
   <div class="header">
     <h2>{{teamName}}</h2>
+
   </div>
-  <div class="body">
-    <img class="teamImage" src="{{env.strapiUrl + teamImageUrl}}" />
+  <div class="body" >
+    <img class="teamImage" src="{{teamImageUrl}}" *ngIf="teamImageUrl !== null"/>
     <p class="trainerItem">Trainer: <span>{{trainer}}</span></p>
-    <div class="trikotsWrapper">
+    <div class="trikotsWrapper" *ngIf="trikotsList?.length !== 0">
       <div class="headerTrikots">
         <p>Trikots</p>
       </div>
-      <div class="trikotGrid">
+      <div class="trikotGrid" >
         <div *ngFor="let trikot of trikotsList; index as i" >
-          <img class="trikotImage" src="{{env.strapiUrl + trikot.attributes.url}}" />
+          <img class="trikotImage" src="{{trikot.imageUrl}}" />
         </div>
       </div>
     </div>

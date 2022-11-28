@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { Trikot } from 'src/app/data-models/staffeln';
 import {environment} from "../../../environments/environment";
 
 @Component({
@@ -8,16 +9,21 @@ import {environment} from "../../../environments/environment";
 })
 export class TeamCardComponent implements OnInit {
   public env = environment;
+  expanded = false;
   @Input() teamName: string;
-  @Input() trainer: string;
-  @Input() teamImageUrl: string;
-  @Input() trikotsList: any;
+  @Input() trainer: string | undefined;
+  @Input() teamImageUrl: string | undefined;
+  @Input() trikotsList: Trikot[] | undefined;
 
 
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  expandItem(){
+    this.expanded = !this.expanded;
   }
 
 }

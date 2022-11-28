@@ -19,6 +19,7 @@ import { ButtonComponent } from './button/button.component';
 import { FeaturedArticleCardComponent } from './featured-article-card/featured-article-card.component';
 import { MapComponent } from './map/map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { MarkdownModule } from 'ngx-markdown';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
   imports: [
     CommonModule,
     RouterModule,
-    LeafletModule
+    LeafletModule,
+    MarkdownModule
   ],
   exports: [
     HeaderComponent,

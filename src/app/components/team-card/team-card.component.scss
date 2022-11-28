@@ -3,6 +3,10 @@
   border-radius: 2px;
   .header {
     background: #252931;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ 
     h2 {
       color: white;
       padding: 10px;
