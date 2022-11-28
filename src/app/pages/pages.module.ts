@@ -20,6 +20,7 @@ import { MatchDetailComponent } from './match-detail/match-detail.component';
 import {FormsModule} from "@angular/forms";
 import {RefereeModule} from "./referee/referee.module";
 import { NewsGridComponent } from './news-grid/news-grid.component';
+import { SponsoringComponent } from './sponsoring/sponsoring.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { NewsGridComponent } from './news-grid/news-grid.component';
         SponsorDetailComponent,
         MatchDetailComponent,
         NewsGridComponent,
+        SponsoringComponent,
     ],
     imports: [
         RefereeModule,

@@ -1,0 +1,48 @@
+.header-jumbotron {
+    height: 350px;
+    background-image: url('/assets/pages/sponsoring/header-image.jpg');
+    @apply 
+    text-white flex flex-col items-center justify-center px-2
+    lg:px-10;
+    p {
+        text-align: center;
+    }
+}
+
+.textBox {
+    @apply
+    px-2 mt-2 mb-2
+    lg:px-96;
+}
+
+.featuredReasonsGrid {
+    @apply
+    grid grid-cols-2 gap-2 mt-2 mb-2 px-2
+    lg:grid-cols-3 lg:px-96 lg:gap-10;
+}
+
+.factItem {
+    background-color: #252931;
+    @apply
+    text-white flex flex-col items-center justify-center text-center p-4;
+    img {
+        height: 30px;
+        margin-bottom: 10px;
+    }
+}
+
+.engagementWrapper {
+    @apply 
+    text-center mt-5 mb-5
+    lg:px-96;
+    .contactButton {
+        border: 1px solid #252931;
+        padding: 5px;
+    }
+    .contactButton:hover {
+        transition: 0.8s;
+        background-color: #252931;
+        color: white;
+        cursor: pointer;
+    }
+}

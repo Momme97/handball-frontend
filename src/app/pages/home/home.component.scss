@@ -49,6 +49,12 @@
     p-2 text-white;
     background: #252931;
   }
+  .footer {
+    background-color: white;
+    border-top: 1px solid #eaeaea;
+    @apply
+    p-2;
+  }
   .sponsorGrid {
     @apply
     grid grid-cols-2 gap-0
@@ -93,7 +99,10 @@
     cursor: pointer;
   }
 }
-
+.sponsoringLink:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
 .leagueFacts {
   @apply
   grid gap-2 px-2 mb-2 grid-cols-2

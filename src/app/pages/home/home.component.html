@@ -26,11 +26,15 @@
           <img [routerLink] = "['/sponsoren' ,sponsor.id]" src="{{sponsor.imageUrl}}" />
         </div>
       </div>
+      <div class="footer">
+        <a class="sponsoringLink" [routerLink] = "['/sponsoring']">Interesse an einem Sponsoring?</a>
+      </div>
+
     </div>
     <div class="becomeASponsorWrapper" *ngIf="sponsors.length === 0">
       <img class="icon" src="/assets/icons/sponsoring.png" />
       <span>Sponsoring</span>
-      <span class="becomeSponsorCta">Hier informieren</span>
+      <span class="becomeSponsorCta" [routerLink] = "['/sponsoring']">Hier informieren</span>
 
     </div>
   </div>
