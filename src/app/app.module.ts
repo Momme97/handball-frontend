@@ -12,7 +12,10 @@ import { MarkdownModule } from 'ngx-markdown';
 import {ResultsService} from "./pages/results/results.service";
 import { LeafletModule } from "@asymmetrik/ngx-leaflet";
 import { MapService } from './components/map/map.service';
-
+import { registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
+import localeDeExtra from '@angular/common/locales/extra/de';
+registerLocaleData(localeDe, 'de-DE', localeDeExtra);
 @NgModule({
   declarations: [
     AppComponent

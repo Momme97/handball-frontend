@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Apollo, gql } from 'apollo-angular';
 import {ActivatedRoute, Router} from "@angular/router";
-import moment from "moment/moment";
+import moment, { Moment } from "moment/moment";
 import {animate, style, transition, trigger} from "@angular/animations";
 import {environment} from "../../../environments/environment";
 @Component({
@@ -72,6 +72,16 @@ export class ArticleComponent implements OnInit {
                       }
                     }
                   }
+                }
+                ...on ComponentMatchContentMatchContent {
+                  Spielklasse,
+                  Spielort,
+                  Anwurfzeit
+                  Heimmannschaft,
+                  HeimLogo {data{attributes{url}}}
+                  Auswaertsmannschaft,
+                  Auswaertslogo {data{attributes{url}}},
+                  
                 }
 
 
@@ -233,6 +243,7 @@ export class ArticleComponent implements OnInit {
       query: ACTIVE_QUERY
     }).valueChanges.subscribe(({ data, loading }) => {
       if(this.articleCategory === 'general'){
+        console.log(data);
         this.articleObject = data.neuigkeitenImVerband.data.attributes;
         this.articleImageUrl = environment.strapiUrl + data.neuigkeitenImVerband.data.attributes.Artikelbild.data.attributes.url;
         this.articleDate =  moment(data.neuigkeitenImVerband.data.attributes.createdAt).lang("de").format('Do MMMM YYYY, hh:mm:ss');

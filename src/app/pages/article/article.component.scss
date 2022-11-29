@@ -56,3 +56,30 @@
   }
 
 }
+
+.matchItemWrapper {
+  border: 1px solid #d5d5d5;
+  @apply
+  flex flex-col justify-between p-1 items-center bg-white
+  lg:flex-row;
+
+  .teamWrapper {
+    @apply
+    flex;
+    .teamLogo {
+      height: 30px;
+      margin-right: 5px;;
+    }
+  }
+  .matchInfos {
+    @apply
+    flex flex-col items-center justify-center text-center p-3;
+    .gamePlace {
+      @apply
+      flex;
+      img {
+        height: 20px;
+      }
+    }
+  }
+}

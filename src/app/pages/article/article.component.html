@@ -16,6 +16,26 @@
           <img class="articleTextImage" src="{{env.strapiUrl + item.Bild.data.attributes.url}}" />
           <span class="imgDescription">{{item.Beschreibung}}</span>
         </div>
+        <div *ngIf="item.__typename === 'ComponentMatchContentMatchContent'" style="margin-bottom: 15px" class="matchItemWrapper">
+          <div class="teamWrapper">
+            <img class="teamLogo"[src]="env.strapiUrl + item.HeimLogo.data.attributes.url" />
+            <h2>{{item.Heimmannschaft}}</h2>
+          </div>
+          <div class="matchInfos">
+            <p style="font-weight: bold;">{{item.Spielklasse}}</p>
+            <div class="gamePlace">
+              <img src="/assets/icons/location.png" />
+              <p>{{item.Spielort}}</p>
+            </div>
+            <p>{{item.Anwurfzeit | date:'short':'+01:00':'de-DE'}}</p>
+           
+          </div>
+          <div class="teamWrapper">
+            <img class="teamLogo"[src]="env.strapiUrl + item.Auswaertslogo.data.attributes.url" />
+            <h2>{{item.Auswaertsmannschaft}}</h2>
+          </div>
+
+        </div>
       </div>
     </div>
 
