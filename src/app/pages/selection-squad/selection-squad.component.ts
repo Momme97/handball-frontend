@@ -6,6 +6,7 @@ import {animate, style, transition, trigger} from "@angular/animations";
 import {environment} from "../../../environments/environment";
 import { MixpanelService } from 'src/app/global-services/mixpanel.service';
 import { Router } from '@angular/router';
+import { QualifiedPerson } from 'src/app/data-models/qualified-person';
 const GET_POSTS = gql`
    query{
     newsAuswahlkaders {
@@ -27,36 +28,28 @@ const GET_POSTS = gql`
   }
 `;
 
-const GET_TEAMS = gql`
-   query{
-    auswahlkader {
-      data {
-        attributes {
-          Teams {
-            ...on ComponentMannschaftMannschaft {
-              Mannschaftsname,
-              Trainer,
-              Teambild {
-                data {
-                  attributes {
-                    url
-                  }
-                }
-              }
-              Trikots {
-                data {
-                  attributes {
-                    url
-                  }
-                }
-              }
-            }
+const GET_QUALIFIED_PERSONS = gql`
+query{
+  auswahlkader {
+    data {
+      attributes {
+        Ansprechpartner {
+          ...on ComponentPersonPerson {
+            Position,
+            Vorname,
+            Nachname,
+            Email,
+            Handynummer,
+            Profilbild{data{attributes{url}}}
           }
         }
       }
     }
   }
+}
 `;
+
+
 
 @Component({
   selector: 'app-selection-squad',
@@ -75,6 +68,8 @@ export class SelectionSquadComponent implements OnInit {
   private querySubscription: Subscription;
   posts: any = [];
   selectionSquadTeams: any;
+  qualifiedPersons: QualifiedPerson[] = [];
+
   constructor(
     private apollo: Apollo,
     private mixpanelService: MixpanelService,
@@ -111,11 +106,27 @@ export class SelectionSquadComponent implements OnInit {
     });
 
     this.querySubscription = this.apollo.watchQuery<any>({
-      query: GET_TEAMS
+      query: GET_QUALIFIED_PERSONS
     }).valueChanges.subscribe(({ data, loading }) => {
       this.selectionSquadTeams = data.auswahlkader.data.attributes.Teams;
-      console.log(this.selectionSquadTeams);
+      for(let i = 0; i < data.auswahlkader.data.attributes.Ansprechpartner.length; i++){
+        let profileImage: string | undefined;
+        if(data.auswahlkader.data.attributes.Ansprechpartner[i].Profilbild.data !== null){
+          profileImage = data.auswahlkader.data.attributes.Ansprechpartner[i].Profilbild?.data.attributes.url
+        }else if(data.auswahlkader.data.attributes.Ansprechpartner[i].Profilbild.data === null){
+          profileImage= undefined;
+        }
+        this.qualifiedPersons.push({
+          position: data.auswahlkader.data.attributes.Ansprechpartner[i].Position,
+          name: data.auswahlkader.data.attributes.Ansprechpartner[i].Vorname,
+          surname: data.auswahlkader.data.attributes.Ansprechpartner[i].Nachname,
+          email: data.auswahlkader.data.attributes.Ansprechpartner[i].Email,
+          mobile:data.auswahlkader.data.attributes.Ansprechpartner[i].Handynummer,
+          profilImage: profileImage
 
+        })
+      }
+      //this.qualifiedPersons = data.auswahlkader.data.attributes.Ansprechpartner;
     });
   }
 

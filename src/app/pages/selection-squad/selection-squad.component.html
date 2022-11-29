@@ -8,7 +8,22 @@
         [titel]="post.Titel"
       ></app-news-card>
     </div>
+  </div>
+  <div class="qualifiedPersonsGrid">
+    <div *ngFor="let item of qualifiedPersons; index as i">
 
+        <app-qualified-person-card
+        [titel]="item.position"
+        [imageUrl]="item.profilImage"
+        [name]="item.name"
+        [surname]="item.surname"
+        [email]="item.email"
+        [mobilePhone]="item.mobile"
+      >
+    </app-qualified-person-card>
+      
+    </div>
+    
 
   </div>
  <div class="teamGrid">
@@ -21,8 +36,6 @@
      >
      </app-team-card>
    </div>
-
-
  </div>
 
 </div>

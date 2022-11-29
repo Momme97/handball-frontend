@@ -51,14 +51,11 @@
     }
   }
 
-  /*
-  .playerGrid {
-    display: grid;
-    gap:10px;
-    grid-template-columns: 169px 169px 169px 169px 169px 169px;
-    //grid-template-columns: repeat(6, 1fr);
-
+  .qualifiedPersonsGrid {
+    @apply
+    grid gap-2 grid-cols-1
+    sm:grid-cols-2
+    md:grid-cols-4
+    lg:grid-cols-6;
   }
-  */
-
 }

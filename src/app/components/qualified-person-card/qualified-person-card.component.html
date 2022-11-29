@@ -1,18 +1,20 @@
 <div class="qualifiedPersonWrapper">
-  <div class="cardHeader">
+  <div class="cardHeader" *ngIf="titel">
     {{titel}}
   </div>
   <div class="cardBody">
-    <img class="profileImage" src="{{imageUrl}}" />
+    <img *ngIf="imageUrl === undefined" class="profileImage" src="/assets/icons/user.png" />
+    <img *ngIf="imageUrl !== undefined" class="profileImage" src="{{env.strapiUrl  + imageUrl}}" />
+
     <h2 class="personName">{{name}} {{surname}}</h2>
     <hr class="divider">
     <div class="contactArea">
       <div class="contactItem">
-        <img height="20" src="/assets/icons/mail.svg" />
+        <img *ngIf="email" height="20" src="/assets/icons/mail.svg" />
         <span>{{email}}</span>
       </div>
       <div class="contactItem">
-        <img height="20" src="/assets/icons/phone.svg" />
+        <img *ngIf="mobilePhone" height="20" src="/assets/icons/phone.svg" />
         <span>{{mobilePhone}}</span>
       </div>
 
