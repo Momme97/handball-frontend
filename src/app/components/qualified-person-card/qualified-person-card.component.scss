@@ -27,15 +27,20 @@
       margin: 0;
     }
     .contactArea {
+      width: 100%;
       padding:10px;
       .contactItem {
         padding-top: 10px;
         display: flex;
         align-items: center;
+        
+
         img {
           height: 20px;
         }
         span {
+          overflow: hidden;
+          white-space: nowrap;
           margin-left: 5px;
         }
       }
