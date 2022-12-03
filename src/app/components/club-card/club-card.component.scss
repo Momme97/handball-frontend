@@ -22,7 +22,13 @@
     background: #252931;
     color:white;
   }
-}
+  .clubInfos {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  }
+
 
 .clubCardWrapper:hover {
   justify-content: center;
