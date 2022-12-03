@@ -6,12 +6,15 @@
     background: #252931;
   }
   .body {
+    
     @apply 
     bg-white p-1;
+   
     .item {
       @apply 
       flex items-center m-1 p-2;
       background: #e6e6e6;
+      
       span {
         font-size: 12px;
       }
@@ -21,10 +24,19 @@
         margin-left: 10px;
 
       }
+      
     }
     .item:hover {
       cursor: pointer;
       text-decoration: underline;
     }
+    .infoIcon {
+      height: 20px;
+      margin-right: 5px;
+    }
+    .hinweisActive {
+      background: #cbce62;
+    }
   }
 }
+

@@ -11,7 +11,7 @@
         <li [class.boldText] = "currentRoute === '/jugend'"><a  (click)="routeChanged('/jugend')">Jugend</a></li>
         <li [class.boldText] = "currentRoute === '/auswahl-kader'"><a  (click)="routeChanged('/auswahl-kader')">Auswahlkader</a></li>
         <li [class.boldText] = "currentRoute === '/schiedsrichter'"><a  (click)="routeChanged('/schiedsrichter')">Schiedsrichter</a></li>
-        <li [class.boldText] = "currentRoute === '/trainer'"><a  (click)="routeChanged('/trainer')">Trainer</a></li>
+        <li [class.boldText] = "currentRoute === '/trainer'"><a  (click)="routeChanged('/spielbetrieb')">Spielbetrieb</a></li>
       </ul>
     </div>
     <img class="mobileNavIcon" src="/assets/icons/burger-icon.svg" (click)="mobileNavOpen = true" />
@@ -34,6 +34,6 @@
     <li (click)="routeChanged('/jugend')">Jugend</li>
     <li (click)="routeChanged('/auswahl-kader')">Auswahlkader</li>
     <li (click)="routeChanged('/schiedsrichter')">Schiedsrichter</li>
-    <li (click)="routeChanged('/trainer')">Trainer</li>
+    <li (click)="routeChanged('/spielbetrieb')">Spielbetrieb</li>
   </ul>
 </div>

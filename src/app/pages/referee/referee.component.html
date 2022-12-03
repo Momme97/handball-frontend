@@ -1,14 +1,4 @@
 <div class="refereeWrapper" @fadeIn>
-  <div class="newsGrid">
-    <div *ngFor="let post of posts; index as i">
-      <app-news-card
-        [routerLink] = "['/artikel','schiedsrichter' ,post.id]"
-        [imageUrl]="post.Artikelbild"
-        [dateString]="post.createdAt"
-        [titel]="post.Titel"
-      ></app-news-card>
-    </div>
-  </div>
   <div class="subpagesGrid">
     <div class="suppageWidget">
       <h2>Zentrale Grundausbildung</h2>
@@ -24,6 +14,16 @@
       <h2>Regelwerk</h2>
       <p>Viele aktuelle Informationen</p>
       <button [routerLink] = "['/schiedsrichter','regelwerk']">Mehr Informationen</button>
+    </div>
+  </div>
+  <div class="newsGrid">
+    <div *ngFor="let post of posts; index as i">
+      <app-news-card
+        [routerLink] = "['/artikel','schiedsrichter' ,post.id]"
+        [imageUrl]="post.Artikelbild"
+        [dateString]="post.createdAt"
+        [titel]="post.Titel"
+      ></app-news-card>
     </div>
   </div>
   <div class="qualifiedPersonGrid">

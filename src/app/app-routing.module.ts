@@ -36,7 +36,7 @@ const routes: Routes = [
       { path: 'vereine', component: ClubsComponent, title: 'Vereine | HG Region Förde' },
       { path: 'jugend', component: YouthComponent , title: 'Jugend | HG Region Förde'},
       { path: 'auswahl-kader', component: SelectionSquadComponent, title: 'Auswahlkader | HG Region Förde' },
-      { path: 'trainer', component: TrainerComponent, title: 'Trainer | HG Region Förde' },
+      { path: 'spielbetrieb', component: TrainerComponent, title: 'Trainer | HG Region Förde' },
       { path: 'news-grid/:newsCategory', component: NewsGridComponent, title: 'Nachrichten Übersicht | HG Region Förde' },
       { path: 'impressum', component: ImpressComponent, title: 'Impressum | HG Region Förde' }
     ]

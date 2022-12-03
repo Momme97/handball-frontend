@@ -185,9 +185,7 @@ export class HomeComponent implements OnInit {
     });
     this.querySubscription = this.apollo.watchQuery<any>({
       query: GET_NUMBERSANDFACTS
-    }).valueChanges.subscribe(({ data, loading }) => {
-      console.log(data);
-      
+    }).valueChanges.subscribe(({ data, loading }) => {      
       for(let i = 0; i < data.zahlenUndFakten.data.attributes.Items.length; i++) {
         this.numberAndFacts.push({
           title: data.zahlenUndFakten.data.attributes.Items[i].Titel,

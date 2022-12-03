@@ -10,7 +10,8 @@ const GET_APPOINTMENTS = gql`
       id
       attributes {
         Thema,
-        Datum
+        Datum,
+        Hinweis
       }
     }
   }
@@ -45,6 +46,7 @@ export class AppointmentWidgetComponent implements OnInit {
         if(appointMentDate.isBefore(currentDate) !== true){
           let appointmentItem = {
             id:  data.termines.data[i].id,
+            Hinweis: data.termines.data[i].attributes.Hinweis,
             Thema: data.termines.data[i].attributes.Thema,
             Datum: moment(data.termines.data[i].attributes.Datum).lang("de").format('Do MMMM YYYY, h:mm:ss'),
           }
