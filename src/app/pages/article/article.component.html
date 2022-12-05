@@ -1,15 +1,55 @@
+
 <div class="articleWrapper" @fadeIn>
   <div class="article">
     <img class="articleImage" src="{{articleImageUrl}}" />
     <div class="contentArea">
-      <span class="timestamp">{{articleDate}}</span>
+      <span class="timestamp"></span>
       <br>
-      <h1 class="articleTitle">{{articleObject.Titel}}</h1>
-      <span class="authorText"><img style="height:14px;" src="/assets/icon-person.png" />{{articleObject.Author}}</span>
-      <div  *ngFor="let item of articleObject.Contentarea; index as i">
+      <h1 class="articleTitle"></h1>
+      <span class="authorText"><img style="height:14px;" src="/assets/icon-person.png" /></span>
+      <div *ngFor="let item of contentItems; index as i">
+        <div *ngIf="item.itemtype === 'Richtextblock'">
+          <div *ngFor="let textItem of item.data.blocks; index as i">
+            <h2 style="margin-top: 5px;" *ngIf="textItem.type ==='header'">
+              {{textItem.data.text}}
+            </h2>
+            <p style="margin-top: 5px;" class="textStyles" *ngIf="textItem.type ==='paragraph'" [innerHtml]="textItem.data.text">
+            </p>
+            <div style="margin-top: 20px;" *ngIf="textItem.type ==='image'">
+              <img class="articleImage" [src]="env.strapiUrl + textItem.data.file.url" />
+              <span class="imgDescription">{{textItem.data.caption}}</span>
+            </div>
+          </div>
+
+        </div>
+        <div *ngIf="item.itemtype === 'MatchContent'" style="margin-bottom: 15px" class="matchItemWrapper">
+          <div class="teamWrapper">
+            <img class="teamLogo"[src]="env.strapiUrl + item.data.HeimLogo.data.attributes.url" />
+            <h2>{{item.data.Heimmannschaft}}</h2>
+          </div>
+          <div class="matchInfos">
+            <p style="font-weight: bold;">{{item.data.Spielklasse}}</p>
+            <div class="gamePlace">
+              <img src="/assets/icons/location.png" />
+              <p>{{item.data.Spielort}}</p>
+            </div>
+            <p>{{item.data.Anwurfzeit | date:'short':'+01:00':'de-DE'}}</p>
+           
+          </div>
+          <div class="teamWrapper">
+            <img class="teamLogo"[src]="env.strapiUrl + item.data.Auswaertslogo.data.attributes.url" />
+            <h2>{{item.data.Auswaertsmannschaft}}</h2>
+          </div>
+
+        </div>
+
+      </div>
+      <!--
+        <div  *ngFor="let item of articleObject.Contentarea; index as i">
         <div  *ngIf="item.__typename === 'ComponentRichtextblockRichTextBlock'">
+          {{item.Text}}
+
           <markdown>
-            {{item.Text}}
           </markdown>
         </div>
         <div *ngIf="item.__typename === 'ComponentArtikelbildArtikelbild'" style="margin-bottom: 15px">
@@ -37,9 +77,16 @@
 
         </div>
       </div>
+      -->
+      
+
+
+
     </div>
 
 
   </div>
 
 </div>
+
+

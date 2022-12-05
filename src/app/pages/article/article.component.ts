@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Apollo, gql } from 'apollo-angular';
 import {ActivatedRoute, Router} from "@angular/router";
@@ -8,6 +8,7 @@ import {environment} from "../../../environments/environment";
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./article.component.scss'],
   animations: [
     trigger('fadeIn', [
@@ -17,13 +18,16 @@ import {environment} from "../../../environments/environment";
       ])
     ])
   ]
+  
 })
 export class ArticleComponent implements OnInit {
   public env = environment;
   private currentArticleId: any;
   private articleCategory:any;
   public articleDate: any;
-  articleObject: any;
+  articleObject: any[] = [];
+  contentItems: any[] = [];
+
   articleImageUrl: string;
   private querySubscription: Subscription;
 
@@ -62,17 +66,6 @@ export class ArticleComponent implements OnInit {
                 ...on ComponentRichtextblockRichTextBlock{
                   Text
                 },
-
-                ...on ComponentArtikelbildArtikelbild{
-                  Beschreibung
-                  Bild{
-                    data{
-                      attributes {
-                        url
-                      }
-                    }
-                  }
-                }
                 ...on ComponentMatchContentMatchContent {
                   Spielklasse,
                   Spielort,
@@ -108,16 +101,6 @@ export class ArticleComponent implements OnInit {
                 }
               }
               Contentarea {
-                ...on ComponentArtikelbildArtikelbild {
-                  Beschreibung
-                  Bild {
-                    data {
-                      attributes {
-                        url
-                      }
-                    }
-                  }
-                }
                 ...on ComponentRichtextblockRichTextBlock {
                   Text
                 }
@@ -144,15 +127,6 @@ export class ArticleComponent implements OnInit {
               createdAt,
               Author,
               Contentarea {
-                ...on ComponentArtikelbildArtikelbild {
-                  Bild {
-                    data {
-                      attributes {
-                        url
-                      }
-                    }
-                  }
-                },
                 ...on ComponentRichtextblockRichTextBlock {
                   Text
                 }
@@ -180,16 +154,6 @@ export class ArticleComponent implements OnInit {
               Author,
               createdAt,
               Contentarea {
-                ...on ComponentArtikelbildArtikelbild {
-                        Beschreibung
-                        Bild {
-                          data {
-                            attributes {
-                              url
-                            }
-                          }
-                        }
-                      }
                 ...on ComponentRichtextblockRichTextBlock {
                   Text
                 }
@@ -217,16 +181,6 @@ export class ArticleComponent implements OnInit {
               Author,
               createdAt,
               Contentarea {
-                ...on ComponentArtikelbildArtikelbild {
-                        Beschreibung
-                        Bild {
-                          data {
-                            attributes {
-                              url
-                            }
-                          }
-                        }
-                      }
                 ...on ComponentRichtextblockRichTextBlock {
                   Text
                 }
@@ -243,7 +197,22 @@ export class ArticleComponent implements OnInit {
       query: ACTIVE_QUERY
     }).valueChanges.subscribe(({ data, loading }) => {
       if(this.articleCategory === 'general'){
-        console.log(data);
+
+        for(let i = 0; i < data.neuigkeitenImVerband.data.attributes.Contentarea.length; i++){
+          if(data.neuigkeitenImVerband.data.attributes.Contentarea[i].__typename === 'ComponentRichtextblockRichTextBlock'){
+            this.contentItems.push({
+              itemtype: 'Richtextblock',
+              data: JSON.parse(data.neuigkeitenImVerband.data.attributes.Contentarea[i].Text)
+            })
+          }else if(data.neuigkeitenImVerband.data.attributes.Contentarea[i].__typename === 'ComponentMatchContentMatchContent'){
+            this.contentItems.push({
+              itemtype: 'MatchContent',
+              data: data.neuigkeitenImVerband.data.attributes.Contentarea[i]
+            })
+          }
+        }
+        console.log(this.contentItems);
+
         this.articleObject = data.neuigkeitenImVerband.data.attributes;
         this.articleImageUrl = environment.strapiUrl + data.neuigkeitenImVerband.data.attributes.Artikelbild.data.attributes.url;
         this.articleDate =  moment(data.neuigkeitenImVerband.data.attributes.createdAt).lang("de").format('Do MMMM YYYY, hh:mm:ss');

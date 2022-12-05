@@ -1,21 +1,32 @@
 <div class="refereeWrapper" @fadeIn>
-  <div class="subpagesGrid">
-    <div class="suppageWidget">
-      <h2>Zentrale Grundausbildung</h2>
-      <p>Der Weg zum Schiedsrichter</p>
-      <button [routerLink] = "['/schiedsrichter','zentrale-grundausbildung']">Mehr Informationen</button>
+  <div class="mainSectionGrid">
+    <div class="subpagesGrid">
+      <div class="suppageWidget">
+        <h2>Zentrale Grundausbildung</h2>
+        <p>Der Weg zum Schiedsrichter</p>
+        <button [routerLink] = "['/schiedsrichter','zentrale-grundausbildung']">Mehr Informationen</button>
+      </div>
+      <div class="suppageWidget">
+        <h2>Fortbildungen</h2>
+        <p>Terminübersicht und weitere Informationen</p>
+        <button [routerLink] = "['/schiedsrichter','fortbildung']">Mehr Informationen</button>
+      </div>
+      <div class="suppageWidget">
+        <h2>Regelwerk</h2>
+        <p>Viele aktuelle Informationen</p>
+        <button [routerLink] = "['/schiedsrichter','regelwerk']">Mehr Informationen</button>
+      </div>
     </div>
-    <div class="suppageWidget">
-      <h2>Fortbildungen</h2>
-      <p>Terminübersicht und weitere Informationen</p>
-      <button [routerLink] = "['/schiedsrichter','fortbildung']">Mehr Informationen</button>
-    </div>
-    <div class="suppageWidget">
-      <h2>Regelwerk</h2>
-      <p>Viele aktuelle Informationen</p>
-      <button [routerLink] = "['/schiedsrichter','regelwerk']">Mehr Informationen</button>
+    <div class="contactItems">
+      <div class="header">
+        Ansprechpartner
+      </div>
+      <div class="body">
+        sdfjsdkf
+      </div>
     </div>
   </div>
+  
   <div class="newsGrid">
     <div *ngFor="let post of posts; index as i">
       <app-news-card

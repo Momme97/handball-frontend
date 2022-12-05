@@ -7,16 +7,22 @@
   ;
   .newsGrid {
     @apply
-    grid gap-2 mb-2 grid-cols-2
+    grid gap-2 mb-2 grid-cols-2 mt-2
     md:grid-cols-2
     lg:grid-cols-6
     ;
 
   }
 
-  .subpagesGrid {
+  .mainSectionGrid {
     @apply
     grid gap-2 grid-cols-2
+    lg:grid-cols-4
+  }
+
+  .subpagesGrid {
+    @apply
+    grid gap-2 grid-cols-2 col-span-3
     lg:grid-cols-3;
 
     .suppageWidget {
