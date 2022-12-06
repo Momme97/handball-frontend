@@ -70,6 +70,7 @@ export class RefereeComponent implements OnInit {
   private querySubscription: Subscription;
   posts: any = [];
   qualifiedPersonList: QualifiedPersons[] = [];
+  strapiUrl: string = environment.strapiUrl
   constructor(
     private apollo: Apollo,
     private mixpanelService: MixpanelService,
@@ -116,7 +117,7 @@ export class RefereeComponent implements OnInit {
           nachname: data.schiedsrichter.data.attributes.Ansprechpartner[i].Nachname,
           handynummer: data.schiedsrichter.data.attributes.Ansprechpartner[i].Handynummer,
           email: data.schiedsrichter.data.attributes.Ansprechpartner[i].Email,
-          profilbild: environment.strapiUrl + data.schiedsrichter.data.attributes.Ansprechpartner[i].Profilbild.data?.attributes.url
+          profilbild: data.schiedsrichter.data.attributes.Ansprechpartner[i].Profilbild.data?.attributes.url
         })
       }
       console.log(this.qualifiedPersonList)

@@ -24,8 +24,8 @@
       <div class="body">
         <div class="contactItem" *ngFor="let contact of qualifiedPersonList; index as i">
           <div class="profileImage" >
-            <img *ngIf="contact.profilbild === 'http://localhost:1337undefined'" src="assets/icons/user.png" />
-            <img *ngIf="contact.profilbild !== 'http://localhost:1337undefined'" [src]="contact.profilbild" />
+            <img *ngIf="!contact.profilbild" src="assets/icons/user.png" />
+            <img *ngIf="contact.profilbild" [src]="strapiUrl + contact.profilbild" />
 
           </div>
           <div class="textWrapper">
@@ -37,7 +37,6 @@
       </div>
     </div>
   </div>
-  
   <div class="newsGrid">
     <div *ngFor="let post of posts; index as i">
       <app-news-card
