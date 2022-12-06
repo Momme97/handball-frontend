@@ -16,14 +16,14 @@
 
   .mainSectionGrid {
     @apply
-    grid gap-2 grid-cols-2
+    grid grid-cols-1 gap-2
     lg:grid-cols-4
   }
 
   .subpagesGrid {
     @apply
-    grid gap-2 grid-cols-2 col-span-3
-    lg:grid-cols-3;
+    grid gap-2 grid-cols-2
+    lg:grid-cols-3 lg:col-span-3;
 
     .suppageWidget {
       background: #252931;
@@ -63,6 +63,38 @@
     @include media-breakpoint-sm {
       gap: 5px;
       grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .contactItems {
+    .header {
+      background: #252931;
+      color:white;
+      padding: 5px;
+    }
+    .body {
+      background:white;
+      padding:5px;
+    }
+
+    .contactItem {
+      @apply
+      grid grid-cols-4;
+      .profileImage {
+        @apply flex justify-center items-center;
+        img {
+          height: 40px;
+        }
+        
+      }
+      .textWrapper {
+        @apply
+        col-span-3;
+        .position {
+        font-weight: bold;
+      }
+      }
+      
     }
   }
 }

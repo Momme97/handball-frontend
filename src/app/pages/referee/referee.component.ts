@@ -116,9 +116,10 @@ export class RefereeComponent implements OnInit {
           nachname: data.schiedsrichter.data.attributes.Ansprechpartner[i].Nachname,
           handynummer: data.schiedsrichter.data.attributes.Ansprechpartner[i].Handynummer,
           email: data.schiedsrichter.data.attributes.Ansprechpartner[i].Email,
-          profilbild: environment.strapiUrl + data.schiedsrichter.data.attributes.Ansprechpartner[i].Profilbild.data.attributes.url
+          profilbild: environment.strapiUrl + data.schiedsrichter.data.attributes.Ansprechpartner[i].Profilbild.data?.attributes.url
         })
       }
+      console.log(this.qualifiedPersonList)
     });
   }
 

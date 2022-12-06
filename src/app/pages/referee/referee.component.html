@@ -22,7 +22,18 @@
         Ansprechpartner
       </div>
       <div class="body">
-        sdfjsdkf
+        <div class="contactItem" *ngFor="let contact of qualifiedPersonList; index as i">
+          <div class="profileImage" >
+            <img *ngIf="contact.profilbild === 'http://localhost:1337undefined'" src="assets/icons/user.png" />
+            <img *ngIf="contact.profilbild !== 'http://localhost:1337undefined'" [src]="contact.profilbild" />
+
+          </div>
+          <div class="textWrapper">
+            <p class="position">{{contact.position}}</p>
+          <p class="name">{{contact.vorname}} {{contact.nachname}}</p>
+          </div>
+        </div>
+        
       </div>
     </div>
   </div>
@@ -36,16 +47,5 @@
         [titel]="post.Titel"
       ></app-news-card>
     </div>
-  </div>
-  <div class="qualifiedPersonGrid">
-    <app-qualified-person-card
-      *ngFor="let person of qualifiedPersonList; index as i"
-      [titel]="person.position"
-      [name]="person.vorname"
-      [surname]="person.nachname"
-      [email]="person.email"
-      [imageUrl]="person.profilbild"
-      [mobilePhone]="person.handynummer"
-    ></app-qualified-person-card>
   </div>
 </div>
