@@ -3,8 +3,8 @@
     {{titel}}
   </div>
   <div class="cardBody">
-    <img *ngIf="imageUrl === undefined" class="profileImage" src="/assets/icons/user.png" />
-    <img *ngIf="imageUrl !== undefined" class="profileImage" src="{{env.strapiUrl  + imageUrl}}" />
+    <img *ngIf="imageUrl === undefined || imageUrl === null" class="profileImage" src="/assets/icons/user.png" />
+    <img *ngIf="imageUrl !== undefined && imageUrl !== null" class="profileImage" src="{{env.strapiUrl  + imageUrl}}" />
 
     <h2 class="personName">{{name}} {{surname}}</h2>
     <hr class="divider">

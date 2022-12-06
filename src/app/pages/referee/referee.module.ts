@@ -6,6 +6,7 @@ import {RouterModule} from "@angular/router";
 import { CentralBasicTrainingComponent } from './central-basic-training/central-basic-training.component';
 import { TrainingComponent } from './training/training.component';
 import { RulesComponent } from './rules/rules.component';
+import { ComitteeComponent } from './comittee/comittee.component';
 
 
 
@@ -15,6 +16,7 @@ import { RulesComponent } from './rules/rules.component';
     CentralBasicTrainingComponent,
     TrainingComponent,
     RulesComponent,
+    ComitteeComponent,
   ],
   imports: [
     CommonModule,

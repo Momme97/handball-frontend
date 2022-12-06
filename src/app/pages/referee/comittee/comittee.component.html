@@ -1,0 +1,14 @@
+<div class="comitteeWrapper">
+    <div *ngFor="let person of memberlist; index as i">
+        <app-qualified-person-card
+        [titel]="person.Position"
+        [name]="person.Vorname"
+        [surname]="person.Nachname"
+        [email]="person.Email"
+        [mobilePhone]="person.Handynummer"
+        [imageUrl]="person.Profilbild.data?.attributes.url"
+        >
+        </app-qualified-person-card>
+    </div>
+
+</div>

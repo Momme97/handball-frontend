@@ -1,0 +1,6 @@
+.comitteeWrapper {
+    @apply
+    grid gap-2 px-2 mt-2 mb-2
+    md:grid-cols-2
+    lg:grid-cols-4 lg:px-10;
+}

@@ -25,6 +25,7 @@ import {TrainingComponent} from "./pages/referee/training/training.component";
 import {RulesComponent} from "./pages/referee/rules/rules.component";
 import { NewsGridComponent } from './pages/news-grid/news-grid.component';
 import { SponsoringComponent } from './pages/sponsoring/sponsoring.component';
+import { ComitteeComponent } from './pages/referee/comittee/comittee.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,8 @@ const routes: Routes = [
       { path: '', component: RefereeComponent,title: 'Schiedsrichter | HG Region Förde' },
       { path: 'zentrale-grundausbildung', component: CentralBasicTrainingComponent,title: 'Zentrale Grundausbildung | HG Region Förde' },
       { path: 'fortbildung', component: TrainingComponent,title: 'Fortbildung | HG Region Förde' },
+      { path: 'ausschuss', component: ComitteeComponent,title: 'Schiedsrichteraussschuss | HG Region Förde' },
+
       { path: 'regelwerk', component: RulesComponent,title: 'Regelwerk | HG Region Förde' }
     ]
   },
