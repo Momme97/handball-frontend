@@ -7,6 +7,7 @@ import { CentralBasicTrainingComponent } from './central-basic-training/central-
 import { TrainingComponent } from './training/training.component';
 import { RulesComponent } from './rules/rules.component';
 import { ComitteeComponent } from './comittee/comittee.component';
+import { DownloadsComponent } from './downloads/downloads.component';
 
 
 
@@ -17,6 +18,7 @@ import { ComitteeComponent } from './comittee/comittee.component';
     TrainingComponent,
     RulesComponent,
     ComitteeComponent,
+    DownloadsComponent,
   ],
   imports: [
     CommonModule,

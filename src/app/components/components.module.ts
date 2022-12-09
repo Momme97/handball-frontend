@@ -20,6 +20,7 @@ import { FeaturedArticleCardComponent } from './featured-article-card/featured-a
 import { MapComponent } from './map/map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { MarkdownModule } from 'ngx-markdown';
+import { SubpageHeaderComponent } from './subpage-header/subpage-header.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { MarkdownModule } from 'ngx-markdown';
     SponsorHeaderComponent,
     ButtonComponent,
     FeaturedArticleCardComponent,
-    MapComponent
+    MapComponent,
+    SubpageHeaderComponent
   ],
   imports: [
     CommonModule,
@@ -65,7 +67,8 @@ import { MarkdownModule } from 'ngx-markdown';
     SponsorHeaderComponent,
     ButtonComponent,
     FeaturedArticleCardComponent,
-    MapComponent
+    MapComponent,
+    SubpageHeaderComponent
   ]
 })
 export class ComponentsModule { }

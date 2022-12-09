@@ -1,0 +1,14 @@
+<app-subpage-header [pageTitle]="'Downloads'"></app-subpage-header>
+<div class="downloadItemsGrid">
+    <div class="fileItem" *ngFor="let item of fileList; index as i">
+        <div class="header">
+            {{item.Filename}}
+        </div>
+        <div class="body">
+            <a [href]="item.File.data.attributes.url" download>
+                <button class="downloadButton">Hier herunterladen</button>
+            </a>
+        </div>
+    </div>
+
+</div>

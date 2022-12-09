@@ -1,0 +1,25 @@
+.downloadItemsGrid {
+    @apply
+    grid gap-2 px-2 mt-2 mb-2 auto-cols-max grid-flow-col
+    lg:px-10;
+}
+
+.fileItem {
+    .header {
+        background: #252931;
+        color:white;
+        padding: 5px;
+    }
+    .body {
+        background-color: white;
+        padding:5px;
+        .downloadButton {
+            border:1px solid #252931;
+            padding: 5px;
+        }
+        .downloadButton:hover {
+            border:1px solid #252931;
+            padding: 5px;
+        }
+    }
+}
