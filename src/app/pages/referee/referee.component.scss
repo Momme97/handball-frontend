@@ -80,7 +80,7 @@
 
     .contactItem {
       @apply
-      grid grid-cols-4 mb-2;
+      grid grid-cols-5 mb-2;
       .profileImage {
         @apply flex justify-center items-center;
         img {
@@ -90,7 +90,7 @@
       }
       .textWrapper {
         @apply
-        col-span-3;
+        col-span-4;
         .position {
         font-weight: bold;
       }
@@ -98,6 +98,11 @@
 
       .mailWrapper {
         @apply flex items-center;
+        a {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
         img {
           @apply mr-1;
           height: 15px;
