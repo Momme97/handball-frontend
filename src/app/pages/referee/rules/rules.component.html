@@ -1,3 +1,40 @@
+<app-subpage-header [pageTitle]="'Regelwerk'"></app-subpage-header>
+
 <div class="rulesWrapper">
-  <h1>Regeln</h1>
+  <div class="textAreaWrapper">
+    <app-editorjs-wrapper [jsonInput]="textareaData"></app-editorjs-wrapper>
+    <!--
+      <div *ngFor="let textItem of textareaData.blocks; index as i">
+      <p *ngIf="textItem.type === 'paragraph'" [innerHtml]="textItem.data.text">
+      </p>
+      <h2 *ngIf="textItem.type === 'header'">
+        {{textItem.data.text}}
+      </h2>
+      <ul class="listStyle" *ngIf="textItem.type === 'list'">
+        <li *ngFor="let item of textItem.data.items">
+          {{item}}
+        </li>
+      </ul>
+    </div>
+    -->
+    
+
+  </div>
+  <div class="contactItems">
+    <div class="header">
+      Ansprechpartner
+    </div>
+    <div class="body">
+      <div class="contactItem">
+        <div class="profileImage" >
+          <img  src="assets/icons/user.png" />
+        </div>
+        <div class="textWrapper">
+          <p class="position">ffdsfsd</p>
+        <p class="name">dfsfd</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 </div>

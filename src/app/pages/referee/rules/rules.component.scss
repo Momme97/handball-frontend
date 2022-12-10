@@ -1,10 +1,50 @@
 @import "../../../../variables.scss";
 
 .rulesWrapper {
-  padding: 20px 50px 10px;
-  @include media-breakpoint-sm {
-    padding-top: 25px;
-    padding-left: 5px;
-    padding-right: 5px;
+  @apply
+  grid gap-2 mt-2 mb-2 px-2
+  lg:grid-cols-4 lg:px-10;
+  
+}
+
+.textAreaWrapper {
+  @apply
+  col-span-3;
+}
+
+.contactItems {
+   .header {
+    background: #252931;
+    color:white;
+    padding: 5px;
   }
+  .body {
+    background:white;
+    padding:5px;
+  }
+
+  .contactItem {
+    @apply
+    grid grid-cols-4;
+    .profileImage {
+      @apply flex justify-center items-center;
+      img {
+        height: 40px;
+      }
+      
+    }
+    .textWrapper {
+      @apply
+      col-span-3;
+      .position {
+      font-weight: bold;
+    }
+    }
+    
+  }
+}
+
+.listStyle {
+  list-style: disc;
+  padding-left: 15px;
 }
