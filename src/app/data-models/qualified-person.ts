@@ -4,6 +4,6 @@ export interface QualifiedPerson {
     surname: string   | undefined;
     email: string   | undefined;
     mobile: string   | undefined;
-    profilImage: string   | undefined | null;
+    profilImage: string  | undefined | null;
 }
   

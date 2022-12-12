@@ -6,7 +6,8 @@
       <div  *ngFor="let contact of qualifiedPersonList; index as i">
         <div class="contactItem">
           <div class="profileImage" >
-          <img  src="assets/icons/user.png" />
+            <img *ngIf="contact.profilImage"  [src]="strapiUrl + contact.profilImage" />
+            <img *ngIf="!contact.profilImage"  src="assets/icons/user.png" />
         </div>
         <div class="textWrapper">
           <p class="position">{{contact.position}}</p>
