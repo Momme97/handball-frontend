@@ -8,7 +8,9 @@
 }
 
 .textBlock {
-  @apply col-span-4;
+  @apply 
+  col-span-1
+  lg:col-span-4;
 }
 
 .sidebar {
