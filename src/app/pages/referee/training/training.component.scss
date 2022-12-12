@@ -1,10 +1,18 @@
 @import "../../../../variables.scss";
 
-.trainingWrapper {
-  padding: 20px 50px 10px;
-  @include media-breakpoint-sm {
-    padding-top: 25px;
-    padding-left: 5px;
-    padding-right: 5px;
-  }
+.wrapper {
+  @apply 
+  grid grid-cols-5 gap-2 px-2 mt-2 mb-2
+  lg:px-10;
+}
+
+.content {
+  @apply 
+  col-span-1
+  lg:col-span-4;
+}
+
+.sidebar {
+  @apply
+  grid gap-2;
 }
