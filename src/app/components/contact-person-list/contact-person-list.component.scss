@@ -1,0 +1,50 @@
+.contactItems {
+    .header {
+      background: #252931;
+      color:white;
+      padding: 5px;
+    }
+    .body {
+      background:white;
+      padding:5px;
+    }
+
+    .contactItem {
+      @apply
+      grid grid-cols-5 mb-2;
+      .profileImage {
+        @apply flex justify-center items-center;
+        img {
+          height: 40px;
+        }
+        
+      }
+      .textWrapper {
+        @apply
+        col-span-4;
+        .position {
+        font-weight: bold;
+      }
+      }
+
+      .mailWrapper {
+        @apply flex items-center;
+        a {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        img {
+          @apply mr-1;
+          height: 15px;
+        }
+        span {
+          font-size: 12px;
+        }
+      }
+      .mailWrapper:hover {
+       text-decoration: underline;
+      }
+      
+    }
+}

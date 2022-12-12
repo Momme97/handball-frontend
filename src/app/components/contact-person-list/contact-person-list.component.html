@@ -1,0 +1,28 @@
+<div class="contactItems">
+    <div class="header">
+      Ansprechpartner
+    </div>
+    <div class="body">
+      <div  *ngFor="let contact of qualifiedPersonList; index as i">
+        <div class="contactItem">
+          <div class="profileImage" >
+          <img  src="assets/icons/user.png" />
+        </div>
+        <div class="textWrapper">
+          <p class="position">{{contact.position}}</p>
+        <p class="name">{{contact.name}} {{contact.surname}}</p>
+        <div class="mailWrapper">
+          <img src="assets/icons/mail.png" />
+          <a href="mailto:{{contact.email}}"> 
+          <span>{{contact.email}}</span>
+          </a>
+          
+        </div>
+        </div>
+        </div>
+        
+        <hr>
+      </div>
+      
+    </div>
+  </div>

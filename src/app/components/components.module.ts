@@ -22,6 +22,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { MarkdownModule } from 'ngx-markdown';
 import { SubpageHeaderComponent } from './subpage-header/subpage-header.component';
 import { EditorjsWrapperComponent } from './editorjs-wrapper/editorjs-wrapper.component';
+import { ContactPersonListComponent } from './contact-person-list/contact-person-list.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { EditorjsWrapperComponent } from './editorjs-wrapper/editorjs-wrapper.co
     FeaturedArticleCardComponent,
     MapComponent,
     SubpageHeaderComponent,
-    EditorjsWrapperComponent
+    EditorjsWrapperComponent,
+    ContactPersonListComponent
   ],
   imports: [
     CommonModule,
@@ -71,7 +73,8 @@ import { EditorjsWrapperComponent } from './editorjs-wrapper/editorjs-wrapper.co
     FeaturedArticleCardComponent,
     MapComponent,
     SubpageHeaderComponent,
-    EditorjsWrapperComponent
+    EditorjsWrapperComponent,
+    ContactPersonListComponent
   ]
 })
 export class ComponentsModule { }

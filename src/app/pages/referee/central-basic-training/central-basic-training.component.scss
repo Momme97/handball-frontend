@@ -1,10 +1,27 @@
 @import "../../../../variables.scss";
 
-.centralBasicTrainingWrapper {
-  padding: 20px 50px 10px;
-  @include media-breakpoint-sm {
-    padding-top: 25px;
-    padding-left: 5px;
-    padding-right: 5px;
+.wrapper {
+  @apply
+  grid grid-cols-1 gap-2 mt-2 mb-2 px-2
+  md:grid-cols-1
+  lg:px-10 lg:grid-cols-5;
+}
+
+.textBlock {
+  @apply col-span-4;
+}
+
+.sidebar {
+  @apply grid gap-2;
+}
+.sidebarItem {
+  .header {
+    background: #252931;
+    color:white;
+    padding: 5px;
+  }
+  .body {
+    padding:5px;
+    background: white;
   }
 }
