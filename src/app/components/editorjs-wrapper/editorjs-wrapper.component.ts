@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
 import { EditorJsContentBlock } from 'src/app/data-models/editorJsBlock';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-editorjs-wrapper',
@@ -8,7 +9,8 @@ import { EditorJsContentBlock } from 'src/app/data-models/editorJsBlock';
 })
 export class EditorjsWrapperComponent implements OnChanges {
   @Input() jsonInput: any;
-  contentItems: EditorJsContentBlock [] = [];
+  contentItems: any [] = [];
+  strapiUrl: string = environment.strapiUrl
 
   constructor() { }
 
@@ -33,11 +35,19 @@ export class EditorjsWrapperComponent implements OnChanges {
   buildContentData(data: any, type: string){
     if(type === 'paragraph' || type === 'header'){
       return data.text;
+    } 
+    else if(type === 'table') {
+      return data
     }
-    console.log(type);
-
-    console.log(data);
-    return undefined;
+    else if(type === 'list') {
+      return data.items
+    }
+    else if(type === 'image') {
+      return data
+    }
+    else if(type === 'warning') {
+      return data
+    }
   }
 
 }

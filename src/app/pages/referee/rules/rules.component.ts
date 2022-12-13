@@ -59,7 +59,8 @@ export class RulesComponent implements OnInit {
           surname: person.Nachname,
           email: person.Email,
           mobile: person.Handynummer,
-          profilImage: person.Profilbild.data?.attributes.url        })
+          profilImage: person.Profilbild.data?.attributes.url        
+        })
       })
       this.textareaData = JSON.parse(data.schiedsrichterRegelwerk.data.attributes.Textbereich);
     });

@@ -7,6 +7,7 @@ query{
   schiedsrichterZentraleGrundausbildung {
     data {
       attributes {
+        Textbereich
         Ansprechpartner{
           ...on ComponentPersonPerson {
             Vorname,
@@ -34,6 +35,7 @@ query{
 export class CentralBasicTrainingComponent implements OnInit {
   private querySubscription: Subscription;
   public AnsprechpartnerListe: QualifiedPerson[] = [];
+  textblockJson: any;
   constructor(
     private apollo: Apollo,
   ) { }
@@ -42,7 +44,7 @@ export class CentralBasicTrainingComponent implements OnInit {
     this.querySubscription = this.apollo.watchQuery<any>({
       query: GET_ANSPRECHPARTNER
     }).valueChanges.subscribe(({ data, loading }) => {
-      
+      this.textblockJson = JSON.parse(data.schiedsrichterZentraleGrundausbildung.data.attributes.Textbereich);
       data.schiedsrichterZentraleGrundausbildung.data.attributes.Ansprechpartner.forEach(person => {
         this.AnsprechpartnerListe.push({
           position: person.position,
