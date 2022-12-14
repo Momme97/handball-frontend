@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Apollo, gql } from 'apollo-angular';
+import { environment } from 'src/environments/environment';
 
 const GET_DOWNLOAD_ITEMS = gql `
   query{
@@ -32,6 +33,7 @@ const GET_DOWNLOAD_ITEMS = gql `
 export class DownloadsComponent implements OnInit {
   private querySubscription: Subscription;
   fileList: any[] = [];
+  strapiUrl: string = environment.strapiUrl
 
   constructor(
     private apollo: Apollo,

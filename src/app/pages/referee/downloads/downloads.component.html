@@ -5,7 +5,7 @@
             {{item.Filename}}
         </div>
         <div class="body">
-            <a [href]="item.File.data.attributes.url" download>
+            <a [href]="strapiUrl + item.File.data.attributes.url" download>
                 <button class="downloadButton">Hier herunterladen</button>
             </a>
         </div>
