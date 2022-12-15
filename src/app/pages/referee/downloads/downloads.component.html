@@ -1,4 +1,5 @@
 <app-subpage-header [pageTitle]="'Downloads'"></app-subpage-header>
+<!--
 <div class="downloadItemsGrid">
     <div class="fileItem" *ngFor="let item of fileList; index as i">
         <div class="header">
@@ -10,5 +11,9 @@
             </a>
         </div>
     </div>
-
+    <div>TEST JIRA BRANCH</div>
+</div>
+-->
+<div class="refereeDownloadsWrapper">
+    <app-downloads-wrapper [fileList]="fileList"></app-downloads-wrapper>
 </div>

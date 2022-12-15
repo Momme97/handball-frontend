@@ -23,6 +23,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { SubpageHeaderComponent } from './subpage-header/subpage-header.component';
 import { EditorjsWrapperComponent } from './editorjs-wrapper/editorjs-wrapper.component';
 import { ContactPersonListComponent } from './contact-person-list/contact-person-list.component';
+import { DownloadsWrapperComponent } from './downloads-wrapper/downloads-wrapper.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { ContactPersonListComponent } from './contact-person-list/contact-person
     MapComponent,
     SubpageHeaderComponent,
     EditorjsWrapperComponent,
-    ContactPersonListComponent
+    ContactPersonListComponent,
+    DownloadsWrapperComponent
   ],
   imports: [
     CommonModule,
@@ -74,7 +76,8 @@ import { ContactPersonListComponent } from './contact-person-list/contact-person
     MapComponent,
     SubpageHeaderComponent,
     EditorjsWrapperComponent,
-    ContactPersonListComponent
+    ContactPersonListComponent,
+    DownloadsWrapperComponent
   ]
 })
 export class ComponentsModule { }
