@@ -4,6 +4,12 @@
     lg:px-10;
 }
 
+.refereeDownloadsWrapper {
+    @apply
+    px-2 mt-2 mb-2
+    lg:px-10;
+}
+
 .fileItem {
     .header {
         background: #252931;

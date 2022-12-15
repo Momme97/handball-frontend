@@ -1,0 +1,37 @@
+.downloadWrapperGrid {
+    @apply
+    grid gap-2 grid-cols-1
+    lg:grid-cols-4;
+}
+
+a {
+    width: 100%;
+    overflow: hidden;
+}
+.fileItem {
+    @apply
+    flex justify-between;
+    background: white;
+    padding: 10px;
+    height: 100%;
+    overflow: hidden;
+
+    p {
+        width: 100%;
+
+        overflow: hidden;
+    }
+    .icon {
+        @apply
+        mr-2;
+        height: 20px;
+    }
+    .header {
+        overflow-wrap: break-word;
+    }
+}
+.fileItem:hover {
+    transition: 0.8s;
+    @apply
+    shadow-lg font-bold;
+}

@@ -1,0 +1,10 @@
+<div class="downloadWrapperGrid">
+    <a  *ngFor="let item of fileList; index as i" [href]="strapiUrl + item.File.data.attributes.url" download>
+        <div class="fileItem">
+            <img class="icon" src="assets/icons/document.png" />
+            <p>{{item.Filename}}</p>
+           
+        </div>
+    </a>
+    
+</div>
