@@ -3,10 +3,10 @@
   <div class="article">
     <img class="articleImage" src="{{articleImageUrl}}" />
     <div class="contentArea">
-      <span class="timestamp"></span>
+      <span class="timestamp">{{this.articleObject.createdAt | date:'short':'IST'}}</span>
       <br>
-      <h1 class="articleTitle"></h1>
-      <span class="authorText"><img style="height:14px;" src="/assets/icon-person.png" /></span>
+      <h1 class="articleTitle">{{this.articleObject.Titel}}</h1>
+      <span class="authorText"><img style="height:14px;" src="/assets/icon-person.png" />{{this.articleObject.Author}}</span>
       <div *ngFor="let item of contentItems; index as i">
         <div *ngIf="item.itemtype === 'Richtextblock'">
           <div *ngFor="let textItem of item.data.blocks; index as i">
