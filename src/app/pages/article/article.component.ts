@@ -25,7 +25,7 @@ export class ArticleComponent implements OnInit {
   private currentArticleId: any;
   private articleCategory:any;
   public articleDate: any;
-  articleObject: any[] = [];
+  articleObject: any;
   contentItems: any[] = [];
 
   articleImageUrl: string;
@@ -211,9 +211,9 @@ export class ArticleComponent implements OnInit {
             })
           }
         }
-        console.log(this.contentItems);
 
         this.articleObject = data.neuigkeitenImVerband.data.attributes;
+        console.log(this.articleObject)
         this.articleImageUrl = environment.strapiUrl + data.neuigkeitenImVerband.data.attributes.Artikelbild.data.attributes.url;
         this.articleDate =  moment(data.neuigkeitenImVerband.data.attributes.createdAt).lang("de").format('Do MMMM YYYY, hh:mm:ss');
       }else if(this.articleCategory === 'jugend') {
