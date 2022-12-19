@@ -8,8 +8,14 @@
 
 .content {
   @apply 
-  col-span-1
+  col-span-1 flex justify-center bg-white
   lg:col-span-4;
+}
+.phoenixFrame {
+  width: 100%;
+  min-height: 1000px;
+  @apply 
+  lg:pl-[15px] lg:pt-[15px];
 }
 
 .sidebar {
