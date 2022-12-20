@@ -7,10 +7,10 @@
     <app-contact-person-list [qualifiedPersonList]="AnsprechpartnerListe"></app-contact-person-list>
     <div class="sidebarItem">
       <div class="header">
-        Das solltest du mitbringen
+        Das bekommst du
       </div>
       <div class="body">
-        fdsfsdfd
+        <app-editorjs-wrapper [jsonInput]="whatYouWillGetJson"></app-editorjs-wrapper>
       </div>
     </div>
     <div class="sidebarItem">
@@ -18,15 +18,7 @@
         Das solltest du mitbringen
       </div>
       <div class="body">
-        fdsfsdfd
-      </div>
-    </div>
-    <div class="sidebarItem">
-      <div class="header">
-        Das solltest du mitbringen
-      </div>
-      <div class="body">
-        fdsfsdfd
+        <app-editorjs-wrapper [jsonInput]="whatYouWillNeedJson"></app-editorjs-wrapper>
       </div>
     </div>
   </div>

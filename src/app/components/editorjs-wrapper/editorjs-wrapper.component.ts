@@ -25,9 +25,6 @@ export class EditorjsWrapperComponent implements OnChanges {
           data: this.buildContentData(this.jsonInput.blocks[i].data, this.jsonInput.blocks[i].type)
         });
       }
-      console.log(this.jsonInput.blocks);
-      console.log(this.contentItems);
-
     }
 
   }

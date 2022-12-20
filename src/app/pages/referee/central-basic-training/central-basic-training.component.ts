@@ -7,7 +7,9 @@ query{
   schiedsrichterZentraleGrundausbildung {
     data {
       attributes {
-        Textbereich
+        Textbereich,
+        DasBekommstDu,
+        DasSolltestDuMitbringen,
         Ansprechpartner{
           ...on ComponentPersonPerson {
             Vorname,
@@ -36,6 +38,8 @@ export class CentralBasicTrainingComponent implements OnInit {
   private querySubscription: Subscription;
   public AnsprechpartnerListe: QualifiedPerson[] = [];
   textblockJson: any;
+  whatYouWillGetJson: any;
+  whatYouWillNeedJson: any;
   constructor(
     private apollo: Apollo,
   ) { }
@@ -45,6 +49,9 @@ export class CentralBasicTrainingComponent implements OnInit {
       query: GET_ANSPRECHPARTNER
     }).valueChanges.subscribe(({ data, loading }) => {
       this.textblockJson = JSON.parse(data.schiedsrichterZentraleGrundausbildung.data.attributes.Textbereich);
+      this.whatYouWillGetJson = JSON.parse(data.schiedsrichterZentraleGrundausbildung.data.attributes.DasBekommstDu);
+      this.whatYouWillNeedJson = JSON.parse(data.schiedsrichterZentraleGrundausbildung.data.attributes.DasSolltestDuMitbringen);
+
       data.schiedsrichterZentraleGrundausbildung.data.attributes.Ansprechpartner.forEach(person => {
         this.AnsprechpartnerListe.push({
           position: person.position,
@@ -55,7 +62,6 @@ export class CentralBasicTrainingComponent implements OnInit {
           profilImage: person.Profilbild.data?.attributes.url
         })
       });
-
     });
 
   }
