@@ -1,6 +1,6 @@
 <div *ngFor="let block of contentItems; index as i">
     <h2 *ngIf="block.type === 'header'">{{block.data}}</h2>
-    <p *ngIf="block.type === 'paragraph'">{{block.data}}</p>
+    <div *ngIf="block.type === 'paragraph'" [innerHtml]="block.data"></div>
     <table class="table" *ngIf="block.type === 'table'">
     <tbody>
         <tr *ngFor="let row of block.data.content">
@@ -9,7 +9,7 @@
     </tbody>
     </table>
     <ol class="listItem" *ngIf="block.type === 'list'">
-        <li *ngFor="let item of block.data">{{item}}</li>
+        <li *ngFor="let item of block.data" [innerHtml]="item"></li>
     </ol>
     <img *ngIf="block.type === 'image'" [src]="strapiUrl +block.data.file.url" />
 </div>
