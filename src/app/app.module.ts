@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgxGoogleAnalyticsModule } from 'ngx-google-analytics';
+import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {ComponentsModule} from "./components/components.module";
@@ -30,7 +30,8 @@ registerLocaleData(localeDe, 'de-DE', localeDeExtra);
     CommonModule,
     MarkdownModule.forRoot(),
     LeafletModule,
-    NgxGoogleAnalyticsModule.forRoot('G-KFCJMMPKKS')
+    NgxGoogleAnalyticsModule.forRoot('G-KFCJMMPKKS'),
+    NgxGoogleAnalyticsRouterModule.forRoot()
   ],
   providers: [ResultsService, MapService],
   bootstrap: [AppComponent]
