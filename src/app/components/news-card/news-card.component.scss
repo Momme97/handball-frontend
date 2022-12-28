@@ -1,7 +1,16 @@
 .newsCard {
   height: 100%;
+  position: relative;
   @apply
   bg-white;
+  .categoryStripe {
+    position: absolute;
+    background: rgba(94, 39, 39, 0.87);
+    min-width: 50%;
+    top: 15px;
+    padding: 5px;
+    color: white;
+  }
   .articleImage {
     @apply 
     h-32

@@ -19,6 +19,8 @@ export class QualifiedPersonCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
+
 
 }

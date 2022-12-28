@@ -1,5 +1,6 @@
 <div class="wrapper" [style.background-image]="'url(' + imageUrl + ')'">
   <div class="content">
+    <div class="categoryStripe">{{displayCategory}}</div>
     <h1 class="cardTitle">{{title}}</h1>
     <p class="shortText">{{shortText}}</p>
     <app-button [buttonTitle]='ctaText' [buttonStyle]="'clear'" (click)="ctaClicked()"></app-button>

@@ -3,10 +3,11 @@
 <div class="newsArea">
     <div *ngFor="let post of posts; index as i">
         <app-news-card
-          [routerLink] = "['/artikel','general' ,post.id]"
+          [routerLink] = "['/artikel', post.type ,post.id]"
           [imageUrl]="post.Artikelbild"
           [dateString]="post.createdAt"
           [titel]="post.Titel"
+          [type]="post.type"
         ></app-news-card>
     </div>
   </div>
