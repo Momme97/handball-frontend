@@ -13,6 +13,8 @@ export class ContactPersonListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+    
   }
 
 }

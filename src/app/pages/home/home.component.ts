@@ -9,7 +9,7 @@ import {MixpanelService} from "../../global-services/mixpanel.service";
 import { NumberAndFacts } from 'src/app/data-models/number-and-facts';
 import { Staffel, Team } from 'src/app/data-models/staffeln';
 
-const GET_POSTS = gql`
+const GET_GENERAL_POSTS = gql`
   query{
   neuigkeitenImVerbands{
     data{
@@ -29,6 +29,69 @@ const GET_POSTS = gql`
     }
   }
 }
+`;
+const GET_YOUTH_POSTS = gql`
+   query{
+    newsJugends {
+      data {
+        id
+        attributes {
+          Titel,
+          Author,
+          Artikelbild {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          createdAt
+        }
+      }
+    }
+  }
+`;
+const GET_SELECTION_SQUAD_POSTS = gql`
+   query{
+    newsAuswahlkaders {
+      data {
+        id,
+        attributes {
+          Titel,
+          Artikelbild {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          createdAt
+        }
+      }
+    }
+  }
+`;
+
+const GET_REFEREE_POSTS = gql`
+   query{
+    newsSchiedsrichters {
+      data {
+        id,
+        attributes {
+          Titel,
+          Artikelbild {
+            data {
+              attributes {
+                url
+              }
+            }
+          },
+          Author,
+          createdAt
+        }
+      }
+    }
+  }
 `;
 const GET_SPONSORS = gql`
   query{
@@ -144,35 +207,85 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    /* --------------------------------------------
-      Track page visted with mixpanel service
-    -------------------------------------------- */
-    this.mixpanelService.init();
-    this.mixpanelService.track('Pagevisited',{
-      location: this.router.url
-    })
 
     this.querySubscription = this.apollo.watchQuery<any>({
-      query: GET_POSTS
+      query: GET_GENERAL_POSTS
     }).valueChanges.subscribe(({ data, loading }) => {
         for(let i = 0; i < data.neuigkeitenImVerbands.data.length; i++){
           let postItem = {
             id: data.neuigkeitenImVerbands.data[i].id,
+            type: "general",
             Titel: data.neuigkeitenImVerbands.data[i].attributes.Titel,
             Kurzbeschreibung: data.neuigkeitenImVerbands.data[i].attributes.Kurzbeschreibung,
             Artikelbild: environment.strapiUrl + data.neuigkeitenImVerbands.data[i].attributes.Artikelbild.data.attributes.url,
-            createdAt: moment(data.neuigkeitenImVerbands.data[i].attributes.createdAt).lang("de").format('Do MMMM YYYY, hh:mm:ss')
+            createdAt: data.neuigkeitenImVerbands.data[i].attributes.createdAt
           }
           this.posts.push(
             postItem
           );
 
         }
-    this.posts.reverse();
-    if(data.neuigkeitenImVerbands.data.length > 6){
-      this.posts.length = 6;
-    }
     });
+    this.querySubscription = this.apollo.watchQuery<any>({
+      query: GET_YOUTH_POSTS
+    }).valueChanges.subscribe(({ data, loading }) => {
+        for(let i = 0; i < data.newsJugends.data.length; i++){
+          console.log(data.newsJugends);
+
+          let postItem = {
+            id: data.newsJugends.data[i].id,
+            type: "jugend",
+            Titel: data.newsJugends.data[i].attributes.Titel,
+            Kurzbeschreibung: data.newsJugends.data[i].attributes.Kurzbeschreibung,
+            Artikelbild: environment.strapiUrl + data.newsJugends.data[i].attributes.Artikelbild.data.attributes.url,
+            createdAt: data.newsJugends.data[i].attributes.createdAt
+          }
+          this.posts.push(
+            postItem
+          );
+
+        }
+    });
+    this.querySubscription = this.apollo.watchQuery<any>({
+      query: GET_SELECTION_SQUAD_POSTS
+    }).valueChanges.subscribe(({ data, loading }) => {
+        for(let i = 0; i < data.newsAuswahlkaders.data.length; i++){
+          let postItem = {
+            id: data.newsAuswahlkaders.data[i].id,
+            type: "auswahlkader",
+            Titel: data.newsAuswahlkaders.data[i].attributes.Titel,
+            Kurzbeschreibung: data.newsAuswahlkaders.data[i].attributes.Kurzbeschreibung,
+            Artikelbild: environment.strapiUrl + data.newsAuswahlkaders.data[i].attributes.Artikelbild.data.attributes.url,
+            createdAt: data.newsAuswahlkaders.data[i].attributes.createdAt
+          }
+          this.posts.push(
+            postItem
+          );
+
+        }
+    });
+    this.querySubscription = this.apollo.watchQuery<any>({
+      query: GET_REFEREE_POSTS
+    }).valueChanges.subscribe(({ data, loading }) => {
+        for(let i = 0; i < data.newsSchiedsrichters.data.length; i++){
+          let postItem = {
+            id: data.newsSchiedsrichters.data[i].id,
+            type: "schiedsrichter",
+            Titel: data.newsSchiedsrichters.data[i].attributes.Titel,
+            Kurzbeschreibung: data.newsSchiedsrichters.data[i].attributes.Kurzbeschreibung,
+            Artikelbild: environment.strapiUrl + data.newsSchiedsrichters.data[i].attributes.Artikelbild.data.attributes.url,
+            createdAt: data.newsSchiedsrichters.data[i].attributes.createdAt
+          }
+          this.posts.push(
+            postItem
+          );
+        //sort post by date desc
+        const newArr = this.posts.sort((a, b) => {
+          return moment(b.createdAt).diff(a.createdAt);
+        });
+        }
+    });
+    
     this.querySubscription = this.apollo.watchQuery<any>({
       query: GET_SPONSORS
     }).valueChanges.subscribe(({ data, loading }) => {
