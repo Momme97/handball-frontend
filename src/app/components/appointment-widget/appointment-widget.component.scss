@@ -40,3 +40,18 @@
   }
 }
 
+.archivButtonWrapper {
+  @apply 
+  flex justify-end p-1;
+  button {
+    border: 1px solid #252931;
+    font-size: 12px;
+    padding:5px;
+  }
+  button:hover {
+    transition: 0.8s;
+    background: #252931;
+    color:white;
+  }
+}
+

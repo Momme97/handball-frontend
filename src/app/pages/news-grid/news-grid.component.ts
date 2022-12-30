@@ -144,9 +144,7 @@ export class NewsGridComponent implements OnInit {
       this.querySubscription = this.apollo.watchQuery<any>({
         query: GET_YOUTH_POSTS
       }).valueChanges.subscribe(({ data, loading }) => {
-          for(let i = 0; i < data.newsJugends.data.length; i++){
-            console.log(data.newsJugends);
-  
+          for(let i = 0; i < data.newsJugends.data.length; i++){  
             let postItem = {
               id: data.newsJugends.data[i].id,
               type: "jugend",
