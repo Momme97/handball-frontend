@@ -1,0 +1,16 @@
+<app-subpage-header [pageTitle]="'Terminarchiv'"></app-subpage-header>
+<div class="appointmentArchiveWrapper">
+    <div *ngFor="let appointment of appointmentList; index as i">
+        <div
+          [ngClass]="{'hinweisActive': appointment.Hinweis === true}"
+          class="item"
+          [routerLink] = "['/termine', appointment.id]"
+         
+        >
+          <img class="infoIcon" *ngIf="appointment.Hinweis" src="/assets/icons/info.png" />
+          <span>{{appointment.Datum}}</span>
+          <h2>{{appointment.Thema}}</h2>
+        </div>
+  
+      </div>
+</div>

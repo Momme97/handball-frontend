@@ -27,6 +27,7 @@ import { NewsGridComponent } from './pages/news-grid/news-grid.component';
 import { SponsoringComponent } from './pages/sponsoring/sponsoring.component';
 import { ComitteeComponent } from './pages/referee/comittee/comittee.component';
 import { DownloadsComponent } from './pages/referee/downloads/downloads.component';
+import { AppointmentArchiveComponent } from './pages/appointment-archive/appointment-archive.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,7 @@ const routes: Routes = [
       { path: 'auswahl-kader', component: SelectionSquadComponent, title: 'Auswahlkader | HG Region Förde' },
       { path: 'spielbetrieb', component: TrainerComponent, title: 'Trainer | HG Region Förde' },
       { path: 'news-grid/:newsCategory', component: NewsGridComponent, title: 'Nachrichten Übersicht | HG Region Förde' },
+      { path: 'termin-archiv', component: AppointmentArchiveComponent, title: 'Termin Archiv | HG Region Förde' },
       { path: 'impressum', component: ImpressComponent, title: 'Impressum | HG Region Förde' }
     ]
   },
@@ -52,7 +54,6 @@ const routes: Routes = [
       { path: 'fortbildung', component: TrainingComponent, title: 'Fortbildung | HG Region Förde' },
       { path: 'ausschuss', component: ComitteeComponent, title: 'Schiedsrichteraussschuss | HG Region Förde' },
       { path: 'downloads', component: DownloadsComponent ,title: 'Downloads | HG Region Förde' },
-
       { path: 'regelwerk', component: RulesComponent,title: 'Regelwerk | HG Region Förde' }
     ]
   },

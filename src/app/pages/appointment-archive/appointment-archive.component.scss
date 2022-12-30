@@ -1,0 +1,33 @@
+.appointmentArchiveWrapper {
+    @apply
+    mt-2 mb-4 grid gap-2 px-1
+    md:grid-cols-3
+    lg:px-10 lg:grid-cols-4;
+
+    .item {
+        height: 100%;
+        @apply 
+        flex items-center m-1 p-2 bg-white;
+
+        span {
+            font-size: 12px;
+          }
+        h2 {
+            font-size: 14px;
+            margin: 0;
+            margin-left: 10px;
+        }
+        .infoIcon {
+            height: 20px;
+            margin-right: 5px;
+          }
+        .hinweisActive {
+            background: #cbce62;
+        }
+    }
+    .item:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    
+}
