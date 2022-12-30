@@ -15,7 +15,7 @@ export class AppointmentComponent implements OnInit {
   public appointmentTitel: string;
   public appointmentDate: string;
   public appointmentFileUrl: string;
-  public content: any;
+  contentItems: any;
 
   constructor(
     private apollo: Apollo,
@@ -50,13 +50,17 @@ export class AppointmentComponent implements OnInit {
         }
       }
     `;
+
+
     this.querySubscription = this.apollo.watchQuery<any>({
       query: GET_APPOINTMENT_DATA
     }).valueChanges.subscribe(({ data, loading }) => {
       this.appointmentTitel = data.termine.data.attributes.Thema;
       this.appointmentDate = moment(data.termine.data.attributes.Datum).lang("de").format('Do MMMM YYYY, hh:mm:ss');
-      this.appointmentFileUrl = data.termine.data.attributes.Aussschreibung.data.attributes.url;
-      this.content = data.termine.data.attributes.Beschreibung;
+      this.appointmentFileUrl = data.termine.data.attributes.Aussschreibung.data?.attributes.url;
+      this.contentItems = JSON.parse(data.termine.data.attributes.Beschreibung)
+      console.log(this.contentItems)
+        
     });
   }
 
