@@ -44,7 +44,18 @@ export class DownloadsComponent implements OnInit {
     this.querySubscription = this.apollo.watchQuery<any>({
       query: GET_DOWNLOAD_ITEMS
     }).valueChanges.subscribe(({ data, loading }) => {
-      this.fileList = data.schiedsrichterDownload.data.attributes.Dateiliste;
+      for(let i = 0; i < data.schiedsrichterDownload.data.attributes.Dateiliste.length; i++){
+        //data.schiedsrichterDownload.data.attributes.Dateiliste[i]
+        this.fileList.push(
+          {
+            filename: data.schiedsrichterDownload.data.attributes.Dateiliste[i].Filename,
+            fullUrl: data.schiedsrichterDownload.data.attributes.Dateiliste[i].File.data.attributes.url,
+            shortUrl: data.schiedsrichterDownload.data.attributes.Dateiliste[i].File.data.attributes.url.replace('/uploads/', "")
+          }
+        )
+      }
+      console.log( this.fileList)
+
       console.log(data.schiedsrichterDownload.data.attributes.Dateiliste)
     });
   }
