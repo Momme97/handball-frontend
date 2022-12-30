@@ -39,7 +39,7 @@ export class AppointmentArchiveComponent implements OnInit {
             id:  data.termines.data[i].id,
             Hinweis: data.termines.data[i].attributes.Hinweis,
             Thema: data.termines.data[i].attributes.Thema,
-            Datum: moment(data.termines.data[i].attributes.Datum).lang("de").format('Do MMMM YYYY, h:mm:ss'),
+            Datum: moment(data.termines.data[i].attributes.Datum).lang("de").format('Do MMMM YYYY'),
           }
           this.appointmentList.push(
             appointmentItem

@@ -8,8 +8,11 @@
          
         >
           <img class="infoIcon" *ngIf="appointment.Hinweis" src="/assets/icons/info.png" />
-          <span>{{appointment.Datum}}</span>
-          <h2>{{appointment.Thema}}</h2>
+          <div class="textInfos">
+            <span>{{appointment.Datum}}</span>
+            <h2>{{appointment.Thema}}</h2>
+          </div>
+         
         </div>
   
       </div>

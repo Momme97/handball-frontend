@@ -11,23 +11,31 @@
 
         span {
             font-size: 12px;
+            margin-left: 10px;
+
           }
         h2 {
             font-size: 14px;
+            line-height: normal;
             margin: 0;
             margin-left: 10px;
+        }
+        .textInfos {
+            @apply
+            flex flex-col justify-center;
         }
         .infoIcon {
             height: 20px;
             margin-right: 5px;
           }
-        .hinweisActive {
-            background: #cbce62;
-        }
+        
     }
     .item:hover {
         cursor: pointer;
         text-decoration: underline;
+    }
+    .hinweisActive {
+        background: #cbce62;
     }
     
 }
