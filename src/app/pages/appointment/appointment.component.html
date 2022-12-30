@@ -4,10 +4,15 @@
 [appointmentFileUrl]="appointmentFileUrl"
 ></app-appointment-header>
 <div class="contentWrapper">
-  <div *ngIf="content !== undefined" class="article">
+  <app-editorjs-wrapper class="article" [jsonInput]="contentItems"></app-editorjs-wrapper>
+
+  <!--
+<div *ngIf="content !== undefined" class="article">
     <markdown>
       {{content}}
     </markdown>
   </div>
+  -->
+  
 </div>
 
