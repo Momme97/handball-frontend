@@ -32,7 +32,7 @@ export class ClubDetailComponent implements OnInit {
   trainingsTimes: string;
   address: {street: string, housenumber: string, zip: string, city: string} = {street: '', housenumber: '', zip: '', city: ''};
   teamList: Team[] = [];
-  qualifiedPersonList: any;
+  qualifiedPersonList: any[] = [];
   gymnasiumList: Gynasium[] = [];
   constructor(
     private activeRoute: ActivatedRoute,
@@ -131,12 +131,25 @@ export class ClubDetailComponent implements OnInit {
       this.clubWebsiteName = data.vereine.data.attributes.Webseitenanzeigename;
       this.clubWebsiteUrl = data.vereine.data.attributes.WebseitenUrl;
       this.clubLogoUrl = environment.strapiUrl + data.vereine.data.attributes.Logo.data.attributes.url;
-      this.qualifiedPersonList = data.vereine.data.attributes.Ansprechpartner;
+      //this.qualifiedPersonList = data.vereine.data.attributes.Ansprechpartner;
       this.address.street = data.vereine.data.attributes.strasse;
       this.address.housenumber = data.vereine.data.attributes.Hausnummer;
       this.address.zip = data.vereine.data.attributes.Postleitzahl;
       this.address.city = data.vereine.data.attributes.Stadt;
-      this.trainingsTimes = data.vereine.data.attributes.Trainingszeiten;
+      this.trainingsTimes = JSON.parse(data.vereine.data.attributes.Trainingszeiten);
+
+
+      for(let i = 0; i < data.vereine.data.attributes.Ansprechpartner.length; i++){
+        this.qualifiedPersonList.push({
+          position: data.vereine.data.attributes.Ansprechpartner[i].Position,
+          firstName: data.vereine.data.attributes.Ansprechpartner[i].Vorname,
+          lastName: data.vereine.data.attributes.Ansprechpartner[i].Nachname,
+          email: data.vereine.data.attributes.Ansprechpartner[i].Email,
+          phoneNumber: data.vereine.data.attributes.Ansprechpartner[i].Handynummer,
+          profilePicture: environment.strapiUrl + data.vereine.data.attributes.Ansprechpartner[i].Profilbild.data.attributes.url
+        })
+      }
+      console.log(this.qualifiedPersonList);
 
       for(let i = 0; i < data.vereine.data.attributes.Mannschaften.length; i++){
         let trikotsList: Trikot[] = [];
@@ -163,16 +176,6 @@ export class ClubDetailComponent implements OnInit {
           image: environment.strapiUrl + data.vereine.data.attributes.Sporthallen[i].Bild.data.attributes.url
         })
       }
-
-
-      /* --------------------------------------------
-         Track page visted with mixpanel service
-       -------------------------------------------- */
-          this.mixpanelService.init();
-          this.mixpanelService.track('Pagevisited',{
-            location: this.router.url,
-            clubName: this.clubName
-          })
     });
   }
 

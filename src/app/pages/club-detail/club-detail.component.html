@@ -15,7 +15,7 @@
             <h1 class="clubTitle">{{clubName}}</h1>
             <div class="adressWrapper">
               <img style="height: 20px;" src="/assets/icons/location.png" />
-            <span>{{address.street}}, {{address.housenumber}} {{address.city}}</span>
+              <span>{{address.street}}, {{address.housenumber}} {{address.city}}</span>
             </div>
             
             <a href="{{clubWebsiteUrl}}" class="websiteLink">{{clubWebsiteName}}</a>
@@ -32,11 +32,15 @@
       <div class="trainingTimeWrapper">
         <div class="header">Trainingszeiten</div>
         <div class="body">
-          <markdown *ngIf="trainingsTimes">
-            {{trainingsTimes}}
-          </markdown>
+          <app-editorjs-wrapper [jsonInput]="trainingsTimes"></app-editorjs-wrapper>
+          <p *ngIf="trainingsTimes === null">Keine Zeiten hinterlegt...</p>
         </div>
+       
         
+      </div>
+      <div class="qualifiedPersonWrapper">
+        <app-contact-person-list [qualifiedPersonList]="qualifiedPersonList"></app-contact-person-list>
+
       </div>
       <!--
               <div class="trainingTimeWrapper">
