@@ -142,11 +142,11 @@ export class ClubDetailComponent implements OnInit {
       for(let i = 0; i < data.vereine.data.attributes.Ansprechpartner.length; i++){
         this.qualifiedPersonList.push({
           position: data.vereine.data.attributes.Ansprechpartner[i].Position,
-          firstName: data.vereine.data.attributes.Ansprechpartner[i].Vorname,
-          lastName: data.vereine.data.attributes.Ansprechpartner[i].Nachname,
+          name: data.vereine.data.attributes.Ansprechpartner[i].Vorname,
+          surname: data.vereine.data.attributes.Ansprechpartner[i].Nachname,
           email: data.vereine.data.attributes.Ansprechpartner[i].Email,
-          phoneNumber: data.vereine.data.attributes.Ansprechpartner[i].Handynummer,
-          profilePicture: environment.strapiUrl + data.vereine.data.attributes.Ansprechpartner[i].Profilbild.data.attributes.url
+          mobile: data.vereine.data.attributes.Ansprechpartner[i].Handynummer,
+          profilePicture: environment.strapiUrl + data.vereine.data.attributes.Ansprechpartner[i].Profilbild.data?.attributes.url
         })
       }
       console.log(this.qualifiedPersonList);

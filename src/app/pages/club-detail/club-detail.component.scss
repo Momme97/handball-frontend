@@ -82,6 +82,10 @@
   
 }
 
+.qualifiedPersonWrapper {
+  @apply lg:col-span-3;
+}
+
 .clubInfoCard {
   z-index: 2;
   margin-top: -40px;

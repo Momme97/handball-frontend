@@ -7,6 +7,8 @@ import {environment} from "../../../environments/environment";
   styleUrls: ['./contact-person-list.component.scss']
 })
 export class ContactPersonListComponent implements OnInit {
+
+  @Input() clubViewActive: boolean;
   @Input() qualifiedPersonList: QualifiedPerson[];
   strapiUrl: string = environment.strapiUrl
 
