@@ -8,7 +8,9 @@ import {environment} from "../../../environments/environment";
 })
 export class ContactPersonListComponent implements OnInit {
 
-  @Input() clubViewActive: boolean;
+  @Input() clubViewActive: boolean = false;
+  @Input() associationViewActive: boolean = false;
+
   @Input() qualifiedPersonList: QualifiedPerson[];
   strapiUrl: string = environment.strapiUrl
 
