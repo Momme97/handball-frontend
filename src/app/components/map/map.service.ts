@@ -21,7 +21,6 @@ export class MapService {
 
   buildMap(clubId: string) {
 
-    
 
     const GET_GYMNASIUMLIST = gql `
     query{
@@ -54,17 +53,26 @@ export class MapService {
       query: GET_GYMNASIUMLIST
     }).valueChanges.subscribe(({ data, loading }) => {
 
-      this.map = new mapboxgl.Map({
-        accessToken: environment.mapbox.accessToken,
-        container: 'map',
-        style: this.style,
-        zoom: this.zoom,
-        center: [data.vereine.data.attributes.Sporthallen[0].Long, data.vereine.data.attributes.Sporthallen[0].Lat],
-      });
+      if(data.vereine.data.attributes.Sporthallen.length > 0){
+        this.map = new mapboxgl.Map({
+          accessToken: environment.mapbox.accessToken,
+          container: 'map',
+          style: this.style,
+          zoom: this.zoom,
+          center: [data.vereine.data.attributes.Sporthallen[0].Long, data.vereine.data.attributes.Sporthallen[0].Lat],
+        });
+      } else {
+        this.map = new mapboxgl.Map({
+          accessToken: environment.mapbox.accessToken,
+          container: 'map',
+          style: this.style,
+          zoom: this.zoom,
+          center: [10.134115356753513, 54.3148480026501],
+        });
+      }
       
       //Fill Gymnasium List
       for(let i = 0; i < data.vereine.data.attributes.Sporthallen.length; i++){
-        console.log(data.vereine.data.attributes.Sporthallen[i]);
         const el = document.createElement('div');
         const width = 30
         const height = 30
