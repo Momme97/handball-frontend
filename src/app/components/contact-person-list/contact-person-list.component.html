@@ -2,8 +2,8 @@
     <div class="header">
       Ansprechpartner
     </div>
-    <div class="body" [ngClass]="{'clubDetailrid': clubViewActive}">
-      <div  [ngClass]="{'item': clubViewActive}"  *ngFor="let contact of qualifiedPersonList; index as i">
+    <div class="body" [ngClass]="{'clubDetailrid': clubViewActive || associationViewActive}">
+      <div  [ngClass]="{'item': clubViewActive || associationViewActive}"  *ngFor="let contact of qualifiedPersonList; index as i">
         <div class="contactItem">
           <div class="profileImage" >
             <img *ngIf="contact.profilImage"  [src]="strapiUrl + contact.profilImage" />
@@ -26,7 +26,7 @@
         </div>
         </div>
         
-        <hr *ngIf="!clubViewActive">
+        <hr *ngIf="!clubViewActive && !associationViewActive">
       </div>
       
     </div>

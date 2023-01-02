@@ -28,6 +28,7 @@ import { SponsoringComponent } from './pages/sponsoring/sponsoring.component';
 import { ComitteeComponent } from './pages/referee/comittee/comittee.component';
 import { DownloadsComponent } from './pages/referee/downloads/downloads.component';
 import { AppointmentArchiveComponent } from './pages/appointment-archive/appointment-archive.component';
+import { AssociationComponent } from './pages/association/association.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent, title: 'Home | HG Region Förde' },
       { path: 'ergebnisse', component: ResultsComponent, title: 'Spielergebnisse | HG Region Förde' },
+      { path: 'verband', component: AssociationComponent, title: 'Verband | HG Region Förde' },
       { path: 'vereine', component: ClubsComponent, title: 'Vereine | HG Region Förde' },
       { path: 'jugend', component: YouthComponent , title: 'Jugend | HG Region Förde'},
       { path: 'auswahl-kader', component: SelectionSquadComponent, title: 'Auswahlkader | HG Region Förde' },

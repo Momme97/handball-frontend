@@ -22,6 +22,7 @@ import {RefereeModule} from "./referee/referee.module";
 import { NewsGridComponent } from './news-grid/news-grid.component';
 import { SponsoringComponent } from './sponsoring/sponsoring.component';
 import { AppointmentArchiveComponent } from './appointment-archive/appointment-archive.component';
+import { AssociationComponent } from './association/association.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { AppointmentArchiveComponent } from './appointment-archive/appointment-a
         NewsGridComponent,
         SponsoringComponent,
         AppointmentArchiveComponent,
+        AssociationComponent,
     ],
     imports: [
         RefereeModule,
