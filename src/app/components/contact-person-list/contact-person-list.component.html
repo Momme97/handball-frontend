@@ -2,8 +2,8 @@
     <div class="header">
       Ansprechpartner
     </div>
-    <div class="body">
-      <div  *ngFor="let contact of qualifiedPersonList; index as i">
+    <div class="body" [ngClass]="{'clubDetailrid': clubViewActive}">
+      <div  [ngClass]="{'item': clubViewActive}"  *ngFor="let contact of qualifiedPersonList; index as i">
         <div class="contactItem">
           <div class="profileImage" >
             <img *ngIf="contact.profilImage"  [src]="strapiUrl + contact.profilImage" />
@@ -12,17 +12,21 @@
         <div class="textWrapper">
           <p class="position">{{contact.position}}</p>
         <p class="name">{{contact.name}} {{contact.surname}}</p>
-        <div class="mailWrapper">
+        <div class="mailWrapper" *ngIf="contact.email">
           <img src="assets/icons/mail.png" />
           <a href="mailto:{{contact.email}}"> 
           <span>{{contact.email}}</span>
           </a>
-          
+        </div>
+        <div class="phoneWrapper" *ngIf="contact.mobile">
+          <img src="assets/icons/phone.svg" />
+          <span>{{contact.mobile}}</span>
+
         </div>
         </div>
         </div>
         
-        <hr>
+        <hr *ngIf="!clubViewActive">
       </div>
       
     </div>

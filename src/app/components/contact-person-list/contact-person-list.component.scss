@@ -1,3 +1,12 @@
+.clubDetailrid {
+  @apply 
+  grid gap-1 grid-cols-1
+  lg:grid-cols-3;
+  .item {
+    @apply bg-slate-50;
+    border: 1px solid #f0f0f0;
+  }
+}
 .contactItems {
     .header {
       background: #252931;
@@ -28,6 +37,21 @@
       }
 
       .mailWrapper {
+        @apply flex items-center;
+        a {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        img {
+          @apply mr-1;
+          height: 15px;
+        }
+        span {
+          font-size: 12px;
+        }
+      }
+      .phoneWrapper {
         @apply flex items-center;
         a {
           white-space: nowrap;
