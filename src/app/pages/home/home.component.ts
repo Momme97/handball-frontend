@@ -280,10 +280,11 @@ export class HomeComponent implements OnInit {
             postItem
           );
         //sort post by date desc
-        const newArr = this.posts.sort((a, b) => {
-          return moment(b.createdAt).diff(a.createdAt);
+        this.posts.sort((a, b) => {
+          return moment(a.createdAt).diff(b.createdAt);
         });
         }
+        this.posts.reverse();
     });
     
     this.querySubscription = this.apollo.watchQuery<any>({
