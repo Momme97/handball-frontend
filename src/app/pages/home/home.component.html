@@ -1,5 +1,5 @@
 <div class="homeWrapper" @fadeIn>
-  <app-featured-article-card [postId]="posts[0].id" [imageUrl]="posts[0].Artikelbild" [title]="posts[0].Titel" [shortText]="posts[0].Kurzbeschreibung" [ctaText]="'Zum Artikel'" [type]="posts[0].type"></app-featured-article-card>
+  <app-featured-article-card *ngIf="posts[0]" [postId]="posts[0].id" [imageUrl]="posts[0].Artikelbild" [title]="posts[0].Titel" [shortText]="posts[0].Kurzbeschreibung" [ctaText]="'Zum Artikel'" [type]="posts[0].type"></app-featured-article-card>
   <h2 class="sectionTitle">Weitere Neuigkeiten</h2>
   <div class="newsArea">
     <div *ngFor="let post of posts.slice(1); index as i">

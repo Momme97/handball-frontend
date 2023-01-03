@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Apollo, gql } from 'apollo-angular';
 import { Router } from "@angular/router";
@@ -11,7 +11,7 @@ import { Staffel, Team } from 'src/app/data-models/staffeln';
 
 const GET_GENERAL_POSTS = gql`
   query{
-  neuigkeitenImVerbands{
+  neuigkeitenImVerbands(sort: "createdAt:desc"){
     data{
       id,
       attributes{
@@ -191,7 +191,7 @@ const GET_HOMEGALLERY = gql`
     ])
   ]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   posts: any = [];
   sponsors: any = [];
   homeGallery: any = [];
@@ -205,9 +205,11 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private mixpanelService: MixpanelService
   ) {}
+  ngOnDestroy(): void {
+      this.posts = [];
+  }
 
   ngOnInit() {
-
     this.querySubscription = this.apollo.watchQuery<any>({
       query: GET_GENERAL_POSTS
     }).valueChanges.subscribe(({ data, loading }) => {
@@ -279,14 +281,14 @@ export class HomeComponent implements OnInit {
           this.posts.push(
             postItem
           );
+        
+        }
         //sort post by date desc
         this.posts.sort((a, b) => {
-          return moment(a.createdAt).diff(b.createdAt);
+          return <any>new Date(b.createdAt) - <any>new Date(a.createdAt);
         });
-        }
-        this.posts.reverse();
     });
-    
+  
     this.querySubscription = this.apollo.watchQuery<any>({
       query: GET_SPONSORS
     }).valueChanges.subscribe(({ data, loading }) => {
@@ -334,5 +336,6 @@ export class HomeComponent implements OnInit {
         })
       }
     });
+
   }
 }

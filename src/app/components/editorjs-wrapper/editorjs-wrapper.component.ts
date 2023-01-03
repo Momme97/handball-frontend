@@ -30,7 +30,6 @@ export class EditorjsWrapperComponent implements OnChanges {
   }
 
   buildContentData(data: any, type: string){
-    console.log(data);
     if(type === 'paragraph' || type === 'header'){
       return data.text;
     } 
