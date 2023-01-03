@@ -9,7 +9,8 @@
       <span class="authorText"><img style="height:14px;" src="/assets/icon-person.png" />{{this.articleObject.Author}}</span>
       <div *ngFor="let item of contentItems; index as i">
         <div *ngIf="item.itemtype === 'Richtextblock'">
-          <div *ngFor="let textItem of item.data.blocks; index as i">
+          <!--
+            <div *ngFor="let textItem of item.data.blocks; index as i">
             <h2 style="margin-top: 5px;" *ngIf="textItem.type ==='header'">
               {{textItem.data.text}}
             </h2>
@@ -20,6 +21,8 @@
               <span class="imgDescription">{{textItem.data.caption}}</span>
             </div>
           </div>
+          -->
+          <app-editorjs-wrapper [jsonInput]="item.data"></app-editorjs-wrapper>
 
         </div>
         <div *ngIf="item.itemtype === 'MatchContent'" style="margin-bottom: 15px" class="matchItemWrapper">

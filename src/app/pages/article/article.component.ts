@@ -197,7 +197,6 @@ export class ArticleComponent implements OnInit {
       query: ACTIVE_QUERY
     }).valueChanges.subscribe(({ data, loading }) => {
       if(this.articleCategory === 'general'){
-
         for(let i = 0; i < data.neuigkeitenImVerband.data.attributes.Contentarea.length; i++){
           if(data.neuigkeitenImVerband.data.attributes.Contentarea[i].__typename === 'ComponentRichtextblockRichTextBlock'){
             this.contentItems.push({
@@ -211,7 +210,6 @@ export class ArticleComponent implements OnInit {
             })
           }
         }
-
         this.articleObject = data.neuigkeitenImVerband.data.attributes;
         this.articleImageUrl = environment.strapiUrl + data.neuigkeitenImVerband.data.attributes.Artikelbild.data.attributes.url;
         this.articleDate =  moment(data.neuigkeitenImVerband.data.attributes.createdAt).lang("de").format('Do MMMM YYYY, hh:mm:ss');

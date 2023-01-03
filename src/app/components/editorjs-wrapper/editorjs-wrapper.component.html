@@ -12,4 +12,10 @@
         <li *ngFor="let item of block.data" [innerHtml]="item"></li>
     </ol>
     <img *ngIf="block.type === 'image'" [src]="strapiUrl +block.data.file.url" />
+    <a class="linkItem"  *ngIf="block.type === 'LinkTool'" [href]="block.data.link">
+        <div>
+            <h2>{{block.data.meta.title}}</h2>
+            <p>{{block.data.link}}</p>
+        </div>
+    </a>
 </div>

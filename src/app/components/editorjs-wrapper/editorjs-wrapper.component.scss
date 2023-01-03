@@ -4,6 +4,19 @@
     list-style: decimal;
     padding-left:20px;
 }
+.linkItem {
+  div {
+    @apply bg-white p-2 hover:shadow-md hover:underline;
+
+    background: white;
+  }
+  h2 {
+    @apply text-lg;
+  }
+  p {
+    @apply text-sm text-gray-500;
+  }
+}
 img {
   @apply mt-2 mb-2;
 }
@@ -180,3 +193,4 @@ p {
   .table-responsive.table-bordered {
     border: 0;
   }
+
