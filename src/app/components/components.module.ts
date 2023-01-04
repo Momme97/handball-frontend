@@ -24,6 +24,7 @@ import { SubpageHeaderComponent } from './subpage-header/subpage-header.componen
 import { EditorjsWrapperComponent } from './editorjs-wrapper/editorjs-wrapper.component';
 import { ContactPersonListComponent } from './contact-person-list/contact-person-list.component';
 import { DownloadsWrapperComponent } from './downloads-wrapper/downloads-wrapper.component';
+import { FeaturedPersonComponent } from './featured-person/featured-person.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { DownloadsWrapperComponent } from './downloads-wrapper/downloads-wrapper
     SubpageHeaderComponent,
     EditorjsWrapperComponent,
     ContactPersonListComponent,
-    DownloadsWrapperComponent
+    DownloadsWrapperComponent,
+    FeaturedPersonComponent
   ],
   imports: [
     CommonModule,
@@ -77,7 +79,8 @@ import { DownloadsWrapperComponent } from './downloads-wrapper/downloads-wrapper
     SubpageHeaderComponent,
     EditorjsWrapperComponent,
     ContactPersonListComponent,
-    DownloadsWrapperComponent
+    DownloadsWrapperComponent,
+    FeaturedPersonComponent
   ]
 })
 export class ComponentsModule { }

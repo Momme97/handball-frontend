@@ -9,7 +9,24 @@
       ></app-news-card>
     </div>
   </div>
-  <div class="qualifiedPersonsGrid">
+  <div class="featuredPersonGrid">
+
+      <app-featured-person
+      *ngFor="let item of qualifiedPersons; index as i"
+      [imageUrl]="item.profilImage"
+      [name]="item.name"
+      [surname]="item.surname"
+      [email]="item.email"
+      [mobilePhone]="item.mobile"
+      [summary]="item.summary"
+    >
+  </app-featured-person>
+    
+
+
+  </div>
+  <!--
+    <div class="qualifiedPersonsGrid">
     <div *ngFor="let item of qualifiedPersons; index as i">
 
         <app-qualified-person-card
@@ -26,6 +43,8 @@
     
 
   </div>
+  -->
+  
  <div class="teamGrid">
    <div *ngFor="let team of selectionSquadTeams; index as i">
      <app-team-card

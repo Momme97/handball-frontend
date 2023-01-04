@@ -5,5 +5,6 @@ export interface QualifiedPerson {
     email: string   | undefined;
     mobile: string   | undefined;
     profilImage: string  | undefined | null;
+    summary?: string  | undefined;
 }
   

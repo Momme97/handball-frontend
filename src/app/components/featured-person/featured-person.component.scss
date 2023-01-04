@@ -1,0 +1,36 @@
+.featuredPersonWrapper {
+    @apply 
+    bg-white p-2 grid gap-1 grid-cols-6;
+
+    .profileImage {
+        @apply 
+        rounded-full col-span-2 p-2 mx-auto
+        lg:col-span-2 lg:w-32 lg:h-32 lg:p-0;
+    }
+
+    .personDetails {
+        @apply 
+        col-span-4
+        lg:col-span-3;
+
+        .fullName {
+            @apply 
+            text-xl font-bold;
+        }
+
+        .contactItem {
+            @apply 
+            flex items-center m-1;
+        }
+
+        .icon {
+            @apply mr-1;
+            height: 20px;
+        }
+    }
+
+    .summary {
+        @apply 
+        col-span-6 p-1;
+    }
+}

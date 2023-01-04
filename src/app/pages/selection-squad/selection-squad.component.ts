@@ -34,13 +34,19 @@ query{
     data {
       attributes {
         Ansprechpartner {
-          ...on ComponentPersonPerson {
-            Position,
+          ...on ComponentDetailPersonDetailPerson {
             Vorname,
             Nachname,
-            Email,
+            email,
             Handynummer,
-            Profilbild{data{attributes{url}}}
+            Profilbild {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            Kurzbeschreibung
           }
         }
       }
@@ -77,14 +83,6 @@ export class SelectionSquadComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    /* --------------------------------------------
-      Track page visted with mixpanel service
-    -------------------------------------------- */
-    this.mixpanelService.init();
-    this.mixpanelService.track('Pagevisited',{
-      location: this.router.url
-    });
-
     this.querySubscription = this.apollo.watchQuery<any>({
       query: GET_POSTS
     }).valueChanges.subscribe(({ data, loading }) => {
@@ -109,6 +107,7 @@ export class SelectionSquadComponent implements OnInit {
       query: GET_QUALIFIED_PERSONS
     }).valueChanges.subscribe(({ data, loading }) => {
       this.selectionSquadTeams = data.auswahlkader.data.attributes.Teams;
+      console.log(data);
       for(let i = 0; i < data.auswahlkader.data.attributes.Ansprechpartner.length; i++){
         let profileImage: string | undefined;
         if(data.auswahlkader.data.attributes.Ansprechpartner[i].Profilbild.data !== null){
@@ -117,16 +116,16 @@ export class SelectionSquadComponent implements OnInit {
           profileImage= undefined;
         }
         this.qualifiedPersons.push({
-          position: data.auswahlkader.data.attributes.Ansprechpartner[i].Position,
+          position: undefined,
+          summary: data.auswahlkader.data.attributes.Ansprechpartner[i].Kurzbeschreibung,
           name: data.auswahlkader.data.attributes.Ansprechpartner[i].Vorname,
           surname: data.auswahlkader.data.attributes.Ansprechpartner[i].Nachname,
-          email: data.auswahlkader.data.attributes.Ansprechpartner[i].Email,
-          mobile:data.auswahlkader.data.attributes.Ansprechpartner[i].Handynummer,
-          profilImage: profileImage
-
+          email: data.auswahlkader.data.attributes.Ansprechpartner[i].email,
+          mobile: data.auswahlkader.data.attributes.Ansprechpartner[i].Handynummer,
+          profilImage: profileImage,
         })
       }
-      //this.qualifiedPersons = data.auswahlkader.data.attributes.Ansprechpartner;
+      console.log(this.qualifiedPersons);
     });
   }
 
