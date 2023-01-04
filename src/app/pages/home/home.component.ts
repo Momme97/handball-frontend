@@ -211,7 +211,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             Titel: data.neuigkeitenImVerbands.data[i].attributes.Titel,
             Kurzbeschreibung: data.neuigkeitenImVerbands.data[i].attributes.Kurzbeschreibung,
             Artikelbild: environment.strapiUrl + data.neuigkeitenImVerbands.data[i].attributes.Artikelbild.data.attributes.url,
-            createdAt: data.neuigkeitenImVerbands.data[i].attributes.createdAt
+            createdAt: moment(data.neuigkeitenImVerbands.data[i].attributes.createdAt).format("DD.MM.YYYY")
           }
           this.posts.push(
             postItem
@@ -231,7 +231,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             Titel: data.newsJugends.data[i].attributes.Titel,
             Kurzbeschreibung: data.newsJugends.data[i].attributes.Kurzbeschreibung,
             Artikelbild: environment.strapiUrl + data.newsJugends.data[i].attributes.Artikelbild.data.attributes.url,
-            createdAt: data.newsJugends.data[i].attributes.createdAt
+            createdAt: moment(data.newsJugends.data[i].attributes.createdAt).format("DD.MM.YYYY")
           }
           this.posts.push(
             postItem
@@ -249,7 +249,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             Titel: data.newsAuswahlkaders.data[i].attributes.Titel,
             Kurzbeschreibung: data.newsAuswahlkaders.data[i].attributes.Kurzbeschreibung,
             Artikelbild: environment.strapiUrl + data.newsAuswahlkaders.data[i].attributes.Artikelbild.data.attributes.url,
-            createdAt: data.newsAuswahlkaders.data[i].attributes.createdAt
+            createdAt: moment(data.newsAuswahlkaders.data[i].attributes.createdAt).format("DD.MM.YYYY")
           }
           this.posts.push(
             postItem
@@ -267,7 +267,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             Titel: data.newsSchiedsrichters.data[i].attributes.Titel,
             Kurzbeschreibung: data.newsSchiedsrichters.data[i].attributes.Kurzbeschreibung,
             Artikelbild: environment.strapiUrl + data.newsSchiedsrichters.data[i].attributes.Artikelbild.data.attributes.url,
-            createdAt: data.newsSchiedsrichters.data[i].attributes.createdAt
+            createdAt: moment(data.newsSchiedsrichters.data[i].attributes.createdAt).format("DD.MM.YYYY")
           }
           this.posts.push(
             postItem

@@ -22,7 +22,7 @@ registerLocaleData(localeDe, 'de-DE', localeDeExtra);
   ],
   imports: [
     PagesModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     ComponentsModule,
     GraphQLModule,
@@ -33,7 +33,7 @@ registerLocaleData(localeDe, 'de-DE', localeDeExtra);
     NgxGoogleAnalyticsModule.forRoot('G-KFCJMMPKKS'),
     NgxGoogleAnalyticsRouterModule.forRoot()
   ],
-  providers: [ResultsService, MapService],
+  providers: [ResultsService, MapService,     { provide: 'isBrowser', useValue: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
