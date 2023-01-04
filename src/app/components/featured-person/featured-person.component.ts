@@ -6,6 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./featured-person.component.scss']
 })
 export class FeaturedPersonComponent implements OnInit {
+  @Input() position?: string | undefined | null;
   @Input() imageUrl?: string | undefined | null;
   @Input() name?:  string | undefined;
   @Input() surname?:  string | undefined;

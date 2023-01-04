@@ -1,7 +1,10 @@
 <div class="featuredPersonWrapper">
-    <img  class="profileImage" src="/assets/icons/user.png" />
     <div class="personDetails">
-        <p class="fullName">{{name}} {{surname}}</p>
+        <img  class="profileImage" src="/assets/icons/user.png" />
+        <p class="fullName">{{name}} {{surname}} <span>({{position}})</span></p>
+        <div class="noContactData" *ngIf="!email && !mobilePhone">
+            Keine Kontaktdaten vorhanden
+        </div>
         <div class="contactItem" *ngIf="email">
             <img class="icon" src="/assets/icons/mail.svg" />
             <span><a href="mailto:{{email}}]">{{email}}</a></span>

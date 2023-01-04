@@ -13,6 +13,7 @@
 
       <app-featured-person
       *ngFor="let item of qualifiedPersons; index as i"
+      [position]="item.position"
       [imageUrl]="item.profilImage"
       [name]="item.name"
       [surname]="item.surname"

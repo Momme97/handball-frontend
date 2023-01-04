@@ -4,23 +4,32 @@
 
     .profileImage {
         @apply 
-        rounded-full col-span-2 p-2 mx-auto
-        lg:col-span-2 lg:w-32 lg:h-32 lg:p-0;
+        rounded-full p-2 mx-auto w-20 h-20
+        lg:w-32 lg:h-32 lg:p-0;
     }
 
     .personDetails {
         @apply 
-        col-span-4
-        lg:col-span-3;
+        col-span-6
+        lg:col-span-6;
 
         .fullName {
             @apply 
-            text-xl font-bold;
+            text-xl font-bold flex items-center flex-col;
+            span {
+                @apply 
+                text-sm font-normal ml-2;
+            }
         }
 
         .contactItem {
             @apply 
             flex items-center m-1;
+        }
+
+        .noContactData {
+            @apply 
+            text-sm text-gray-500 text-center;
         }
 
         .icon {
@@ -31,6 +40,6 @@
 
     .summary {
         @apply 
-        col-span-6 p-1;
+        col-span-6 p-1 text-justify;
     }
 }

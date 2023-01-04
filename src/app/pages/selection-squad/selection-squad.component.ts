@@ -35,6 +35,7 @@ query{
       attributes {
         Ansprechpartner {
           ...on ComponentDetailPersonDetailPerson {
+            Position,
             Vorname,
             Nachname,
             email,
@@ -107,7 +108,6 @@ export class SelectionSquadComponent implements OnInit {
       query: GET_QUALIFIED_PERSONS
     }).valueChanges.subscribe(({ data, loading }) => {
       this.selectionSquadTeams = data.auswahlkader.data.attributes.Teams;
-      console.log(data);
       for(let i = 0; i < data.auswahlkader.data.attributes.Ansprechpartner.length; i++){
         let profileImage: string | undefined;
         if(data.auswahlkader.data.attributes.Ansprechpartner[i].Profilbild.data !== null){
@@ -116,7 +116,7 @@ export class SelectionSquadComponent implements OnInit {
           profileImage= undefined;
         }
         this.qualifiedPersons.push({
-          position: undefined,
+          position: data.auswahlkader.data.attributes.Ansprechpartner[i].Position,
           summary: data.auswahlkader.data.attributes.Ansprechpartner[i].Kurzbeschreibung,
           name: data.auswahlkader.data.attributes.Ansprechpartner[i].Vorname,
           surname: data.auswahlkader.data.attributes.Ansprechpartner[i].Nachname,
@@ -125,7 +125,6 @@ export class SelectionSquadComponent implements OnInit {
           profilImage: profileImage,
         })
       }
-      console.log(this.qualifiedPersons);
     });
   }
 
