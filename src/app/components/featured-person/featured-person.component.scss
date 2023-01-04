@@ -24,7 +24,7 @@
 
         .contactItem {
             @apply 
-            flex items-center m-1;
+            flex items-center justify-center m-1;
         }
 
         .noContactData {
@@ -40,6 +40,6 @@
 
     .summary {
         @apply 
-        col-span-6 p-1 text-justify;
+        col-span-6 p-1 text-justify text-sm text-gray-600;
     }
 }
