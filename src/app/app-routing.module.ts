@@ -5,7 +5,6 @@ import { DefaultComponent } from "./layouts/default/default.component";
 import { LayoutsModule } from "./layouts/layouts.module";
 import {ArticleComponent} from "./pages/article/article.component";
 import {ArticleLayoutComponent} from "./layouts/article-layout/article-layout.component";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ImpressComponent} from "./pages/impress/impress.component";
 import {YouthComponent} from "./pages/youth/youth.component";
 import {SelectionSquadComponent} from "./pages/selection-squad/selection-squad.component";
@@ -114,7 +113,6 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     LayoutsModule,
-    BrowserAnimationsModule
   ],
   exports: [RouterModule]
 })

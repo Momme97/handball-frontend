@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Apollo, gql } from 'apollo-angular';
 import moment from "moment/moment";
-import {animate, style, transition, trigger} from "@angular/animations";
 import {environment} from "../../../environments/environment";
 import {QualifiedPersons} from "../../data-models/qualified-persons";
 import { Router } from '@angular/router';
@@ -57,14 +56,6 @@ const GET_SINGLE_PAGE_DATA = gql `
   selector: 'app-referee',
   templateUrl: './referee.component.html',
   styleUrls: ['./referee.component.scss'],
-  animations: [
-    trigger('fadeIn', [
-      transition(':enter', [
-        style({opacity:0}),
-        animate('700ms', style({opacity:1})),
-      ])
-    ])
-  ]
 })
 export class RefereeComponent implements OnInit {
   private querySubscription: Subscription;

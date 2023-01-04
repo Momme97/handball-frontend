@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {animate, style, transition, trigger} from "@angular/animations";
 import { ResultsService } from "./results.service";
 import { Subscription } from 'rxjs';
 import { Apollo, gql } from 'apollo-angular';
@@ -28,14 +27,6 @@ query{
   selector: 'app-results',
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.scss'],
-  animations: [
-    trigger('fadeIn', [
-      transition(':enter', [
-        style({opacity:0}),
-        animate('700ms', style({opacity:1})),
-      ])
-    ])
-  ]
 })
 export class ResultsComponent implements OnInit {
   private querySubscription: Subscription;

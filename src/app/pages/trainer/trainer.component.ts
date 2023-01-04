@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Apollo, gql } from 'apollo-angular';
 import moment from "moment/moment";
-import {animate, style, transition, trigger} from "@angular/animations";
 import {environment} from "../../../environments/environment";
 import { Router } from '@angular/router';
 import { MixpanelService } from 'src/app/global-services/mixpanel.service';
@@ -33,14 +32,6 @@ const GET_POSTS = gql`
   selector: 'app-trainer',
   templateUrl: './trainer.component.html',
   styleUrls: ['./trainer.component.scss'],
-  animations: [
-    trigger('fadeIn', [
-      transition(':enter', [
-        style({opacity:0}),
-        animate('700ms', style({opacity:1})),
-      ])
-    ])
-  ]
 })
 export class TrainerComponent implements OnInit {
 

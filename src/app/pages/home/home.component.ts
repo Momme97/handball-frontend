@@ -3,7 +3,6 @@ import { Subscription } from 'rxjs';
 import { Apollo, gql } from 'apollo-angular';
 import { Router } from "@angular/router";
 import moment from "moment/moment";
-import {animate, style, transition, trigger} from "@angular/animations";
 import { environment } from "../../../environments/environment";
 import {MixpanelService} from "../../global-services/mixpanel.service";
 import { NumberAndFacts } from 'src/app/data-models/number-and-facts';
@@ -182,14 +181,6 @@ const GET_HOMEGALLERY = gql`
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  animations: [
-    trigger('fadeIn', [
-      transition(':enter', [
-        style({opacity:0}),
-        animate('700ms', style({opacity:1})),
-      ])
-    ])
-  ]
 })
 export class HomeComponent implements OnInit, OnDestroy {
   posts: any = [];

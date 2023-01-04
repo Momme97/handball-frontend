@@ -3,7 +3,6 @@ import { Subscription } from 'rxjs';
 import { Apollo, gql } from 'apollo-angular';
 import {ActivatedRoute, Router} from "@angular/router";
 import { Location } from '@angular/common';
-import {animate, style, transition, trigger} from "@angular/animations";
 import {environment} from "../../../environments/environment";
 import {MixpanelService} from "../../global-services/mixpanel.service";
 import { Gynasium } from 'src/app/data-models/gymnasium';
@@ -12,14 +11,6 @@ import { Team, Trikot } from 'src/app/data-models/staffeln';
   selector: 'app-club-detail',
   templateUrl: './club-detail.component.html',
   styleUrls: ['./club-detail.component.scss'],
-  animations: [
-    trigger('fadeIn', [
-      transition(':enter', [
-        style({opacity:0}),
-        animate('700ms', style({opacity:1})),
-      ])
-    ])
-  ]
 })
 export class ClubDetailComponent implements OnInit {
   public env = environment;

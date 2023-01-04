@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Apollo, gql } from 'apollo-angular';
 import moment from "moment/moment";
-import {animate, style, transition, trigger} from "@angular/animations";
 import {environment} from "../../../environments/environment";
 import { MixpanelService } from 'src/app/global-services/mixpanel.service';
 import { Router } from '@angular/router';
@@ -62,14 +61,6 @@ query{
   selector: 'app-selection-squad',
   templateUrl: './selection-squad.component.html',
   styleUrls: ['./selection-squad.component.scss'],
-  animations: [
-    trigger('fadeIn', [
-      transition(':enter', [
-        style({opacity:0}),
-        animate('700ms', style({opacity:1})),
-      ])
-    ])
-  ]
 })
 export class SelectionSquadComponent implements OnInit {
   private querySubscription: Subscription;

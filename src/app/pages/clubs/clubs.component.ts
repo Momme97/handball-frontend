@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Apollo, gql } from 'apollo-angular';
-import {animate, style, transition, trigger} from "@angular/animations";
 import { environment } from "../../../environments/environment";
 import {Router} from "@angular/router";
 import {MixpanelService} from "../../global-services/mixpanel.service";
@@ -29,14 +28,6 @@ const GET_CLUBLIST = gql `
   selector: 'app-clubs',
   templateUrl: './clubs.component.html',
   styleUrls: ['./clubs.component.scss'],
-  animations: [
-    trigger('fadeIn', [
-      transition(':enter', [
-        style({opacity:0}),
-        animate('700ms', style({opacity:1})),
-      ])
-    ])
-  ]
 })
 export class ClubsComponent implements OnInit {
   private querySubscription: Subscription;

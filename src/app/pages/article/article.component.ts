@@ -3,22 +3,12 @@ import { Subscription } from 'rxjs';
 import { Apollo, gql } from 'apollo-angular';
 import {ActivatedRoute, Router} from "@angular/router";
 import moment, { Moment } from "moment/moment";
-import {animate, style, transition, trigger} from "@angular/animations";
 import {environment} from "../../../environments/environment";
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
   encapsulation: ViewEncapsulation.None,
   styleUrls: ['./article.component.scss'],
-  animations: [
-    trigger('fadeIn', [
-      transition(':enter', [
-        style({opacity:0}),
-        animate('700ms', style({opacity:1})),
-      ])
-    ])
-  ]
-  
 })
 export class ArticleComponent implements OnInit {
   public env = environment;

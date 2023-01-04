@@ -10,7 +10,6 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^14.0.0",
     "@angular/common": "^14.0.0",
     "@angular/compiler": "^14.0.0",
     "@angular/core": "^14.0.0",
@@ -34,7 +33,6 @@
     "moment": "^2.29.4",
     "ngx-google-analytics": "^14.0.1",
     "ngx-markdown": "^14.0.1",
-    "ngx-router-animations": "^13.0.0",
     "roboto-fontface": "^0.10.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

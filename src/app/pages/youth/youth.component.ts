@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Apollo, gql } from 'apollo-angular';
 import moment from "moment/moment";
-import {animate, style, transition, trigger} from "@angular/animations";
 import {environment} from "../../../environments/environment";
 import { MixpanelService } from 'src/app/global-services/mixpanel.service';
 import { Router } from '@angular/router';
@@ -64,14 +63,6 @@ const GET_SINGLE_PAGE_DATA = gql `
   selector: 'app-youth',
   templateUrl: './youth.component.html',
   styleUrls: ['./youth.component.scss'],
-  animations: [
-    trigger('fadeIn', [
-      transition(':enter', [
-        style({opacity:0}),
-        animate('700ms', style({opacity:1})),
-      ])
-    ])
-  ]
 })
 export class YouthComponent implements OnInit {
   public env = environment;
@@ -86,13 +77,6 @@ export class YouthComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    /* --------------------------------------------
-      Track page visted with mixpanel service
-    -------------------------------------------- */
-    this.mixpanelService.init();
-    this.mixpanelService.track('Pagevisited',{
-      location: this.router.url
-    })
     this.querySubscription = this.apollo.watchQuery<any>({
       query: GET_POSTS
     }).valueChanges.subscribe(({ data, loading }) => {
