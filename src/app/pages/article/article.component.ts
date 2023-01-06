@@ -234,6 +234,14 @@ export class ArticleComponent implements OnInit {
         }else {
           this.articleImageUrl = environment.strapiUrl + data.newsSchiedsrichter.data.attributes.Artikelbild.data.attributes.url;
         }
+        for(let i = 0; i < data.newsSchiedsrichter.data.attributes.Contentarea.length; i++){
+          if(data.newsSchiedsrichter.data.attributes.Contentarea[i].__typename === 'ComponentRichtextblockRichTextBlock'){
+            this.contentItems.push({
+              itemtype: 'Richtextblock',
+              data: JSON.parse(data.newsSchiedsrichter.data.attributes.Contentarea[i].Text)
+            })
+          }
+        }
         this.articleObject = data.newsSchiedsrichter.data.attributes;
         this.articleDate = moment(data.newsSchiedsrichter.data.attributes.createdAt).lang("de").format('Do MMMM YYYY, hh:mm:ss');
       }else if(this.articleCategory === 'trainer') {
