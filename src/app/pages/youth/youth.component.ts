@@ -81,10 +81,17 @@ export class YouthComponent implements OnInit {
       query: GET_POSTS
     }).valueChanges.subscribe(({ data, loading }) => {
       for(let i = 0; i < data.newsJugends.data.length; i++){
+        // Check for existing article image
+        let articleImageUrl: string;
+        if(data.newsJugends.data[i].attributes.Artikelbild.data === null){
+          articleImageUrl = "/assets/placeholder.jpg";
+        }else {
+          articleImageUrl = environment.strapiUrl + data.newsJugends.data[i].attributes.Artikelbild.data.attributes.url;
+        }
         let postItem = {
           id: data.newsJugends.data[i].id,
           Titel: data.newsJugends.data[i].attributes.Titel,
-          Artikelbild: environment.strapiUrl + data.newsJugends.data[i].attributes.Artikelbild.data.attributes.url,
+          Artikelbild: articleImageUrl,
           createdAt: moment(data.newsJugends.data[i].attributes.createdAt).lang("de").format('Do MMMM YYYY, hh:mm:ss')
         }
         this.posts.push(
