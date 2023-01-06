@@ -14,6 +14,7 @@ const GET_GENERAL_POSTS = gql`
     data{
       id,
       attributes{
+        Author,
         Titel,
         Kurzbeschreibung,
         createdAt
@@ -57,6 +58,7 @@ const GET_SELECTION_SQUAD_POSTS = gql`
         id,
         attributes {
           Titel,
+          Author,
           Artikelbild {
             data {
               attributes {
@@ -205,6 +207,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       query: GET_GENERAL_POSTS
     }).valueChanges.subscribe(({ data, loading }) => {
         for(let i = 0; i < data.neuigkeitenImVerbands.data.length; i++){
+          console.log(data.neuigkeitenImVerbands.data);
           // Check for existing article image
           let articleImageUrl: string;
           if(data.neuigkeitenImVerbands.data[i].attributes.Artikelbild.data === null){
@@ -215,6 +218,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           let postItem = {
             id: data.neuigkeitenImVerbands.data[i].id,
             type: "general",
+            author: data.neuigkeitenImVerbands.data[i].attributes.Author,
             Titel: data.neuigkeitenImVerbands.data[i].attributes.Titel,
             Kurzbeschreibung: data.neuigkeitenImVerbands.data[i].attributes.Kurzbeschreibung,
             Artikelbild: articleImageUrl,
@@ -241,6 +245,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           let postItem = {
             id: data.newsJugends.data[i].id,
             type: "jugend",
+            author: data.newsJugends.data[i].attributes.Author,
             Titel: data.newsJugends.data[i].attributes.Titel,
             Kurzbeschreibung: data.newsJugends.data[i].attributes.Kurzbeschreibung,
             Artikelbild: articleImageUrl,
@@ -266,6 +271,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           let postItem = {
             id: data.newsAuswahlkaders.data[i].id,
             type: "auswahlkader",
+            author: data.newsAuswahlkaders.data[i].attributes.Author,
             Titel: data.newsAuswahlkaders.data[i].attributes.Titel,
             Kurzbeschreibung: data.newsAuswahlkaders.data[i].attributes.Kurzbeschreibung,
             Artikelbild: articleImageUrl,
@@ -291,6 +297,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           let postItem = {
             id: data.newsSchiedsrichters.data[i].id,
             type: "schiedsrichter",
+            author: data.newsSchiedsrichters.data[i].attributes.Author,
             Titel: data.newsSchiedsrichters.data[i].attributes.Titel,
             Kurzbeschreibung: data.newsSchiedsrichters.data[i].attributes.Kurzbeschreibung,
             Artikelbild: articleImageUrl,

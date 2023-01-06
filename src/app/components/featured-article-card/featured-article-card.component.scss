@@ -23,14 +23,25 @@
     .categoryStripe {
       padding: 5px;
       font-size: 12px;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
       background: rgba(94, 39, 39, 0.87);
 
     }
     .cardTitle {
       @apply 
       text-2xl
-      lg:text-3xl;
+      lg:text-4xl;
+    }
+
+    .authorWrapper {
+      @apply flex items-center text-sm;
+      img {
+        @apply mr-1;
+      }
+    }
+
+    .dateWrapper {
+      @apply flex items-center text-sm mb-2;
     }
     .shortText {
       @apply lg:text-base mb-5;

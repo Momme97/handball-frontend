@@ -1,6 +1,8 @@
 <div class="wrapper" [style.background-image]="'url(' + imageUrl + ')'">
   <div class="content">
     <div class="categoryStripe">{{displayCategory}}</div>
+    <div class="dateWrapper">{{createdAt | date: 'dd/MM/yyyy'}}</div>
+    <div class="authorWrapper"><img style="height:10px;" src="/assets/icons/author-light.png" />{{author}}</div>
     <h1 class="cardTitle">{{title}}</h1>
     <p class="shortText">{{shortText}}</p>
     <app-button [buttonTitle]='ctaText' [buttonStyle]="'clear'" (click)="ctaClicked()"></app-button>

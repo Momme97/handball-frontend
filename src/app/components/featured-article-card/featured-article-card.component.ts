@@ -8,6 +8,8 @@ import {Router} from "@angular/router";
 export class FeaturedArticleCardComponent implements OnInit {
   @Input() postId: string;
   @Input() title: string;
+  @Input() author: string;
+  @Input() createdAt: string;
   @Input() shortText: string;
   @Input() imageUrl: string;
   @Input() ctaText: string;
