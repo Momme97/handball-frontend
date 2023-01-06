@@ -205,12 +205,19 @@ export class HomeComponent implements OnInit, OnDestroy {
       query: GET_GENERAL_POSTS
     }).valueChanges.subscribe(({ data, loading }) => {
         for(let i = 0; i < data.neuigkeitenImVerbands.data.length; i++){
+          // Check for existing article image
+          let articleImageUrl: string;
+          if(data.neuigkeitenImVerbands.data[i].attributes.Artikelbild.data === null){
+            articleImageUrl = "/assets/placeholder.jpg";
+          }else {
+            articleImageUrl = environment.strapiUrl + data.neuigkeitenImVerbands.data[i].attributes.Artikelbild.data.attributes.url;
+          }
           let postItem = {
             id: data.neuigkeitenImVerbands.data[i].id,
             type: "general",
             Titel: data.neuigkeitenImVerbands.data[i].attributes.Titel,
             Kurzbeschreibung: data.neuigkeitenImVerbands.data[i].attributes.Kurzbeschreibung,
-            Artikelbild: environment.strapiUrl + data.neuigkeitenImVerbands.data[i].attributes.Artikelbild.data.attributes.url,
+            Artikelbild: articleImageUrl,
             createdAt: moment(data.neuigkeitenImVerbands.data[i].attributes.createdAt).format("DD.MM.YYYY")
           }
           this.posts.push(
@@ -223,14 +230,20 @@ export class HomeComponent implements OnInit, OnDestroy {
       query: GET_YOUTH_POSTS
     }).valueChanges.subscribe(({ data, loading }) => {
         for(let i = 0; i < data.newsJugends.data.length; i++){
-          console.log(data.newsJugends);
+          // Check for existing article image
+          let articleImageUrl: string;
+          if(data.newsJugends.data[i].attributes.Artikelbild.data === null){
+            articleImageUrl = "/assets/placeholder.jpg";
+          }else {
+            articleImageUrl = environment.strapiUrl + data.newsJugends.data[i].attributes.Artikelbild.data.attributes.url;
+          }
 
           let postItem = {
             id: data.newsJugends.data[i].id,
             type: "jugend",
             Titel: data.newsJugends.data[i].attributes.Titel,
             Kurzbeschreibung: data.newsJugends.data[i].attributes.Kurzbeschreibung,
-            Artikelbild: environment.strapiUrl + data.newsJugends.data[i].attributes.Artikelbild.data.attributes.url,
+            Artikelbild: articleImageUrl,
             createdAt: moment(data.newsJugends.data[i].attributes.createdAt).format("DD.MM.YYYY")
           }
           this.posts.push(
@@ -243,12 +256,19 @@ export class HomeComponent implements OnInit, OnDestroy {
       query: GET_SELECTION_SQUAD_POSTS
     }).valueChanges.subscribe(({ data, loading }) => {
         for(let i = 0; i < data.newsAuswahlkaders.data.length; i++){
+          // Check for existing article image
+          let articleImageUrl: string;
+          if(data.newsAuswahlkaders.data[i].attributes.Artikelbild.data === null){
+            articleImageUrl = "/assets/placeholder.jpg";
+          }else {
+            articleImageUrl = environment.strapiUrl + data.newsAuswahlkaders.data[i].attributes.Artikelbild.data.attributes.url;
+          }
           let postItem = {
             id: data.newsAuswahlkaders.data[i].id,
             type: "auswahlkader",
             Titel: data.newsAuswahlkaders.data[i].attributes.Titel,
             Kurzbeschreibung: data.newsAuswahlkaders.data[i].attributes.Kurzbeschreibung,
-            Artikelbild: environment.strapiUrl + data.newsAuswahlkaders.data[i].attributes.Artikelbild.data.attributes.url,
+            Artikelbild: articleImageUrl,
             createdAt: moment(data.newsAuswahlkaders.data[i].attributes.createdAt).format("DD.MM.YYYY")
           }
           this.posts.push(
@@ -261,12 +281,19 @@ export class HomeComponent implements OnInit, OnDestroy {
       query: GET_REFEREE_POSTS
     }).valueChanges.subscribe(({ data, loading }) => {
         for(let i = 0; i < data.newsSchiedsrichters.data.length; i++){
+          // Check for existing article image
+          let articleImageUrl: string;
+          if(data.newsSchiedsrichters.data[i].attributes.Artikelbild.data === null){
+            articleImageUrl = "/assets/placeholder.jpg";
+          }else {
+            articleImageUrl = environment.strapiUrl + data.newsSchiedsrichters.data[i].attributes.Artikelbild.data.attributes.url;
+          }
           let postItem = {
             id: data.newsSchiedsrichters.data[i].id,
             type: "schiedsrichter",
             Titel: data.newsSchiedsrichters.data[i].attributes.Titel,
             Kurzbeschreibung: data.newsSchiedsrichters.data[i].attributes.Kurzbeschreibung,
-            Artikelbild: environment.strapiUrl + data.newsSchiedsrichters.data[i].attributes.Artikelbild.data.attributes.url,
+            Artikelbild: articleImageUrl,
             createdAt: moment(data.newsSchiedsrichters.data[i].attributes.createdAt).format("DD.MM.YYYY")
           }
           this.posts.push(

@@ -82,10 +82,17 @@ export class RefereeComponent implements OnInit {
     }).valueChanges.subscribe(({ data, loading }) => {
 
       for(let i = 0; i < data.newsSchiedsrichters.data.length; i++){
+        // Check for existing article image
+        let articleImageUrl: string;
+        if(data.newsSchiedsrichters.data[i].attributes.Artikelbild.data === null){
+          articleImageUrl = "/assets/placeholder.jpg";
+        }else {
+          articleImageUrl = environment.strapiUrl + data.newsSchiedsrichters.data[i].attributes.Artikelbild.data.attributes.url;
+        }
         let postItem = {
           id: data.newsSchiedsrichters.data[i].id,
           Titel: data.newsSchiedsrichters.data[i].attributes.Titel,
-          Artikelbild: environment.strapiUrl + data.newsSchiedsrichters.data[i].attributes.Artikelbild.data.attributes.url,
+          Artikelbild: articleImageUrl,
           createdAt: moment(data.newsSchiedsrichters.data[i].attributes.createdAt).lang("de").format('Do MMMM YYYY, hh:mm:ss')
         }
         this.posts.push(
