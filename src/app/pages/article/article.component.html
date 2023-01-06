@@ -1,9 +1,9 @@
 
-<div class="articleWrapper" @fadeIn>
+<div class="articleWrapper">
   <div class="article">
     <img class="articleImage" src="{{articleImageUrl}}" />
     <div class="contentArea">
-      <span class="timestamp">{{this.articleObject.createdAt | date:'short':'IST'}}</span>
+      <span class="timestamp">{{this.articleObject.createdAt | date: 'dd/MM/yyyy'}}</span>
       <br>
       <h1 class="articleTitle">{{this.articleObject.Titel}}</h1>
       <span class="authorText"><img style="height:14px;" src="/assets/icon-person.png" />{{this.articleObject.Author}}</span>

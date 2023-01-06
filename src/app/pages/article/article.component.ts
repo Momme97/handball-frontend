@@ -200,20 +200,41 @@ export class ArticleComponent implements OnInit {
             })
           }
         }
+        // check for existing article image
+        if(data.neuigkeitenImVerband.data.attributes.Artikelbild.data === null){
+          this.articleImageUrl = 'assets/placeholder.jpg';
+        }else {
+          this.articleImageUrl = environment.strapiUrl + data.neuigkeitenImVerband.data.attributes.Artikelbild.data.attributes.url;
+        }
+
         this.articleObject = data.neuigkeitenImVerband.data.attributes;
-        this.articleImageUrl = environment.strapiUrl + data.neuigkeitenImVerband.data.attributes.Artikelbild.data.attributes.url;
         this.articleDate =  moment(data.neuigkeitenImVerband.data.attributes.createdAt).lang("de").format('Do MMMM YYYY, hh:mm:ss');
       }else if(this.articleCategory === 'jugend') {
+        // check for existing article image
+        if(data.newsJugend.data.attributes.Artikelbild.data === null){
+          this.articleImageUrl = 'assets/placeholder.jpg';
+        }else {
+          this.articleImageUrl = environment.strapiUrl + data.newsJugend.data.attributes.Artikelbild.data.attributes.url;
+        }
         this.articleObject = data.newsJugend.data.attributes;
-        this.articleImageUrl = environment.strapiUrl + data.newsJugend.data.attributes.Artikelbild.data.attributes.url;
         this.articleDate = moment(data.newsJugend.data.attributes.createdAt).lang("de").format('Do MMMM YYYY, hh:mm:ss');
       }else if(this.articleCategory === 'auswahlkader') {
+        // check for existing article image
+        if(data.newsAuswahlkader.data.attributes.Artikelbild.data === null){
+          this.articleImageUrl = 'assets/placeholder.jpg';
+        }else {
+          this.articleImageUrl = environment.strapiUrl + data.newsAuswahlkader.data.attributes.Artikelbild.data.attributes.url;
+        }
         this.articleObject = data.newsAuswahlkader.data.attributes;
-        this.articleImageUrl = environment.strapiUrl + data.newsAuswahlkader.data.attributes.Artikelbild.data.attributes.url;
         this.articleDate = moment(data.newsAuswahlkader.data.attributes.createdAt).lang("de").format('Do MMMM YYYY, hh:mm:ss');
       }else if(this.articleCategory === 'schiedsrichter') {
+        // check for existing article image
+        if(data.newsSchiedsrichter.data.attributes.Artikelbild.data === null){
+          this.articleImageUrl = 'assets/placeholder.jpg';
+        }else {
+          this.articleImageUrl = environment.strapiUrl + data.newsSchiedsrichter.data.attributes.Artikelbild.data.attributes.url;
+        }
         this.articleObject = data.newsSchiedsrichter.data.attributes;
-        this.articleImageUrl = environment.strapiUrl + data.newsSchiedsrichter.data.attributes.Artikelbild.data.attributes.url;
         this.articleDate = moment(data.newsSchiedsrichter.data.attributes.createdAt).lang("de").format('Do MMMM YYYY, hh:mm:ss');
       }else if(this.articleCategory === 'trainer') {
         this.articleObject = data.newsTrainer.data.attributes;

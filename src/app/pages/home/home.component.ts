@@ -33,7 +33,7 @@ const GET_YOUTH_POSTS = gql`
    query{
     newsJugends(sort: "createdAt:desc"){
       data {
-        id
+        id,
         attributes {
           Titel,
           Author,
