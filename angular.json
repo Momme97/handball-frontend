@@ -21,7 +21,7 @@
               "rxjs-compat",
               "moment"
             ],
-            "outputPath": "dist/handball-frontend/browser",
+            "outputPath": "dist/handball-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
