@@ -31,7 +31,7 @@ const GET_GENERAL_POSTS = gql`
 `;
 const GET_YOUTH_POSTS = gql`
    query{
-    newsJugends {
+    newsJugends(sort: "createdAt:desc"){
       data {
         id
         attributes {
@@ -52,7 +52,7 @@ const GET_YOUTH_POSTS = gql`
 `;
 const GET_SELECTION_SQUAD_POSTS = gql`
    query{
-    newsAuswahlkaders {
+    newsAuswahlkaders(sort: "createdAt:desc") {
       data {
         id,
         attributes {
@@ -73,7 +73,7 @@ const GET_SELECTION_SQUAD_POSTS = gql`
 
 const GET_REFEREE_POSTS = gql`
    query{
-    newsSchiedsrichters {
+    newsSchiedsrichters(sort: "createdAt:desc") {
       data {
         id,
         attributes {
@@ -183,7 +183,7 @@ const GET_HOMEGALLERY = gql`
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  posts: any = [];
+  posts: any[] = [];
   sponsors: any = [];
   homeGallery: any = [];
   numberAndFacts: NumberAndFacts[] = [];
@@ -218,7 +218,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             Titel: data.neuigkeitenImVerbands.data[i].attributes.Titel,
             Kurzbeschreibung: data.neuigkeitenImVerbands.data[i].attributes.Kurzbeschreibung,
             Artikelbild: articleImageUrl,
-            createdAt: moment(data.neuigkeitenImVerbands.data[i].attributes.createdAt).format("DD.MM.YYYY")
+            createdAt: data.neuigkeitenImVerbands.data[i].attributes.createdAt
           }
           this.posts.push(
             postItem
@@ -244,7 +244,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             Titel: data.newsJugends.data[i].attributes.Titel,
             Kurzbeschreibung: data.newsJugends.data[i].attributes.Kurzbeschreibung,
             Artikelbild: articleImageUrl,
-            createdAt: moment(data.newsJugends.data[i].attributes.createdAt).format("DD.MM.YYYY")
+            createdAt: data.newsJugends.data[i].attributes.createdAt
           }
           this.posts.push(
             postItem
@@ -269,7 +269,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             Titel: data.newsAuswahlkaders.data[i].attributes.Titel,
             Kurzbeschreibung: data.newsAuswahlkaders.data[i].attributes.Kurzbeschreibung,
             Artikelbild: articleImageUrl,
-            createdAt: moment(data.newsAuswahlkaders.data[i].attributes.createdAt).format("DD.MM.YYYY")
+            createdAt: data.newsAuswahlkaders.data[i].attributes.createdAt
           }
           this.posts.push(
             postItem
@@ -294,19 +294,22 @@ export class HomeComponent implements OnInit, OnDestroy {
             Titel: data.newsSchiedsrichters.data[i].attributes.Titel,
             Kurzbeschreibung: data.newsSchiedsrichters.data[i].attributes.Kurzbeschreibung,
             Artikelbild: articleImageUrl,
-            createdAt: moment(data.newsSchiedsrichters.data[i].attributes.createdAt).format("DD.MM.YYYY")
+            createdAt: data.newsSchiedsrichters.data[i].attributes.createdAt
           }
           this.posts.push(
             postItem
           );
         
         }
-        //sort post by date desc
+        //sort posts by date descending
         this.posts.sort((a, b) => {
           return <any>new Date(b.createdAt) - <any>new Date(a.createdAt);
         });
+        
+        
     });
-  
+
+
     this.querySubscription = this.apollo.watchQuery<any>({
       query: GET_SPONSORS
     }).valueChanges.subscribe(({ data, loading }) => {

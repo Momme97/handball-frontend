@@ -2,7 +2,7 @@
   <div class="categoryStripe">{{displayCategory}}</div>
   <img class="articleImage" src="{{imageUrl}}" />
   <div class="body">
-    <span>{{dateString}}</span>
+    <span>{{dateString | date: 'dd/MM/yyyy'}}</span>
     <h1>{{titel}}</h1>
   </div>
 </div>
