@@ -1,6 +1,6 @@
 <div *ngFor="let block of contentItems; index as i">
     <h2 *ngIf="block.type === 'header'">{{block.data}}</h2>
-    <div *ngIf="block.type === 'paragraph'" [innerHtml]="block.data"></div>
+    <div style="margin-top:10px;" *ngIf="block.type === 'paragraph'" [innerHtml]="block.data"></div>
     <table class="table" *ngIf="block.type === 'table'">
     <tbody>
         <tr *ngFor="let row of block.data.content">
